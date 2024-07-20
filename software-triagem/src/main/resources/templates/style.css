@@ -34,12 +34,12 @@ header h1 {
 nav a {
     color: white;
     margin-left: 30px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 nav a:hover {
-    text-decoration: underline;
-    color: red;
+    text-decoration: none;
+    color: #170202;
 }
 
 /*Pagina inicial*/
@@ -53,6 +53,7 @@ nav a:hover {
 }
 
 .info {
+    background: #eee5e5;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -74,7 +75,9 @@ nav a:hover {
 }
 
 .info a:hover {
+    text-decoration: none;
     background: #71acec;
+    color: black;
 }
 
 .info h3 {
@@ -83,7 +86,7 @@ nav a:hover {
 }
 
 .info p {
-    color: #ffffff;
+    color: #170202;
     text-align: center;
 }
 
@@ -198,7 +201,7 @@ label {
 input[type="email"],
 input[type="password"] {
     padding: 9px;
-    width: 100%;
+    width: 90%;
     border: 2px solid #ccc;
     border-radius: 4px;
 }
@@ -214,17 +217,23 @@ button {
 }
 
 button:hover {
+    color: black;
     background-color: #0056b3;
+}
+strong{
+    color: #504444;
 }
 
 
 a {
+    margin-left: 20px;
     text-decoration: none;
-    color: #007bff;
+    color: #1823bb;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #170202;
+    text-decoration: none;
 }
 .instrucoes {
     font-size: 14px;
@@ -243,60 +252,63 @@ a:hover {
 
 /*style do usuario*/
 
-
-
-
+/* Estilo padrão */
 .section {
     display: flex; /* Tornar os elementos filhos flexíveis */
     justify-content: space-between; /* Distribuir os elementos ao longo da linha */
     align-items: center;
     margin: 0 50px; /* Adiciona margens laterais de 50px */
-    gap: 20px;/* Centralizar verticalmente os elementos */
+    gap: 20px; /* Centralizar verticalmente os elementos */
 }
 
 .perfil {
-    margin-right: 10px;
-    border: 2px solid #bce5c3;/* Margem à direita para separar dos outros elementos */
+    background: #d5c0c0;
+    margin-right: 15px;
+    border: 4px double #bce5c3; /* Margem à direita para separar dos outros elementos */
+    border-radius: 13px;
 }
 
 .infor {
+    background: #d5c0c0;
     text-align: center;
-    flex: 1;/* Alinhar conteúdo ao centro */
+    flex: 1; /* Alinhar conteúdo ao centro */
 }
 
 .triagem {
-    margin-left: auto;
-    border: 2px solid #bce5c3;
+    background: #d5c0c0;
+    margin-left: 20px;
+    border: 4px double #bce5c3;
+    border-radius: 15px;
 }
 
 .perfil img {
+    margin-top: 15px;
     margin-left: 20px;
     border-radius: 30%;
     width: 100px;
     height: 100px;
-    margin-bottom: 15px;
-}
-
-.perfil h6{
-    margin: 0 10px;
-    font-size:1rem;
     margin-bottom: 10px;
-
 }
-.perfil a{
-    margin: 0 10px;
+
+.perfil h6 {
+    margin: 0 20px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.perfil a {
+    margin: 0 20px;
     color: white;
-
 }
-.perfil p {
 
-    margin: 0 10px;
+.perfil p {
+    margin: 0 20px;
     margin-bottom: 10px;
 }
+
 .infor {
     display: flex;
     flex-direction: column;
-
     gap: 2px;
 }
 
@@ -307,34 +319,127 @@ a:hover {
 
 .infor a {
     display: block;
-    color:brown;
+    color: brown;
     margin-bottom: 1px;
 }
-.triagem{
+
+.triagem {
     display: flex;
     flex-direction: column;
-
-
 }
-.triagem h3{
+
+.triagem h3 {
     margin-left: 40px;
     margin-right: 20px;
     margin-top: 92px;
 }
 
-
 .triagem a {
-    display: inline-block;
-    padding: 8px 60px;
-    background-color: #007bff;
-    border-radius: 6px;
-
-
+    margin-right: 10px;
+    border-radius: 10px;
+    background: #535eef;
+    color: white;
+    padding: 8px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .triagem a:hover {
     background-color: #0056b3;
 }
+
+/* Estilo responsivo para telas menores que 600px */
+@media (max-width: 600px) {
+    .section {
+        flex-direction: column; /* Mudar para coluna */
+        align-items: center; /* Centralizar os elementos */
+        margin: 0 20px; /* Reduzir margem lateral */
+    }
+
+    .perfil,
+    .triagem {
+        width: 100%; /* Fazer com que ocupem toda a largura disponível */
+        margin-bottom: 20px; /* Adicionar margem inferior */
+    }
+
+    .infor {
+        width: 80%; /* Ajustar largura para 80% */
+        margin: 0 auto 20px auto; /* Centralizar com margem automática */
+    }
+    .perfil img {
+        margin-top: 15px;
+        margin-left: 50px;
+        border-radius: 30%;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .perfil h6 {
+        margin: 0 70px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .perfil a {
+        margin: 0 70px;
+        color: white;
+    }
+
+    .perfil p {
+        margin: 0 70px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Estilo responsivo para telas menores que 800px */
+@media (max-width: 800px) {
+    .section {
+        flex-direction: column; /* Mudar para coluna */
+        align-items: center; /* Centralizar os elementos */
+        margin: 0 80px; /* Reduzir margem lateral */
+    }
+
+    .perfil,
+    .triagem {
+        width: 60%; /* Fazer com que ocupem toda a largura disponível */
+        margin-bottom: 20px; /* Adicionar margem inferior */
+    }
+
+    .infor {
+        width: 60%; /* Ajustar largura para 90% */
+        margin: 20px auto; /* Centralizar com margem automática */
+    }
+    .perfil img {
+        margin-top: 15px;
+        margin-left: 50px;
+        border-radius: 30%;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .perfil h6 {
+        margin: 0 70px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .perfil a {
+        margin: 0 70px;
+        color: white;
+    }
+
+    .perfil p {
+        margin: 0 70px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
 
 /*style da triagem*/
 
