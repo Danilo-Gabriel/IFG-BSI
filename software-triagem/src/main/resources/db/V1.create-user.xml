@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+
+    <changeSet id="1721437622876-1"
+               author="dsalog">
+        <createTable tableName="tbusuario">
+            <column name="id"
+                    type="BIGINT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_tbusuario"/>
+            </column>
+            <column name="nome_completo"
+                    type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email"
+                    type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="senha"
+                    type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telefone"
+                    type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_nascimento"
+                    type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
