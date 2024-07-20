@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Triagem</title>
+</head>
+<body>
+<header>
+    <h1>Saude</h1>
+    <nav>
+        <a href="PaginaInicial.html">Pagina Inicial</a>
+        <a href="Usuario.html">Usuario</a>
+    </nav>
+</header>
+<div class="campo">
+    <h1 id="titulo">Triagem Medica</h1>
+    <p id="paragrafo"><strong>Preencha os campos abaixo</strong></p>
+</div>
+<form>
+    <fieldset class="grupo">
+        <div class="campo">
+            <label for="especialidades"><strong>Qual Especialidade?</strong></label>
+            <select id="especialidades">
+                <option selected disabled value="">Selecione...</option>
+                <option value="Cardiologista">Cardiologista</option>
+                <option value="Ortopedista">Ortopedista</option>
+                <option value="Clinico Geral">Clinico Geral</option>
+                <option value="Outros">Outros</option>
+            </select>
+        </div>
+        <hr>
+        <div class="campo">
+            <label id="hipertenso"><strong>Você e hipertenso?</strong></label>
+            <input type="radio" name="hipertensao" value="sim">Sim
+            <input type="radio" name="hipertensao" value="nao" checked>Não
+        </div>
+        <hr>
+        <div class="campo">
+            <label id="diabetico"><strong>Voce e diabetico?</strong></label>
+            <input type="radio" name="diabetico" value="sim">Sim
+            <input type="radio" name="diabetico" value="nao" checked>Não
+        </div>
+        <hr>
+        <div class="campo">
+            <label id="febre"><strong>Voce tem febre?</strong></label>
+            <input type="radio" name="febre" value="sim">Sim
+            <input type="radio" name="febre" value="nao" checked>Não
+        </div>
+        <hr>
+        <div class="campo" id="dor-sim">
+            <label id="dor"><strong>Voce esta com dor?</strong></label>
+            <div class="campo">
+                <input type="radio" name="dor" value="sim">sim
+                <input type="radio" name="dor" value="nao" checked>Não
+            </div>
+        </div>
+        <hr>
+        <div class="campo" id="intensidade-field" style="display: none;">
+            <label id="intensidade"><strong>Qual a intensidade da dor?</strong></label>
+            <input type="radio" name="intensidade" value="fraca">Fraca
+            <input type="radio" name="intensidade" value="media">Media
+            <input type="radio" name="intensidade" value="intensa">Intensa
+        </div>
+
+        <hr>
+        <div class="campo">
+            <label for="peso"><strong>Qual seu peso?</strong></label>
+            <input type="text" id="peso" name="peso" required>
+        </div>
+        <hr>
+
+        <button id="submitbtn" class="botao" type="submit">Enviar</button>
+    </fieldset>
+</form>
+
+</body>
+</html>

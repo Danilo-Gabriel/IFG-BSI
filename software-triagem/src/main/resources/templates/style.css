@@ -1,0 +1,435 @@
+/*Pagina inicial*/
+
+/*style body*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0056b3, #0bf1ac, #fff);
+    background-size: cover; /* Cobrir toda a página */
+    background-repeat: no-repeat;
+    height: 1000px;
+
+}
+
+/* Estilos do header */
+header {
+    background-color: #71acec;
+    color: #fff;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #eccbcb;
+    margin-bottom: 20px;
+    z-index: 1000;
+
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    margin-left: 30px;
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+/*Pagina inicial*/
+
+.topo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 4px double #bce5c3;
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+}
+
+.info a {
+    border-radius: 10px;
+    background: #535eef;
+    color: white;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.info a:hover {
+    background: #71acec;
+}
+
+.info h3 {
+    color: #1823bb;
+    text-align: center;
+}
+
+.info p {
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/*formulario login*/
+
+
+.login-container {
+
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; /* Adiciona um espaçamento interno */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    max-width: 500px; /* Largura máxima do container */
+    margin: 0 auto; /* Margem automática nas laterais para centralizar */
+    margin-top: 120px;
+
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 9px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*Style cadastrar*/
+
+.login-container {
+
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; /* Adiciona um espaçamento interno */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    max-width: 500px; /* Largura máxima do container */
+    margin: 0 auto; /* Margem automática nas laterais para centralizar */
+    margin-top: 120px;
+
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 9px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.instrucoes {
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+}
+
+#senha-instrucoes {
+    display: block;
+}
+
+#senha-igual-span {
+    display: block;
+    color: red;
+}
+
+/*style do usuario*/
+
+
+
+
+.section {
+    display: flex; /* Tornar os elementos filhos flexíveis */
+    justify-content: space-between; /* Distribuir os elementos ao longo da linha */
+    align-items: center;
+    margin: 0 50px; /* Adiciona margens laterais de 50px */
+    gap: 20px;/* Centralizar verticalmente os elementos */
+}
+
+.perfil {
+    margin-right: 10px;
+    border: 2px solid #bce5c3;/* Margem à direita para separar dos outros elementos */
+}
+
+.infor {
+    text-align: center;
+    flex: 1;/* Alinhar conteúdo ao centro */
+}
+
+.triagem {
+    margin-left: auto;
+    border: 2px solid #bce5c3;
+}
+
+.perfil img {
+    margin-left: 20px;
+    border-radius: 30%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.perfil h6{
+    margin: 0 10px;
+    font-size:1rem;
+    margin-bottom: 10px;
+
+}
+.perfil a{
+    margin: 0 10px;
+    color: white;
+
+}
+.perfil p {
+
+    margin: 0 10px;
+    margin-bottom: 10px;
+}
+.infor {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.infor h4 {
+    display: flex;
+    justify-content: center;
+}
+
+.infor a {
+    display: block;
+    color:brown;
+    margin-bottom: 1px;
+}
+.triagem{
+    display: flex;
+    flex-direction: column;
+
+
+}
+.triagem h3{
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 92px;
+}
+
+
+.triagem a {
+    display: inline-block;
+    padding: 8px 60px;
+    background-color: #007bff;
+    border-radius: 6px;
+
+
+}
+
+.triagem a:hover {
+    background-color: #0056b3;
+}
+
+/*style da triagem*/
+
+
+.campo {
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Estilos para o título e parágrafo */
+#titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#paragrafo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#intensidade-field {
+    display: none; /* Esconde o campo por padrão */
+}
+
+/* Estilos do formulário */
+form {
+    background: #e8f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Estilos dos campos do formulário */
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    background-color: #fff;
+    width: 40%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid rgb(114, 106, 106);
+    border-radius:5px;
+}
+
+/* Estilos dos botões */
+.botao {
+
+    width: 29%;
+    padding: 10px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 auto; /* Centraliza o botão */
+    display: block;
+    margin-top: 80px;
+
+}
+
+.botao:hover {
+    background: #0056b3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+
+    .botao {
+        font-size: 0.83rem;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 10px;
+    }
+
+    .botao {
+        font-size: 0.75rem;
+    }
+}
+

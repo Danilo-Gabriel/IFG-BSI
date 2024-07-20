@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript.js" type="text/javascript" defer></script>
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header>
+    <h1>Saude</h1>
+    <nav>
+        <a href="PaginaInicial.html">Pagina Inicial</a>
+        <a href="Login.html">Login</a>
+    </nav>
+</header>
+
+<div class="login-container">
+    <form action="#" method="POST" class="login-form" id="formulario">
+        <h2>Cadastrar</h2>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Digite aqui seu email">
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <span id="senha-instrucoes" class="instrucoes">
+                Senha com pelo menos 8 caracteres, incluindo numeros e letras maiusculas e minusculas.
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="senha2">Confirmar Senha:</label>
+            <input type="password" id="senha2" name="senha2" required placeholder="Confirme a Senha">
+            <span id="senha-igual-span" class="instrucoes" style="display: none; color: red;"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit">Enviar</button>
+        </div>
+        <div class="form-group">
+            <a href="#">Esqueci a senha a definir</a>
+            <a href="Login.html">Fazer Login</a>
+
+        </div>
+    </form>
+</body>
+</html>
