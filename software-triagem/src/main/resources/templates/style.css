@@ -9,7 +9,7 @@ body {
     background: linear-gradient(135deg, #0056b3, #0bf1ac, #fff);
     background-size: cover; /* Cobrir toda a página */
     background-repeat: no-repeat;
-    height: 1000px;
+    height: 1100px;
 
 }
 
@@ -24,6 +24,10 @@ header {
     border-bottom: 3px solid #eccbcb;
     margin-bottom: 20px;
     z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 98%;
+
 
 }
 
@@ -48,8 +52,9 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
     flex-wrap: wrap;
+    margin-top: 100px;
 }
 
 .info {
@@ -174,7 +179,7 @@ a:hover {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Sombra */
     max-width: 500px; /* Largura máxima do container */
     margin: 0 auto; /* Margem automática nas laterais para centralizar */
-    margin-top: 120px;
+    margin-top: 100px;
 
 }
 
@@ -259,6 +264,7 @@ a:hover {
     align-items: center;
     margin: 0 50px; /* Adiciona margens laterais de 50px */
     gap: 20px; /* Centralizar verticalmente os elementos */
+    margin-top: 100px;
 }
 
 .perfil {
@@ -449,6 +455,15 @@ a:hover {
     align-items: center;
     justify-content: center;
 
+
+}
+.campo1 {
+
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+
+
 }
 
 /* Estilos para o título e parágrafo */
@@ -473,6 +488,7 @@ form {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     max-width: 500px;
     margin: auto;
+
 }
 
 /* Estilos dos campos do formulário */

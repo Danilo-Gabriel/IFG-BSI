@@ -14,20 +14,32 @@ public class UserDTO {
 
     String nomeCompleto;
 
+    String telefone;
+
+    String endereco;
+
+    Date dataNascimento;
+
+    String sexo;
+
     String email;
 
     String senha;
 
-    String telefone;
 
-    Date dataNascimento;
+
+
 
     @Builder
-    public UserDTO(String nomeCompleto, String email, String senha, String telefone, Date dataNascimento) {
+    public UserDTO(String nomeCompleto, String telefone, String endereco,
+                   Date dataNascimento,String sexo,String email, String senha,) {
         this.nomeCompleto = nomeCompleto;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
         this.email = email;
         this.senha = senha;
-        this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
+
     }
 }
