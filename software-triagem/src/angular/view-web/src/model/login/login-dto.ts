@@ -1,3 +1,3 @@
-export class LoginDTO {
-  /* ATRIBUTOS */
+export interface LoginDTO {
+
 }

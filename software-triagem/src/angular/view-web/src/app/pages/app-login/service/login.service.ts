@@ -3,13 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeServiceService {
+export class LoginService {
 
-  /*
 
-    REGRA DE NEGOCIO
 
-  * */
-
-  constructor() { }
 }

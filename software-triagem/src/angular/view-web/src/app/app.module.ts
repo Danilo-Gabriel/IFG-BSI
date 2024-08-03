@@ -10,6 +10,7 @@ import {DividerModule} from "primeng/divider";
 import {ChipsModule} from "primeng/chips";
 import {PagesModule} from "./pages/pages.module";
 import {AppHomeComponent} from "./pages/app-home/app-home.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,15 +19,16 @@ import {AppHomeComponent} from "./pages/app-home/app-home.component";
     AppHomeComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    PagesModule,
-    BrowserAnimationsModule,
-    ButtonModule,
-    DividerModule,
-    ChipsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        PagesModule,
+        BrowserAnimationsModule,
+        ButtonModule,
+        DividerModule,
+        ChipsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
