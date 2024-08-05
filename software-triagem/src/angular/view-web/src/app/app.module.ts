@@ -10,13 +10,16 @@ import {DividerModule} from "primeng/divider";
 import {ChipsModule} from "primeng/chips";
 import {PagesModule} from "./pages/pages.module";
 import {AppHomeComponent} from "./pages/app-home/app-home.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AppUsersComponent} from "./pages/app-users/app-users.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     AppLoginComponent,
-    AppHomeComponent
+    AppHomeComponent,
+    AppUsersComponent
 
   ],
     imports: [
@@ -27,7 +30,9 @@ import {ReactiveFormsModule} from "@angular/forms";
         ButtonModule,
         DividerModule,
         ChipsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

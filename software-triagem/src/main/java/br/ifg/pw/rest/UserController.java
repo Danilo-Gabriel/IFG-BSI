@@ -1,29 +1,36 @@
 package br.ifg.pw.rest;
 
 
-import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
+import br.ifg.pw.model.bo.UserBO;
+import br.ifg.pw.model.dto.UserDTO;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-
-import static java.util.Objects.requireNonNull;
+import jakarta.ws.rs.core.Response;
 
 @Path("/users")
-@Produces(MediaType.TEXT_HTML)
+@Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
 
 
-    private final Template login;
+    @Inject
+    UserBO bo;
 
-    public UserController(Template login) {
-        this.login = requireNonNull(login, "page is required");
-    }
 
-    @GET
-    @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get(@QueryParam("name") String name) {
-        return login.data("name", name);
+    @POST
+    @Transactional
+    public Response create(UserDTO user) {
+
+        try {
+            this.bo.registerUsuario(user);
+            return Response.ok().build();
+        }catch (Exception e){
+
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+
     }
 
 }

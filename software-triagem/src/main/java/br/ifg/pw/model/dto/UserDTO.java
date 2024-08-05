@@ -12,22 +12,18 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserDTO {
 
-    String nomeCompleto;
-
     String email;
 
     String senha;
 
-    String telefone;
-
-    Date dataNascimento;
-
     @Builder
-    public UserDTO(String nomeCompleto, String email, String senha, String telefone, Date dataNascimento) {
-        this.nomeCompleto = nomeCompleto;
+    public UserDTO(String email, String senha) {
         this.email = email;
         this.senha = senha;
-        this.telefone = telefone;
-        this.dataNascimento = dataNascimento;
+
+    }
+
+    public UserDTO(){
+
     }
 }
