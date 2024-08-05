@@ -17,16 +17,13 @@ body {
 header {
   background-color: #71acec;
   color: #fff;
-  padding: 20px 20px;
+  padding: 25px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid #eccbcb;
-  margin-bottom: 20px;
-  z-index: 1000;
-  position: fixed;
   top: 0;
-  width: 98%;
+  width: 100%;
 
 
 }
@@ -37,7 +34,7 @@ header h1 {
 
 nav a {
   color: white;
-  margin-left: 30px;
+  margin-left: 40px;
   font-size: 1.4rem;
 }
 
@@ -110,7 +107,7 @@ nav a:hover {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Sombra */
   max-width: 500px; /* Largura máxima do container */
   margin: 0 auto; /* Margem automática nas laterais para centralizar */
-  margin-top: 120px;
+  margin-top:10px;
 
 }
 
