@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0056b3, #0bf1ac, #fff);
+  background-size: cover; /* Cobrir toda a página */
+  background-repeat: no-repeat;
+  height: 1100px;
+
+}
+
+/* Estilos do header */
+header {
+  background-color: #71acec;
+  color: #fff;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #eccbcb;
+  top: 0;
+  width: 100%;
+
+
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  margin-left: 40px;
+  font-size: 1.4rem;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: #170202;
+}
+
+.esqueceu-senha {
+
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px; /* Adiciona um espaçamento interno */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  max-width: 500px; /* Largura máxima do container */
+  margin: 0 auto; /* Margem automática nas laterais para centralizar */
+  margin-top:10px;
+
+}
+
+
+.esqueceu-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.esqueceu-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.esqueceu-form p {
+  text-align: center;
+  color: #abadb2;
+  font-size:1.1rem;
+}
+
+.esqueceu-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="email"]{
+  padding: 9px;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px;
+  background-color: #a0c6ee;
+  color: #170202;
+  border:3px double #71acec;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
