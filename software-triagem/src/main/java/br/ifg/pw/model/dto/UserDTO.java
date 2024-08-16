@@ -12,6 +12,7 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserDTO {
 
+
     String email;
 
     String senha;

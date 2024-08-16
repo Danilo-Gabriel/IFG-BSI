@@ -6,9 +6,7 @@ import {AppLoginComponent} from "./pages/app-login/app-login.component";
 const routes: Routes = [
 
   {path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path: 'login',
-    component: AppLoginComponent
-  },
+  {path: 'login', component: AppLoginComponent},
   {path:'pages',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)}
 

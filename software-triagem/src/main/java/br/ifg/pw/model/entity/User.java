@@ -21,12 +21,16 @@ public class User extends PanacheEntityBase {
     @Column(name = "nome_completo", columnDefinition = "varchar(255)")
     String nomeCompleto;
     @Column(columnDefinition = "varchar(255)")
-    String email;
-    @Column(columnDefinition = "varchar(255)")
-    String senha;
-    @Column(columnDefinition = "varchar(255)")
     String telefone;
+    @Column(name = "endereco", columnDefinition = "varchar(255)")
+    String endereco;
     @Column(name = "data_nascimento")
     Date dataNascimento;
+    @Column(columnDefinition = "varchar(255)")
+    String email;
+    @Column(columnDefinition = "varchar(255)")
+    String passoword;
+
+
 
 }

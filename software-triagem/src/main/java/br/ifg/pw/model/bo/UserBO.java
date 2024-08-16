@@ -24,7 +24,7 @@ public class UserBO {
         if(user != null){
             User userNew = new User();
             userNew.setEmail(user.getEmail());
-            userNew.setSenha(user.getSenha());
+            userNew.setPassoword(user.getSenha());
             this.dao.persist(userNew);
         }
 

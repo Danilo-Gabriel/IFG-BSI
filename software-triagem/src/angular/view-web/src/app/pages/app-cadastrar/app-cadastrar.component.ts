@@ -1,54 +1,54 @@
 import { Component } from '@angular/core';
+import { CadastrarService } from './service/cadastro.service';
+import { CadastroDto } from '../../../model/cadastrar/cadastrar-dto';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-app-cadastrar',
-  templateUrl: './app-cadastrar.component.html',
-  styleUrls: ['./app-cadastrar.component.scss']
+    selector: 'app-app-cadastrar',
+    templateUrl: './app-cadastrar.component.html',
+    styleUrls: ['./app-cadastrar.component.scss']
 })
-export class AppCadastrarComponent {
-  fullName: string = '';
-  phone: string = '';
-  address: string = '';
-  birthDate: string = '';
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
 
-  onSubmit() {
-    // Validar as senhas
-    if (this.password !== this.confirmPassword) {
-      alert('As senhas não coincidem. Por favor, tente novamente.');
-      return;
+export class AppCadastrarComponent {
+
+
+    formCadastro: FormGroup;
+
+    constructor(private cadastrarService: CadastrarService, private fb: FormBuilder) {
+        this.formCadastro = this.fb.group({
+            fullName: ['', Validators.required],
+            phone: ['', Validators.required],
+            address: ['', Validators.required],
+            birthDate: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]], // Adicione validação de email
+            password: ['', [Validators.required, Validators.minLength(8)]], // Adicione validação de senha
+            confirmPassword: ['', Validators.required]
+        });
     }
 
-    // Criar um objeto com os dados do formulário
-    const userData = {
-      fullName: this.fullName,
-      phone: this.phone,
-      address: this.address,
-      birthDate: this.birthDate,
-      email: this.email,
-      password: this.password
-    };
+    onSubmit() {
+        // Validar as senhas
+        if (this.formCadastro.get('password')!.value !== this.formCadastro.get('confirmPassword')!.value) {
+            alert('As senhas não coincidem. Por favor, tente novamente.');
+            return;
+        }
 
-    // Enviar os dados para o console
-    console.log('Dados do usuário:', userData);
+        // Criar um objeto com os dados do formulário
+        const userData: CadastroDto = this.formCadastro.value;
 
-    // Exibir uma mensagem de sucesso
-    alert('Cadastro realizado com sucesso!');
+        // Chamar o serviço para enviar os dados para o backend
+        this.cadastrarService.efetuarCadastro(userData).subscribe(
+            response => {
+                console.log('Resposta do servidor:', response);
+                alert('Cadastro realizado com sucesso!');
+                this.formCadastro.reset(); // Limpar o formulário após o sucesso
+            },
+            error => {
+                console.error('Erro ao cadastrar usuário:', error);
+                alert('Ocorreu um erro ao realizar o cadastro. Por favor, tente novamente.');
+            }
+        );
+    }
 
-    // Limpar o formulário
-    this.clearForm();
-  }
-
-  clearForm() {
-    this.fullName = '';
-    this.phone = '';
-    this.address = '';
-    this.birthDate = '';
-    this.email = '';
-    this.password = '';
-    this.confirmPassword = '';
-  }
 
 }

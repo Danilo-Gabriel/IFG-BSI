@@ -1,16 +1,9 @@
 <!-- app-triagem.component.html -->
-<body>
-<header>
-    <h1>APP Triagem</h1>
-    <nav>
-        <a [routerLink]="['/pages/app-users']">Usuario</a>
-    </nav>
-</header>
+
 <div class="campo">
-    <h1 id="titulo">Triagem Médica</h1>
     <p id="paragrafo"><strong>Preencha os campos abaixo</strong></p>
 </div>
-<form (ngSubmit)="onSubmit()" #triagemForm="ngForm">
+<form class="formu" (ngSubmit)="onSubmit()" #triagemForm="ngForm">
     <fieldset class="grupo">
         <div class="campo">
             <label for="especialidades"><strong>Qual Especialidade?</strong></label>
@@ -70,4 +63,4 @@
         <button id="submitbtn" class="botao" type="submit">Enviar</button>
     </fieldset>
 </form>
-</body>
+

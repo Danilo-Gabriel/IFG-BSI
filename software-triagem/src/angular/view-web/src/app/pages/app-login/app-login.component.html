@@ -2,7 +2,7 @@
 <header>
   <h1>APP Triagem</h1>
   <nav>
-    <a href="Cadastrar.html">Cadastrar</a>
+
   </nav>
 </header>
 
@@ -25,10 +25,14 @@
       <button (click)="onSubmit()" type="submit">Entrar</button>
     </div>
     <div class="form-group">
-      <a href="#">Esqueci a senha</a>
+      <a [routerLink]="['/pages/esqueceusenha']">Esqueceu a Senha?</a>
+      <a [routerLink]="['/pages/cadastraruser']">Cadastrar</a>
 
     </div>
   </form>
 </div>
+<footer>
+  <p>APP Triagem</p>
+</footer>
 
 </body>
