@@ -9,7 +9,7 @@ body {
 
 }
 
-
+/* Estilos do header */
 header {
   background: #6e6c6c;
   color: #fff;
@@ -48,6 +48,7 @@ header h1 {
   max-width: 800px;
   margin: 0 auto;
 
+
 }
 
 
@@ -67,7 +68,7 @@ header h1 {
 }
 .form-group a {
   display: inline-block;
-  margin-right: 40px;
+  margin-right: 40px; /* Ajuste o valor conforme necessário */
 }
 
 
@@ -75,22 +76,43 @@ label {
   font-weight: bold;
 }
 
-input[type="email"],
-input[type="password"],
-input[type="text"],
-input[type="tel"],
+
 input[type="text"]{
   padding: 9px;
   width: 100%;
   border: 2px solid #ccc;
   border-radius: 4px;
 }
-input[type="date"]{
+input[type="time"]{
   padding:8px;
-  width:80%;
+  width:30%;
   border:2px solid #ccc;
   border-radius:4px;
 }
+
+input[type="date"]{
+  padding:8px;
+  width:30%;
+  border:2px solid #ccc;
+  border-radius:4px;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+.form-group select {
+  width: 40%;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group select option {
+  font-size: 16px;
+  padding: 8px;
+}
+
 
 button {
   padding: 10px;

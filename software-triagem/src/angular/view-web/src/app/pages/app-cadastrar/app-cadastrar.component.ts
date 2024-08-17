@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CadastrarService } from './service/cadastro.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {CadastroDTO} from "../../../model/cadastrar/cadastrar-dto";
+
 
 @Component({
   selector: 'app-app-cadastrar',

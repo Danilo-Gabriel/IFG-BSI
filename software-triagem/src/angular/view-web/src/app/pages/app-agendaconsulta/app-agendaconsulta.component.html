@@ -1,0 +1,35 @@
+<div class="login-container">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="login-form" id="formulario-agenda">
+        <h2>Agendar Consultas</h2>
+        <div class="form-group">
+            <label >Identificação do usuário:</label>
+            <input type="text" id="iduser" name="iduser" required [(ngModel)]="iduser" placeholder="Digite a identificação do usuário">
+        </div>
+        <div class="form-group">
+            <label ><strong>Qual Especialidade?</strong></label>
+            <select id="especialidades" name="especialidades" required [(ngModel)]="especialidade">
+                <option selected disabled value="">Selecione...</option>
+                <option value="Cardiologista">Cardiologista</option>
+                <option value="Ortopedista">Ortopedista</option>
+                <option value="Clinico Geral">Clínico Geral</option>
+                <option value="Outros">Outros</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label >Endereço da Consulta:</label>
+            <input type="text" id="ender" name="ender" required [(ngModel)]="ender" placeholder="Digite o Endereço da Consulta">
+        </div>
+        <div class="form-group">
+            <label >Data da Consulta:</label>
+            <input type="Date" id="Date" name="Date" required [(ngModel)]="Date" placeholder="Data da Consulta">
+        </div>
+        <div class="form-group">
+            <label >Horário:</label>
+            <input type="time" id="time" name="time" required [(ngModel)]="time" placeholder="Informe o Horário">
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>

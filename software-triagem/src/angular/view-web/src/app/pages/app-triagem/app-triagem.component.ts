@@ -1,15 +1,6 @@
 import { Component } from '@angular/core';
 
-// interface ValorEPeso {
-//     valor: number;
-//     peso: number;
-// }
-//
-// interface IntensidadeValores {
-//     fraca: ValorEPeso;
-//     media: ValorEPeso;
-//     intensa: ValorEPeso;
-// }
+
 
 interface DadosFormulario {
     especialidade: string;
@@ -119,14 +110,6 @@ export class AppTriagemComponent {
 
     // Função para resetar o formulário
     resetForm(): void {
-        this.especialidade = '';
-        this.hipertensao = 'nao';
-        this.diabetico = 'nao';
-        this.febre = 'nao';
-        this.dor = 'nao';
-        this.intensidade = undefined;
-        this.peso = '';
-        this.idade = '';
-        this.exibirIntensidade = false;
+
     }
 }
