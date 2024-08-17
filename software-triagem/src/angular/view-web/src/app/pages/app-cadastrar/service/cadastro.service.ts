@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CadastroDto } from '../../../../model/cadastrar/cadastrar-dto';
+import {CadastroDTO} from "../../../../model/cadastrar/cadastrar-dto";
+
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ export class CadastrarService {
 
     constructor(private http: HttpClient) { }
 
-    efetuarCadastro(cadastroDto: CadastroDto): Observable<any> {
-        return this.http.post<any>(this.apiUrl, cadastroDto); // Envie os dados para a API
+    save(record : CadastroDTO){
+
     }
 }

@@ -2,7 +2,7 @@ package br.ifg.pw.rest;
 
 
 import br.ifg.pw.model.bo.UserBO;
-import br.ifg.pw.model.dto.UserDTO;
+import br.ifg.pw.model.dto.CadastroDTO;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -14,23 +14,14 @@ import jakarta.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
 
-
     @Inject
     UserBO bo;
 
-
     @POST
     @Transactional
-    public Response create(UserDTO user) {
+    public Response create(CadastroDTO dto) {
 
-        try {
-            this.bo.registerUsuario(user);
-            return Response.ok().build();
-        }catch (Exception e){
-
-            return Response.serverError().entity(e.getMessage()).build();
-        }
-
+         return Response.ok(bo.registerUsuario(dto)).build();
     }
 
 }

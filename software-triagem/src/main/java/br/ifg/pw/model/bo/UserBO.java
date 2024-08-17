@@ -1,14 +1,12 @@
 package br.ifg.pw.model.bo;
 
 import br.ifg.pw.model.dao.UserDAO;
-import br.ifg.pw.model.dto.UserDTO;
+import br.ifg.pw.model.dto.CadastroDTO;
 import br.ifg.pw.model.entity.User;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-
-import java.time.LocalDate;
-import java.util.Date;
+import jakarta.ws.rs.core.Response;
 
 
 @ApplicationScoped
@@ -18,17 +16,24 @@ public class UserBO {
     UserDAO dao;
 
     @Transactional
-    public void registerUsuario(UserDTO user){
+    public Response registerUsuario(CadastroDTO dto) {
 
 
-        if(user != null){
-            User userNew = new User();
-            userNew.setEmail(user.getEmail());
-            userNew.setPassoword(user.getSenha());
-            this.dao.persist(userNew);
+        //todo ajustar os retornos com as mensagems corretas
+
+        try {
+            if (dto != null) {
+                User userNew = new User();
+                userNew = userNew.toDTO(dto);
+                this.dao.persist(userNew);
+                return Response.status(Response.Status.CREATED).build();
+            }
+        } catch (Exception e) {
+
+            return Response.serverError().build();
         }
 
-
-
+        return Response.serverError().build();
     }
+
 }

@@ -1,18 +1,19 @@
-export class CadastroDto {
-    fullName: string;
-    phone: string;
-    address: string;
-    birthDate: string;
-    email: string;
-    password: string;
+export class CadastroDTO {
+
+  constructor(
+    public nomeCompleto? : string,
+    public telefone? : string,
+    public endereco? : string,
+    public dataNascimento? : string,
+    public email? : string,
+    public password? : string
+  ) {
+
+    /*
+    * CRIAR FUTURAMENTE OUTRO DTO PARA ENDEREÇO SEPARADO E INICIALIZAR NESSE DTO AQUI
+    *
+    * */
+  }
 
 
-    constructor(fullName: string, phone: string, address: string, birthDate: string, email: string, password: string) {
-        this.fullName = fullName;
-        this.phone = phone;
-        this.address = address;
-        this.birthDate = birthDate;
-        this.email = email;
-        this.password = password;
-    }
 }
