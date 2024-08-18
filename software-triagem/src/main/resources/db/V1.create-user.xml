@@ -2,8 +2,8 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
 
-    <changeSet id="1721437622876-1"
-               author="dsalog">
+    <changeSet id="V1.0.crete-table-tbusuario"
+               author="daniloGabriel">
         <createTable tableName="tbusuario">
             <column name="id"
                     type="BIGINT">
@@ -32,5 +32,18 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="V1.1.add_usuario_root" author="daniloGabriel">
+        <preConditions  onFail="WARN">
+            <not>
+                <tableExists tableName="tbusuario" />
+            </not>
+        </preConditions>
+        <insert tableName="tbusuario">
+            <column name="nome_login" value="root"/>
+            <column name="senha" value="$2a$12$gCUHEKn5rx4NYXcMoB/J1ObLBYDerKe1JpFse1QFkTQlWtYR0tzPK"/>
+            <column name="nome_completo" value="admin-triagem"/>
+            <column name="ativo" value="true"/>
+        </insert>
+    </changeSet>
 
 </databaseChangeLog>

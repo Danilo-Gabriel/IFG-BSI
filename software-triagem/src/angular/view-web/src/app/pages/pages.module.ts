@@ -14,6 +14,8 @@ import { AppAdministradorComponent } from './app-administrador/app-administrador
 import { AppAgendaconsultaComponent } from './app-agendaconsulta/app-agendaconsulta.component';
 import { AppCadastraruserComponent } from './app-cadastraruser/app-cadastraruser.component';
 import { AppConsultasuserComponent } from './app-consultasuser/app-consultasuser.component';
+import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
+import {CardModule} from "primeng/card";
 
 @NgModule({
     declarations: [
@@ -29,11 +31,12 @@ import { AppConsultasuserComponent } from './app-consultasuser/app-consultasuser
         AppConsultasuserComponent,
 
     ],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        PagesRoutingModule,
-        FormsModule
-    ]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    PagesRoutingModule,
+    FormsModule,
+    AngularReporModule,
+  ]
 })
 export class PagesModule { }

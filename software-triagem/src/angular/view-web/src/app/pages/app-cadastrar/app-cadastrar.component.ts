@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CadastrarService } from './service/cadastro.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 
 
 @Component({
@@ -23,6 +23,8 @@ export class AppCadastrarComponent implements OnInit{
 
 
 
+
+
   // fullName: ['', Validators.required],
   // phone: ['', Validators.required],
   // address: ['', Validators.required],
@@ -33,14 +35,18 @@ export class AppCadastrarComponent implements OnInit{
 
 
   //METODO CHAMA O SERVIÇO SALVAR
-  onSubmit() {
+  onSubmit(formCadastro : NgForm) {
+    console.log(formCadastro)
+    if(formCadastro.valid){
+      console.log("DEU CERTO")
+    }else {
+      console.log("Não deu ")
+    }
 
-    this.servico.save(this.form.value);
   }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-
     })
   }
 

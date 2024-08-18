@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {LoginDTO} from "../../../../model/login/login-dto";
+import {LoginDTO} from "../../../../model/dto/login/login-dto";
 import {HttpClient} from "@angular/common/http";
 
 

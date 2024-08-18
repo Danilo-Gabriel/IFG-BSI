@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {CadastroDTO} from "../../../../model/cadastrar/cadastrar-dto";
+import {CadastroDTO} from "../../../../model/dto/cadastrar/cadastrar-dto";
 
 
 @Injectable({

@@ -12,9 +12,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "tbusuario")
-@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Builder
 public class User extends PanacheEntityBase {
 
     @Id
@@ -31,33 +29,46 @@ public class User extends PanacheEntityBase {
     @Column(columnDefinition = "varchar(255)")
     String email;
     @Column(columnDefinition = "varchar(255)")
-    String password;
+    String senha;
 
-    public User(Long id, String nomeCompleto, String telefone, String endereco, Date dataNascimento, String email, String password) {
+//    @Column(columnDefinition = "Boolean not null")
+//    Boolean ativo;
+
+    @Builder
+    public User(Long id, String nomeCompleto, String telefone, String endereco, Date dataNascimento, String email, String senha) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
         this.endereco = endereco;
         this.dataNascimento = dataNascimento;
         this.email = email;
-        this.password = BcryptUtil.bcryptHash(password);
+        this.senha = BcryptUtil.bcryptHash(senha);
 
 
-        //todo verifica se a senha digita sem criptografia é a mesma do banco que está cryptografia  BcryptUtil.matches(password, email);
+        //todo verifica se a senha digita sem criptografia é a mesma do banco que está cryptografia  BcryptUtil.matches(senha, email);
     }
 
-    public User toDTO(CadastroDTO dto) {
+
+    public User(){
+
+    }
+
+    public CadastroDTO toDTO(User user) {
 
         //todo criptografar senha em banco, utilizar Bcrypt
 
-       return User.builder()
-                .nomeCompleto(dto.getNomeCompleto())
-                .email(dto.getEmail())
-                .password(BcryptUtil.bcryptHash(dto.getPassword()))
-                .endereco(dto.getEndereco())
-                .telefone(dto.getTelefone())
+        return CadastroDTO.builder()
+                .nomeCompleto(this.nomeCompleto)
+                .email(this.email)
+                .senha(this.senha)
+                .endereco(this.endereco)
+                .telefone(this.telefone)
                 .build();
 
 
     }
+
+
+
+
 }
