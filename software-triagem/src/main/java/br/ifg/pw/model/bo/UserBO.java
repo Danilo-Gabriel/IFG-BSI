@@ -3,6 +3,7 @@ package br.ifg.pw.model.bo;
 import br.ifg.pw.model.dao.UserDAO;
 import br.ifg.pw.model.dto.CadastroDTO;
 import br.ifg.pw.model.entity.User;
+import io.quarkus.elytron.security.common.BcryptUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -18,13 +19,17 @@ public class UserBO {
     @Transactional
     public Response registerUsuario(CadastroDTO dto) {
 
-
         //todo ajustar os retornos com as mensagems corretas
 
         try {
             if (dto != null) {
-                User userNew = new User();
-                userNew = userNew.toDTO(dto);
+                User userNew = User.builder()
+                        .nomeCompleto(dto.getNomeCompleto())
+                        .email(dto.getEmail())
+                        .senha(BcryptUtil.bcryptHash(dto.getSenha()))
+                        .endereco(dto.getEndereco())
+                        .telefone(dto.getTelefone())
+                        .build();
                 this.dao.persist(userNew);
                 return Response.status(Response.Status.CREATED).build();
             }

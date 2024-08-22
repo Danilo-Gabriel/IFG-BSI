@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {LoginService} from "./service/login.service";
-import {LoginDTO} from "../../../model/login/login-dto";
+import {LoginDTO} from "../../../model/dto/login/login-dto";
 
 
 @Component({
