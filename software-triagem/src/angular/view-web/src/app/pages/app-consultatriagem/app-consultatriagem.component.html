@@ -1,0 +1,38 @@
+<div class="info">
+    <div class="icone">
+        <img src="https://th.bing.com/th/id/OIP.U123_AgOOmVzYP1UJQv1bwHaHa?rs=1&pid=ImgDetMain" alt="Icone">
+    </div>
+    <div class="text">
+        <h1>Consultas de Triagens</h1>
+        <p>Para verificar as triagens dos pacientes, clique no botão ao lado</p>
+    </div>
+    <div class="clik">
+        <a href="#" (click)="openModal($event)">Consultar Triagem</a>
+    </div>
+</div>
+
+
+
+<div id="myModal" class="modal" #myModal (click)="onWindowClick($event)">
+    <div class="modal-content">
+        <button class="close-btn" (click)="closeModal()">Fechar</button>
+        <h2>Dados das Triagens</h2>
+        <table>
+            <thead>
+            <tr id="triagem">
+                <th id="id">idPaciente</th>
+                <th id="especialidade">Especialidade</th>
+                <th id="resultado">Resultado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of triagemData">
+                <td id="iduser">{{ item.id }}</td>
+                <td id="especialista">{{ item.especialidade }}</td>
+                <td id="nota">{{ item.resultado }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

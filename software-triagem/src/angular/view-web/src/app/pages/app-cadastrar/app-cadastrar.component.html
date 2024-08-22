@@ -1,7 +1,7 @@
 
 
 <div class="login-container">
-    <form class="formcadastro" (ngSubmit)="onSubmit()"  id="formulario">
+    <form (ngSubmit)="onSubmit()"  id="formulario">
         <h2>Cadastrar</h2>
         <div class="form-group">
             <label for="fullName">Nome Completo:</label>
@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label for="phone">Telefone:</label>
-            <input type="tel" id="phone" name="phone" required class="phone" placeholder="Digite aqui seu Telefone com DD">
+            <input type="tel" id="phone" name="phone" pattern="\(\d{2}\)\s9?\d{4}-\d{4}" required class="phone" placeholder="(XX) 9XXXX-XXXX">
         </div>
         <div class="form-group">
             <label for="address">Endereço:</label>
@@ -23,19 +23,19 @@
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" required class="email" placeholder="Digite aqui seu email">
         </div>
-        <div class="form-group">
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required class="password" placeholder="Digite sua Senha">
-            <span id="senha-instrucoes" class="instrucoes">
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required class="password" placeholder="Digite sua Senha">
+        <span id="senha-instrucoes" class="instrucoes">
         Senha com pelo menos 8 caracteres, incluindo números e letras maiúsculas e minúsculas.
       </span>
 
-        </div>
-        <div class="form-group">
-            <label for="confirmPassword">Confirmar Senha:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required class="confirmPassword" placeholder="Confirme a Senha">
-            <span id="senha-igual-span" class="instrucoes" style="display: none; color: red;"></span>
-        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar Senha:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required class="confirmPassword" placeholder="Confirme a Senha">
+        <span  id="senha-igual-span" class="instrucoes" style="display: none; color: red;"></span>
+      </div>
         <div class="form-group">
             <button (click)="onSubmit()" type="submit">Enviar</button>
         </div>

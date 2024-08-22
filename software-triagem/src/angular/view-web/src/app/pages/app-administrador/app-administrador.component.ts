@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef,  Type } from '@angular/core';
+import {Component, ViewChild, ViewContainerRef, Type, ElementRef} from '@angular/core';
 import { AppCadastrarComponent } from '../app-cadastrar/app-cadastrar.component';
 
 @Component({
@@ -6,32 +6,33 @@ import { AppCadastrarComponent } from '../app-cadastrar/app-cadastrar.component'
   templateUrl: './app-administrador.component.html',
   styleUrls: ['./app-administrador.component.scss']
 })
-export class AppAdministradorComponent  {
+export class AppAdministradorComponent {
   currentSection: string = 'home';
 
-  @ViewChild('dynamicComponentContainer', { read: ViewContainerRef }) container: ViewContainerRef | undefined;
+  @ViewChild('dynamicComponentContainer', {read: ViewContainerRef}) container: ViewContainerRef | undefined;
 
-  constructor() {}
 
-  // Função para alternar a seção e definir o componente a ser renderizado
+  constructor() {
+  }
+
+
   showSection(sectionId: string): void {
     if (sectionId === 'dados-cadastrais') {
-      // Renderiza o componente correspondente
+
       this.renderComponent(AppCadastrarComponent);
     } else {
       this.clearComponent();
     }
-    this.currentSection = sectionId; // Atualiza a seção atual
+    this.currentSection = sectionId;
   }
 
-  // Função para verificar se a seção atual é a que está sendo exibida
+
   isActive(sectionId: string): boolean {
     return this.currentSection === sectionId;
   }
-
+  // esse metodo sera um metodo de tipo mostrar qual usuario esta logado
   isUserAdmin(): boolean {
-    // Implementar lógica para verificar se o usuário é administrador
-    return true; // Exemplo de retorno
+    return true;
   }
 
   private renderComponent(component: Type<any>): void {

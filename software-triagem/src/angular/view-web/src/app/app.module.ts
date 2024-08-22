@@ -32,7 +32,7 @@ import {AppCadastrarComponent} from "./pages/app-cadastrar/app-cadastrar.compone
         FormsModule,
         HttpClientModule,
         PagesModule,
-          // Incluindo o PagesModule
+
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -14,6 +14,7 @@ import { AppAdministradorComponent } from './app-administrador/app-administrador
 import { AppAgendaconsultaComponent } from './app-agendaconsulta/app-agendaconsulta.component';
 import { AppCadastraruserComponent } from './app-cadastraruser/app-cadastraruser.component';
 import { AppConsultasuserComponent } from './app-consultasuser/app-consultasuser.component';
+import { AppConsultatriagemComponent } from './app-consultatriagem/app-consultatriagem.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { AppConsultasuserComponent } from './app-consultasuser/app-consultasuser
         AppAgendaconsultaComponent,
         AppCadastraruserComponent,
         AppConsultasuserComponent,
+        AppConsultatriagemComponent,
 
     ],
     imports: [
