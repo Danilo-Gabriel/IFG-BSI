@@ -8,19 +8,19 @@ import { Component } from '@angular/core';
 export class AppUsersComponent {
   currentSection: string = 'home'; // Define o início como "home"
 
-  // Função para exibir a seção selecionada
+  // Função para exibir a seção
   showSection(sectionId: string): void {
     this.currentSection = sectionId;
   }
 
-  // Função para verificar se a seção atual é a que está sendo exibida
+  // Função que faz as trocas no html
   isActive(sectionId: string): boolean {
     return this.currentSection === sectionId;
   }
 
-  isUserAdmin(): boolean {
-    // Implementar lógica para verificar se o usuário é administrador
-    return true; // Exemplo de retorno
+  isUser(): boolean {
+    // aqui devemos implementar uma logica para capturar o id do usuario
+    return true;
   }
 
 }

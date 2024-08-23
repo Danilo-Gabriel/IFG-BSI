@@ -1,21 +1,18 @@
 
 
-<<<<<<< HEAD
-<div class="login-container">
-    <form (ngSubmit)="onSubmit()"  id="formulario">
-=======
-<p-card header="Formulario de Cadastro" [style]="{ width: '360px' }" class="login-container">
+<div class="login">
+<p-card header="Formulario de Cadastro" [style]="{ width: '560px' }" class="login-container">
   <ng-template pTemplate="header">
     <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
   </ng-template>
     <form #formCadastro="ngForm" class="formcadastro" (ngSubmit)="onSubmit(formCadastro)"  id="formulario">
->>>>>>> origin/valdeir-main
+
         <h2>Cadastrar</h2>
         <div class="form-group">
             <label for="fullName">Nome Completo:</label>
             <input ngModel #fullName="ngModel" type="text" id="fullName" name="fullName" class="fullName" placeholder="Digite aqui seu nome Completo" required>
         </div>
-<<<<<<< HEAD
+
         <div class="form-group">
             <label for="phone">Telefone:</label>
             <input type="tel" id="phone" name="phone" pattern="\(\d{2}\)\s9?\d{4}-\d{4}" required class="phone" placeholder="(XX) 9XXXX-XXXX">
@@ -45,9 +42,9 @@
         <input type="password" id="confirmPassword" name="confirmPassword" required class="confirmPassword" placeholder="Confirme a Senha">
         <span  id="senha-igual-span" class="instrucoes" style="display: none; color: red;"></span>
       </div>
-        <div class="form-group">
-            <button (click)="onSubmit()" type="submit">Enviar</button>
-=======
+<!--        <div class="form-group">-->
+<!--            <button (click)="onSubmit()" type="submit">Enviar</button>-->
+
 <!--        <div class="form-group">-->
 <!--            <label for="phone">Telefone:</label>-->
 <!--            <input ngModel type="tel" id="phone" name="phone" required class="phone" placeholder="Digite aqui seu Telefone com DD">-->
@@ -79,16 +76,12 @@
 <!--        </div>-->
         <div class="form-group">
             <button [disabled]="formCadastro.invalid" type="submit">Enviar</button>
->>>>>>> origin/valdeir-main
         </div>
 
     </form>
 
   <ng-template pTemplate="footer">
-    <p-button label="Salvar" icon="pi pi-check"></p-button>
+    <p-button label="Salvar" icon="pi pi-check" styleClass="custom-salvar"></p-button>
     <p-button label="Confirmar" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
   </ng-template>
-</p-card>
-
-
-
+  </p-card>

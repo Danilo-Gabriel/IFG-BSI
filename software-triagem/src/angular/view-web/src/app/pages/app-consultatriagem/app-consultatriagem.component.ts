@@ -36,7 +36,7 @@ export class AppConsultatriagemComponent {
 
   consultarTriagem(): void {
     this.triagemService.getTriagemData().subscribe((data) => {
-      this.triagemData = data; // Atualizar os dados da tabela com a resposta do serviço
+      this.triagemData = data;
     });
   }
 }

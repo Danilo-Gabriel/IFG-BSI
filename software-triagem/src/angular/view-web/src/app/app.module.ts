@@ -24,15 +24,14 @@ import {AngularReporModule} from "../shared/angular-repor/angular-repor.module";
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
-<<<<<<< HEAD
         PagesModule,
-
-=======
         AngularReporModule,
-        PagesModule, //GERENCIAR OS MODULOS DE PAGINAÇÃO
->>>>>>> origin/valdeir-main
+        PagesModule,
     ],
     providers: [],
+    exports: [
+        AppLoginComponent
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

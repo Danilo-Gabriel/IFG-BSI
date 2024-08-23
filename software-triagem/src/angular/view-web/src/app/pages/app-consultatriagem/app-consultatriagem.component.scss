@@ -1,7 +1,7 @@
 /// triagem//
 
 .info {
-  border: 1px solid cadetblue;
+  border: 2px double #ada8a8;
   display: flex;
   align-items: center;
   gap: 40px;
@@ -68,7 +68,7 @@
 }
 
 .modal-content table, th, td {
-  border: 1px solid black;
+  border: 1px solid #918e8e;
 }
 
 .modal-content th, td {
@@ -81,7 +81,7 @@
   color: white;
   padding: 10px 15px;
   border:3px double #f3f0f0;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   float: right;
   font-size: 14px;

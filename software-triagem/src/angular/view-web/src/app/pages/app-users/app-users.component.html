@@ -6,14 +6,15 @@
         <div class="user-info">
             <img src="https://th.bing.com/th/id/R.1871862d87bb8037d953317fb4497189?rik=MBf1NyuchSQUtQ&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f5%2fProfile.png&ehk=Ouu2uMvvMPnkP1bdIY2BTAzbwhRoG9p03NUzbwGLhlg%3d&risl=&pid=ImgRaw&r=0" alt="Foto de Perfil" class="profile-picture">
             <h2>Bem-vindo,</h2>
-            <p *ngIf="isUserAdmin()">Você e um usuario.</p>
+<!--            //implementar aqui uma logica pra pegar o id do usuario logado-->
+            <p *ngIf="isUser()">Você e um usuario.</p>
 
             <nav class="nav-links">
                 <ul>
                     <li><a (click)="showSection('home')">Início</a></li>
                     <li><a (click)="showSection('fazer-triagem')">Fazer Triagem</a></li>
                     <li><a (click)="showSection('consultar-triagem')">Consultar Triagem</a></li>
-                    <li><a (click)="showSection('ver-consultas')">Acessar Consultas</a></li>
+                    <li><a (click)="showSection('consultas')">Consultas Agendadas</a></li>
                     <li><a [routerLink]="['/pages/login']">Sair</a></li>
 
                 </ul>
@@ -22,9 +23,11 @@
     </aside>
     <main class="content">
         <div id="home" class="section" [ngClass]="{ 'active': isActive('home') }">
+            <div class="info">
             <h2>Informações Gerais</h2>
             <p>Bem-vindo ao sistema. Use o menu à esquerda para navegar pelas funcionalidades.</p>
-            <p>Aqui você pode atualizar seus dados cadastrais, acompanhar sua triagem, agendar consultas, e confirmar seu comparecimento, entre outras funcionalidades.</p>
+            <p>Aqui você pode fazer sua triagem um dos objetivos principais do sistema, acompanhar sua triagem, verificar o agendamento da sua consulta, entre outras funcionalidades.</p>
+            </div>
         </div>
         <div id="fazer-triagem" class="section" [ngClass]="{ 'active': isActive('fazer-triagem') }">
             <div>
@@ -34,19 +37,20 @@
 
 
         <div id="consultar-triagem" class="section" [ngClass]="{ 'active': isActive('consultar-triagem') }">
-            <h2>Consultar triagem</h2>
-            <p> construir a qui uma função que traga os resultados das triagens</p>
+           <div class="info">
+
+               <h1>elabora essa logica de mostrar a possição do usuario na triagem</h1>
+
+           </div>
 
 
         </div>
 
-        <div id="ver-consultas" class="section" [ngClass]="{ 'active': isActive('ver-consultas') }">
+        <div id="consultas" class="section" [ngClass]="{ 'active': isActive('consultas') }">
             <app-app-consultasuser></app-app-consultasuser>
         </div>
 
-        <div id="sair" class="section" [ngClass]="{ 'active': isActive('sair') }">
-            <h1>um funcção de o usuario sair do sistema</h1>
-        </div>
+
     </main>
 </div>
 <footer>

@@ -14,12 +14,10 @@ import { AppAdministradorComponent } from './app-administrador/app-administrador
 import { AppAgendaconsultaComponent } from './app-agendaconsulta/app-agendaconsulta.component';
 import { AppCadastraruserComponent } from './app-cadastraruser/app-cadastraruser.component';
 import { AppConsultasuserComponent } from './app-consultasuser/app-consultasuser.component';
-<<<<<<< HEAD
 import { AppConsultatriagemComponent } from './app-consultatriagem/app-consultatriagem.component';
-=======
 import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
 import {CardModule} from "primeng/card";
->>>>>>> origin/valdeir-main
+import { AppAgendaconsultasComponent } from './app-agendaconsultas/app-agendaconsultas.component';
 
 @NgModule({
     declarations: [
@@ -34,6 +32,7 @@ import {CardModule} from "primeng/card";
         AppCadastraruserComponent,
         AppConsultasuserComponent,
         AppConsultatriagemComponent,
+        AppAgendaconsultasComponent,
 
     ],
   imports: [

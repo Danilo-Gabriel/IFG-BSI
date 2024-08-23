@@ -10,8 +10,8 @@
 }
 
 .icone img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 20%;
   margin-bottom: 10px;
 }
@@ -28,7 +28,7 @@
   cursor: pointer;
   font-size: 16px;
   color: white;
-  padding: 7px 15px;
+  padding: 9px 15px;
   text-decoration: none;
   display: inline-block;
 }
@@ -51,15 +51,20 @@
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 5% auto; /* Centragem vertical e horizontal */
   padding: 20px;
-  border: 3px double #888;
-  width: 100%;
-  max-width: 600px;
+  border: 1px solid #888;
+  width: 80%; /* Aumenta a largura do modal */
+  max-width: 1200px; /* Define uma largura máxima para o modal */
+  height: auto; /* Deixe a altura automática, mas pode definir um valor fixo se desejar */
+  max-height: 90%; /* Define a altura máxima para o modal */
+  overflow-y: auto; /* Adiciona uma barra de rolagem se o conteúdo for maior que a altura máxima */
 }
+
 
 .modal-content h2 {
   margin-top: 0;
+  font-size:1.1rem;
 }
 
 .modal-content table {

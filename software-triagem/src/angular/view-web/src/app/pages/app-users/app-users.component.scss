@@ -15,17 +15,21 @@ header {
 
 
 .sidebar {
-  width: 280px;
+  width: 310px;
   background: #d7d5d5;
   padding: 15px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 50px;
+  height:600px;
 }
 
 
 .user-info {
   text-align: center;
-  margin-bottom: 20px;
+
+}
+.user-info h2, p{
+  margin-top:0;
 }
 
 .profile-picture {
@@ -49,7 +53,7 @@ header {
   cursor: pointer;
   font-size: 16px;
   color:white;
-  padding:7px;
+  padding:6px;
 }
 .nav-links li:hover {
   background-color: #303036;
@@ -59,20 +63,31 @@ header {
   color: #f3eded;
   font-weight: bold;
 }
+.info {
+  border: 2px double #ada8a8;
+  display: block;
+  padding:20px;
+  border-radius: 10px;
+}
 
 
 
 
 .content {
   flex-grow: 1;
-  padding: 20px;
+  padding: 80px;
+  min-width: 0;
   overflow-y: auto;
   margin-bottom: 80px;
+  max-height: 500px;
+  max-width: 90%;
+  box-sizing: border-box;
 }
 
 
 .section {
   display: none;
+  gap:40px;
 }
 
 .section.active {

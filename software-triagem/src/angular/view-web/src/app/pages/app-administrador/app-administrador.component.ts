@@ -17,7 +17,7 @@ export class AppAdministradorComponent {
 
 
   showSection(sectionId: string): void {
-    if (sectionId === 'dados-cadastrais') {
+    if (sectionId === 'home') {
 
       this.renderComponent(AppCadastrarComponent);
     } else {

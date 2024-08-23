@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
+import {TriagemService} from "../app-consultatriagem/service/consulta.service";
+import {ConsultaruserService} from "./service/consultaruser.service";
 // import { ConsultasService } from '../../services/consultas.service';
 
 @Component({
@@ -8,27 +10,35 @@ import {HttpClientModule} from "@angular/common/http";
   styleUrls: ['./app-consultasuser.component.scss']
 })
 export class AppConsultasuserComponent {
-  // consultations: any[] = [];
-  //
-  // constructor(private http: HttpClientModule) {}
-  //
-  // ngOnInit(): void {
-  //   this.fetchConsultations();
-  // }
-  //
-  // fetchConsultations(): void {
-  // const userId = 1; // Substitua pelo ID do usuário atual
-  // const apiUrl = `https://api.example.com/consultas?userId=${userId}`;
-  // //
-  // this.http.get(apiUrl).subscribe(
-  // (data: any[]) => {
-  //  this.consultations = data;
-  //   },
-  //  (erro) => {
-  //  console.error('Erro ao buscar consultas:', erro);
-  // this.consultations = [];
-  // }
-  // );
-  // }
+  @ViewChild('myModal') modal: ElementRef | undefined;
 
+  consultaData: Array<{ especialidade: string, endereco: string, date:string, hora:string }> = [];
+
+  constructor(private consultaruserService: ConsultaruserService) {}
+
+  openModal(event: Event): void {
+    event.preventDefault();
+    if (this.modal) {
+      this.modal.nativeElement.style.display = 'block';
+      this.consultarAgendamento();
+    }
+  }
+
+  closeModal(): void {
+    if (this.modal) {
+      this.modal.nativeElement.style.display = 'none';
+    }
+  }
+
+  onWindowClick(event: Event): void {
+    if (event.target === this.modal?.nativeElement) {
+      this.closeModal();
+    }
+  }
+
+  consultarAgendamento(): void {
+    this.consultaruserService.getConsultaData().subscribe((data) => {
+      this.consultaData = data;
+    });
+  }
 }

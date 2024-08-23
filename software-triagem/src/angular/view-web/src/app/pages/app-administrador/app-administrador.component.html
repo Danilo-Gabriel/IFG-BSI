@@ -15,7 +15,7 @@
                     <li><a (click)="showSection('cadastra-usuario')">Cadastrar Usuário</a></li>
                     <li><a (click)="showSection('consultar-triagem')">Consultar Triagem</a></li>
                     <li><a (click)="showSection('consultas')">Agendar Consultas</a></li>
-                    <li><a (click)="showSection('Agenda')">Agenda</a></li>
+                    <li><a (click)="showSection('Agenda')">Verificar Agenda</a></li>
                     <li><a [routerLink]="['/pages/login']">Sair</a></li>
                 </ul>
             </nav>
@@ -23,13 +23,16 @@
     </aside>
     <main class="content">
         <div id="home" class="section" [ngClass]="{ 'active': isActive('home') }">
+            <div class="info">
             <h2>Informações Gerais</h2>
             <p>Bem-vindo ao sistema. Use o menu à esquerda para navegar pelas funcionalidades.</p>
-            <p>Aqui você pode atualizar seus dados cadastrais, acompanhar sua triagem, agendar consultas, e confirmar seu comparecimento, entre outras funcionalidades.</p>
+            <p>Aqui você pode acompanhar as triagens dos usuario, agendar consultas, acompanha os agendamentos,cadastrar usuarios entre outras funcionalidades.</p>
+            </div>
         </div>
         <div id="cadastra-usuario" class="section" [ngClass]="{ 'active': isActive('cadastra-usuario') }">
-
+            <div >
             <app-app-cadastrar></app-app-cadastrar>
+            </div>
 
 
         </div>
@@ -45,7 +48,9 @@
             <app-app-agendaconsulta></app-app-agendaconsulta>
         </div>
         <div id="Agenda" class="section" [ngClass]="{ 'active': isActive('Agenda') }">
-            <h1> consutar a agenda de todas as consultas</h1>
+            <div>
+                <app-app-agendaconsultas></app-app-agendaconsultas>
+            </div>
         </div>
 
     </main>
