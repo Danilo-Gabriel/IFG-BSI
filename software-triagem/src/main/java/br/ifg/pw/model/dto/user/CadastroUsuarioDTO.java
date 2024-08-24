@@ -1,7 +1,6 @@
-package br.ifg.pw.model.dto;
+package br.ifg.pw.model.dto.user;
 
 import br.ifg.pw.model.entity.User;
-import io.quarkus.elytron.security.common.BcryptUtil;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
@@ -11,26 +10,25 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CadastroDTO {
+public class CadastroUsuarioDTO {
+
      String nomeCompleto;
      String telefone;
      String endereco;
-     String dataNascimento   ;
      String email;
      String senha;
 
    
 
-    public CadastroDTO(String nomeCompleto, String telefone, String endereco, String dataNascimento, String email, String senha) {
+    public CadastroUsuarioDTO(String nomeCompleto, String telefone, String endereco, String email, String senha) {
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
         this.endereco = endereco;
-        this.dataNascimento = dataNascimento;
         this.email = email;
         this.senha = senha;
     }
 
-    public User toEntity(CadastroDTO dto) {
+    public User toEntity(CadastroUsuarioDTO dto) {
 
         return User.builder()
                 .nomeCompleto(dto.getNomeCompleto())
@@ -40,6 +38,10 @@ public class CadastroDTO {
                 .telefone(dto.getTelefone())
                 .build();
 
+
+    }
+
+    public CadastroUsuarioDTO(){
 
     }
 }

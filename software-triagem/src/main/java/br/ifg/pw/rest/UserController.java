@@ -2,12 +2,15 @@ package br.ifg.pw.rest;
 
 
 import br.ifg.pw.model.bo.UserBO;
-import br.ifg.pw.model.dto.CadastroDTO;
+import br.ifg.pw.model.dto.user.CadastroUsuarioDTO;
+import br.ifg.pw.model.dto.user.ListarUsuarioDTO;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.util.List;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
@@ -19,9 +22,13 @@ public class UserController {
 
     @POST
     @Transactional
-    public Response create(CadastroDTO dto) {
+    public Response create(CadastroUsuarioDTO dto) {
+        return bo.save(dto);
+    }
 
-         return Response.ok(bo.registerUsuario(dto)).build();
+    @GET
+    public Response list() {
+        return bo.list();
     }
 
 }

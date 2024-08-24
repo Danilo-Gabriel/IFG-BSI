@@ -1,18 +1,18 @@
 package br.ifg.pw.model.entity;
 
-import br.ifg.pw.model.dto.CadastroDTO;
+import br.ifg.pw.model.dto.user.CadastroUsuarioDTO;
 import io.quarkus.elytron.security.common.BcryptUtil;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "tbusuario")
+@Table(name = "tbusuario", uniqueConstraints={@UniqueConstraint(columnNames={"email"}, name = "email_unique")})
 @FieldDefaults(level = AccessLevel.PRIVATE)
+
 public class User extends PanacheEntityBase {
 
     @Id
@@ -24,50 +24,39 @@ public class User extends PanacheEntityBase {
     String telefone;
     @Column(name = "endereco", columnDefinition = "varchar(255)")
     String endereco;
-    @Column(name = "data_nascimento")
-    Date dataNascimento;
-    @Column(columnDefinition = "varchar(255)")
+    @Column(name = "email", columnDefinition = "varchar(255)", unique = true)
     String email;
     @Column(columnDefinition = "varchar(255)")
     String senha;
-
-//    @Column(columnDefinition = "Boolean not null")
-//    Boolean ativo;
+    @Column(columnDefinition = "Boolean")
+    Boolean ativo;
 
     @Builder
-    public User(Long id, String nomeCompleto, String telefone, String endereco, Date dataNascimento, String email, String senha) {
+    public User(Long id, String nomeCompleto, String telefone, String endereco, String email, String senha, Boolean ativo) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
         this.endereco = endereco;
-        this.dataNascimento = dataNascimento;
         this.email = email;
         this.senha = BcryptUtil.bcryptHash(senha);
-
-
-        //todo verifica se a senha digita sem criptografia é a mesma do banco que está cryptografia  BcryptUtil.matches(senha, email);
+        this.ativo = true;
     }
 
+    public CadastroUsuarioDTO toDTO(User user) {
 
-    public User(){
-
-    }
-
-    public CadastroDTO toDTO(User user) {
-
-        //todo criptografar senha em banco, utilizar Bcrypt
-
-        return CadastroDTO.builder()
+        return CadastroUsuarioDTO.builder()
                 .nomeCompleto(this.nomeCompleto)
                 .email(this.email)
                 .senha(this.senha)
                 .endereco(this.endereco)
                 .telefone(this.telefone)
                 .build();
-
-
     }
 
+
+    public User(){
+
+    }
 
 
 

@@ -31,14 +31,6 @@ export class AppCadastrarComponent implements OnInit{
   // confirmPassword: ['', Validators.required]
 
 
-
-    //METODO CHAMA O SERVIÇO SALVAR E VERIFICA SE O FORMULARIO E VALIDO
-    formatPhoneNumber(phone: string): string {
-        // Implementação da função para formatar o número
-        return phone.replace(/\D/g, '') // Remove todos os caracteres que não são dígitos
-            .replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // Formata como (XX) XXXXX-XXXX
-    }
-
     // Método que chama o serviço salvar e verifica se o formulário é válido
 
   //METODO CHAMA O SERVIÇO SALVAR
