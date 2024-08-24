@@ -43,5 +43,4 @@ nb-configuration.xml
 /.quarkus/cli/plugins/
 
 # Angular
-
-node_modules
+./src/angular/view-web/node_modules/
