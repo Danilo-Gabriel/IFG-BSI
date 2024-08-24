@@ -3,15 +3,16 @@
 /*style body*/
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Patua One, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #566e88, #69efc7, #2c2929);
-  background-size: cover; /* Cobrir toda a página */
+  background: linear-gradient(135deg, #cbf5a0, #d8daf3, #807d7d);
+  background-size: cover;
   background-repeat: no-repeat;
   height: 700px;
 
 }
+
 
 /* Estilos do header */
 header {
@@ -42,30 +43,36 @@ header h1 {
 .login-container {
 
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px; /* Adiciona um espaçamento interno */
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); /* Sombra */
-  max-width: 500px; /* Largura máxima do container */
-  margin: 0 auto; /* Margem automática nas laterais para centralizar */
+  justify-content: center;
+  align-items: center;
+  background-color: #d7d5d5;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 10px 10px 10px rgba(1, 0, 0, 3.3);
+  max-width: 380px;
+  margin: 0 auto;
   margin-top:60px;
+  border: 6px double #a6a4a4;
 
 
 }
+
 
 
 .login-form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
 }
 
 .login-form h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  font-size:2.2rem;
+  color: #545454;
+
 }
+
 
 .form-group {
   margin-bottom: 20px;
@@ -81,20 +88,22 @@ label {
 
 input[type="email"],
 input[type="password"] {
-  padding: 9px;
+  padding: 12px;
   width: 100%;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  border: 4px double #ccc;
+  border-radius: 20px;
+  color:white;
 }
 
 button {
-  padding: 10px;
+  padding: 7px;
   background-color: #a0c6ee;
   color: #170202;
-  border:3px double #71acec;
-  border-radius: 8px;
+  border:5px double #71acec;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
+  width:100%;
 }
 
 button:hover {
