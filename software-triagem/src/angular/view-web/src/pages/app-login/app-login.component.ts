@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {LoginService} from "./service/login.service";
-import {LoginDTO} from "../../../model/dto/login/login-dto";
 
 
 @Component({
@@ -31,12 +30,12 @@ export class AppLoginComponent implements OnInit{
   }
 
 
-  onSubmit() {
+  onSubmit(loginForm : NgForm) {
 
-          if(this.formLogin.valid){
-            console.table(this.formLogin.value.email)
-            console.table(this.formLogin.value.senha)
-            this.loginService.efetuarLogin(this.formLogin.value);
+          debugger
+          if(loginForm.valid){
+            console.log(loginForm);
+            this.loginService.efetuarLogin(loginForm.value)
           }else {
             console.log("DEU RUIM")
           }
