@@ -17,6 +17,7 @@ import {AppCadastraruserComponent} from "./app-cadastraruser/app-cadastraruser.c
 import {AppConsultasuserComponent} from "./app-consultasuser/app-consultasuser.component";
 import {AppConsultatriagemComponent} from "./app-consultatriagem/app-consultatriagem.component";
 import {AppAgendaconsultasComponent} from "./app-agendaconsultas/app-agendaconsultas.component";
+import { PageAdminComponent } from './page-admin/page-admin.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import {AppAgendaconsultasComponent} from "./app-agendaconsultas/app-agendaconsu
       AppConsultasuserComponent,
       AppConsultatriagemComponent,
       AppAgendaconsultasComponent,
+      PageAdminComponent,
     ],
   imports: [
     CommonModule,
