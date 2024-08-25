@@ -6,8 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {AngularReporModule} from "../shared/angular-repor/angular-repor.module";
-import {LoginService} from "../pages/app-login/service/login.service";
-import {PagesModule} from "../pages/pages.module";
+import {PagesModule} from "./pages/pages.module";
+import {PageAdminModule} from "./page-admin/page-admin.module";
+import {LoginService} from "./pages/app-login/service/login.service";
+
+
 
 
 @NgModule({
@@ -18,6 +21,7 @@ import {PagesModule} from "../pages/pages.module";
     imports: [
         BrowserModule,
         PagesModule,
+        PageAdminModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,

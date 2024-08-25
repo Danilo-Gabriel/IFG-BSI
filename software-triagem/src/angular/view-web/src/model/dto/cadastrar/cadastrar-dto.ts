@@ -4,7 +4,6 @@ export class CadastroDTO {
     public nomeCompleto? : string,
     public telefone? : string,
     public endereco? : string,
-    public dataNascimento? : string,
     public email? : string,
     public password? : string
   ) {

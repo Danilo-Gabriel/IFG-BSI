@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {LoginDTO} from "../../../model/dto/login/login-dto";
+import {LoginDTO} from "../../../../model/dto/login/login-dto";
 
 
 @Injectable({
@@ -26,7 +26,7 @@ export class LoginService {
           if (response.status === 200) {
             //todo inserir um toast para mensagem ser exibida para o usuário!
             console.log('Response Body:', response.body);
-            this.router.navigate(['/pages/admin']);
+            this.router.navigate(['/admin']);
           }
         },
         (error) => {
@@ -35,6 +35,7 @@ export class LoginService {
         }
       );
   }
+
 
 
 }

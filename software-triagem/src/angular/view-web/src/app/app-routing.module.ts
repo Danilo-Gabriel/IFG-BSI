@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppLoginComponent} from "../pages/app-login/app-login.component";
-import {AppAdministradorComponent} from "../pages/app-administrador/app-administrador.component";
-import {AppComponent} from "./app.component";
-
+import {AppLoginComponent} from "./pages/app-login/app-login.component";
 
 const routes: Routes = [
 
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: 'login', component: AppLoginComponent},
 
+  {path:'admin',
+    loadChildren: () => import('./page-admin/page-admin.module').then(m => m.PageAdminModule)},
+
   {path:'pages',
-    loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule)}
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)}
 
 ];
 

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import {AngularReporModule} from "../shared/angular-repor/angular-repor.module";
 import {AppLoginComponent} from "./app-login/app-login.component";
 import {AppHomeComponent} from "./app-home/app-home.component";
 import {AppUsersComponent} from "./app-users/app-users.component";
@@ -17,6 +16,7 @@ import {AppCadastraruserComponent} from "./app-cadastraruser/app-cadastraruser.c
 import {AppConsultasuserComponent} from "./app-consultasuser/app-consultasuser.component";
 import {AppConsultatriagemComponent} from "./app-consultatriagem/app-consultatriagem.component";
 import {AppAgendaconsultasComponent} from "./app-agendaconsultas/app-agendaconsultas.component";
+import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
 
 @NgModule({
     declarations: [
