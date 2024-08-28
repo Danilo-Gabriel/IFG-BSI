@@ -1,12 +1,14 @@
 /// triagem//
 
 .info {
-  border: 2px double #ada8a8;
+  border: 3px double #1c1b1b;
   display: flex;
   align-items: center;
   gap: 40px;
   padding: 10px;
   border-radius: 10px;
+  color: #282121;
+ 
 }
 
 .icone img {
@@ -89,4 +91,16 @@
 
 .close-btn:hover {
   background-color: #8aadf3;
+}
+
+
+
+//responsiva
+
+@media (max-width: 868px) {
+  .info {
+    flex-direction: column; /* Altera a direção para coluna em telas menores */
+    gap: 20px; /* Reduz o espaço entre os itens */
+    padding: 15px; /* Ajusta o padding para mais espaço */
+  }
 }

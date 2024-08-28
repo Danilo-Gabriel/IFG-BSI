@@ -14,6 +14,7 @@ import {AppConsultasuserComponent} from "./app-consultasuser/app-consultasuser.c
 
 const routes: Routes = [
   { path: 'login', component: AppLoginComponent },
+  { path:'home',component:AppHomeComponent },
   { path: 'users', component: AppUsersComponent },
   { path: 'cadastrar', component: AppCadastrarComponent },
   { path: 'triagem', component: AppTriagemComponent },

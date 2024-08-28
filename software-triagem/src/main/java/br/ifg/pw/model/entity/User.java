@@ -31,6 +31,13 @@ public class User extends PanacheEntityBase {
     @Column(columnDefinition = "Boolean")
     Boolean ativo;
 
+
+//            revisar e testar a nova implementação do codigo, essa funcionalidade tem o objetivo de criar uma coluna no
+//            banco onde armazena a data e a hora da criação do usuario no banco;
+
+//    @Column(name = "data_criacao", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
+//    LocalDateTime dataCriacao;
+
     @Builder
     public User(Long id, String nomeCompleto, String telefone, String endereco, String email, String senha, Boolean ativo) {
         this.id = id;
@@ -40,6 +47,9 @@ public class User extends PanacheEntityBase {
         this.email = email;
         this.senha = BcryptUtil.bcryptHash(senha);
         this.ativo = true;
+
+
+//        this.dataCriacao = LocalDateTime.now();
     }
 
     public CadastroUsuarioDTO toDTO(User user) {
@@ -52,6 +62,9 @@ public class User extends PanacheEntityBase {
                 .telefone(this.telefone)
                 .build();
     }
+//    public User() {
+//        this.dataCriacao = LocalDateTime.now();
+//    }
 
 
     public User(){
