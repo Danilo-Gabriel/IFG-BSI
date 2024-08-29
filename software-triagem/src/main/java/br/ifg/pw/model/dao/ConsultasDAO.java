@@ -13,8 +13,8 @@ public class ConsultasDAO implements PanacheRepositoryBase<Consultas, Long> {
 //    aqui lista todas as consultas da tabela consulta
 
     public List<ListarConsultasDTO> findAllConsultas() {
-        HQL
-        String hql = "SELECT new br.ifg.pw.model.dto.consultas.ListarConsultasDTO(c.idUsuario, c.especialidade, c.local, c.data, c.hora, c.status) " +
+//        HQL   corrigir o erro do import da funcionalidade
+        String hql = "SELECT new br.ifg.pw.model.dto.consultas.ListarConsultasDTO(c.idusers, c.especialidade, c.local, c.data, c.hora, c.status) " +
                 "FROM Consultas c";
 
         return getEntityManager().createQuery(hql, ListarConsultasDTO.class).getResultList();

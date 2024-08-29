@@ -1,13 +1,14 @@
 package br.ifg.pw.model.entity;
 
-import br.ifg.pw.model.dto.user.TriagemUsuarioDTO;
+import br.ifg.pw.model.dto.triagem.TriagemUsuarioDTO;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import java.time.LocalDateTime;
 import io.quarkus.security.identity.SecurityIdentity;
-import javax.inject.Inject;
+
 
 @Entity
 @Data
@@ -49,13 +50,13 @@ public class Triagem extends PanacheEntityBase {
     @Column(name = "data_criacao", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
     LocalDateTime dataCriacao; // Armazena a data e hora da criação
 
-    @Inject
-    SecurityIdentity identity; //  metodo que identifica o usuario para pegar o ID do usuário que fez a triagem
+//    @Inject
+//    SecurityIdentity identity; //  metodo que identifica o usuario para pegar o ID do usuário que fez a triagem
 
     @Builder
     public Triagem(String especialidade, String hipertensao, String diabetico, String febre,
                    String dor, String intensidadeDor, String peso, double resultado) {
-        this.idUsuario = Integer.parseInt(identity.getPrincipal().getName()); // minhas implementação Captura o ID do usuário
+//        this.idUsuario = Integer.parseInt(identity.getPrincipal().getName()); // minhas implementação Captura o ID do usuário
         this.especialidade = especialidade;
         this.hipertensao = hipertensao;
         this.diabetico = diabetico;
@@ -71,7 +72,7 @@ public class Triagem extends PanacheEntityBase {
         return TriagemUsuarioDTO.builder()
                 .idUsuario(this.idUsuario)
                 .especialidade(this.especialidade)
-                .hipertenso(this.hipertensao)
+                .hipertensao(this.hipertensao)
                 .diabetico(this.diabetico)
                 .febre(this.febre)
                 .dor(this.dor)

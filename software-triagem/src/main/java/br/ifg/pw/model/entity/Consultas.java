@@ -1,13 +1,13 @@
 package br.ifg.pw.model.entity;
-
-import br.ifg.pw.model.dto.Consutas.ConsultasDTO;
+import br.ifg.pw.model.dto.consultas.ConsultasDTO;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import io.quarkus.security.identity.SecurityIdentity;
-import javax.inject.Inject;
 
 @Entity
 @Data
@@ -20,7 +20,7 @@ public class Consultas extends PanacheEntityBase {
     Long id;
 
     @Column(name = "id_usuario", columnDefinition = "int(50)") // Armazena o ID do usuário que fez a triagem
-    int idUsuario;
+    int iduser;
 
     @Column(name = "id_paciente", columnDefinition = "int(50)") // Armazena o ID do usuário que fez a triagem
     int paciente;
@@ -44,29 +44,29 @@ public class Consultas extends PanacheEntityBase {
     @Column(name = "data_criacao", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
     LocalDateTime dataCriacao; // Armazena a data e hora da criação
 
-    @Inject
-    SecurityIdentity identity; //  metodo que identifica o usuario para pegar o ID do usuário que fez o agendamento
+//    @Inject
+//    SecurityIdentity identity; //  metodo que identifica o usuario para pegar o ID do usuário que fez o agendamento
 
     @Builder
-    public Consultas(int paciente, String especialidade, String Local , LocalDate  data,
-                   String hora, String status,) {
-        this.idUsuario = Integer.parseInt(identity.getPrincipal().getName()); // minhas implementação Captura o ID do usuário
+    public Consultas(int paciente, String especialidade, String local , LocalDate data,
+                   String hora, String status) {
+//        this.iduser = Integer.parseInt(identity.getPrincipal().getName()); // minhas implementação Captura o ID do usuário
         this.paciente = paciente;
         this.especialidade = especialidade;
-        this.Local  = Local ;
+        this.local  = local ;
         this.data = data;
         this.hora = hora;
         this.status = status;
         this.dataCriacao = LocalDateTime.now(); //minha implementação Define a data de criação
     }
 
-    public ConsutasDTO toDTO() {
+    public ConsultasDTO toDTO() {
         return ConsultasDTO.builder()
-                .idUsuario(this.idUsuario)
+//                .iduser(this.iduser)
                 .paciente(this.paciente)
                 .especialidade(this.especialidade)
                 .local(this.local)
-                .data(this.data)
+                .data(String.valueOf(this.data))
                 .hora(this.hora)
                 .status(this.status)
                 .build();

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
+
 
 @Builder
 @Data
@@ -13,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 public class ConsultasDTO {
 
 
-    int idUsuario;
+//    int iduser;    ///linhas comentadas foi uma tentativa de implementação de captura do ide do usuario
     int paciente;
     String especialidade;
     String local;
@@ -24,9 +26,9 @@ public class ConsultasDTO {
 
 
 
-    public ConsultasDTO(int idUsuario, int paciente, String especialidade, String local, String data,
+    public ConsultasDTO( int paciente, String especialidade, String local, String data,
                              String hora, String status) {
-        this.idUsuario = Integer.parseInt(identity.getPrincipal().getName()); // minhas implementação Captura o ID do usuário
+//       this.iduser = iduser; // minhas implementação Captura o ID do usuário
         this.paciente = paciente;
         this.especialidade = especialidade;
         this.local = local;
@@ -36,7 +38,7 @@ public class ConsultasDTO {
 
     }
 
-//    public Consultas toEntity(ConsultasDTO dto) {
+//    public Consultas Entity(ConsultasDTO dto) {
 //
 //        return Consultas.builder()
 //                .idUsuario(dto.getIdUsuario())
@@ -53,13 +55,13 @@ public class ConsultasDTO {
 //    }
 
     //    ver qual dos dois metodos estão corretos
-    public Consultas toEntity() {
+    public Consultas Entity() {
         return Consultas.builder()
-                .idUsuario(this.idUsuario)
+//                .iduser(this.iduser)
                 .paciente(this.paciente)
                 .especialidade(this.especialidade)
                 .local(this.local)
-                .data(this.data) // Corrigido para usar o campo correto
+                .data(LocalDate.parse(this.data))
                 .hora(this.hora)
                 .status(this.status)
                 .build();

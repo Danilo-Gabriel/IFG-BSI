@@ -1,8 +1,8 @@
 package br.ifg.pw.model.bo;
 
 import br.ifg.pw.model.dao.TriagemDAO;
-import br.ifg.pw.model.dto.user.TriagemUsuarioDTO;
-import br.ifg.pw.model.dto.user.ListarTriagemDTO;
+import br.ifg.pw.model.dto.triagem.ListaTriagemDTO;
+import br.ifg.pw.model.dto.triagem.TriagemUsuarioDTO;
 import br.ifg.pw.model.entity.Triagem;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -49,12 +49,13 @@ public class TriagemBO {
 //
 //        return Response.serverError().build();
 //    }
+// ver import do list abaixo
+        public Response list () {
 
-    public Response list() {
+            List<ListaTriagemDTO> list = dao.findAllUsers();
 
-        List<ListarTriagemDTO> list = dao.findAllUsers();
+            return Response.ok(list).build();
+        }
 
-        return Response.ok(list).build();
     }
-
 }

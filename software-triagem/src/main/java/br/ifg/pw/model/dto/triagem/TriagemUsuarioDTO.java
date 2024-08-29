@@ -27,7 +27,7 @@ public class TriagemUsuarioDTO {
 
     public TriagemUsuarioDTO(int idUsuario,String especialidade, String hipertensao, String diabetico,
                              String febre, String dor,String intensidadeDor,String peso,double resultado) {
-        this.idUsuario = Integer.parseInt(identity.getPrincipal().getName()); // minhas implementação Captura o ID do usuário
+//        this.idUsuario = Integer.parseInt(identity.getPrincipal().getName()); // minhas implementação Captura o ID do usuário
         this.especialidade = especialidade;
         this.hipertensao = hipertensao;
         this.diabetico = diabetico;
@@ -58,7 +58,7 @@ public class TriagemUsuarioDTO {
 //    ver qual dos dois metodos estão corretos
 public Triagem toEntity() {
     return Triagem.builder()
-            .idUsuario(this.idUsuario)
+//            .idUsuario(this.idUsuario)
             .especialidade(this.especialidade)
             .hipertensao(this.hipertensao)
             .diabetico(this.diabetico) // Corrigido para usar o campo correto
