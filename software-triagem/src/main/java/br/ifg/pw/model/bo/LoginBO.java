@@ -28,10 +28,14 @@ public class LoginBO {
                     boolean valid =  BcryptUtil.matches(dto.getSenha(), user.getSenha());
 
                   if(valid){
-                      return Response.ok().build();
+                      return Response.status(Response.Status.OK)
+                              .entity("Sucess")
+                              .build();
                   }
                   else {
-                      return Response.status(Response.Status.UNAUTHORIZED).build();
+                      return Response.status(Response.Status.UNAUTHORIZED)
+                              .entity("Usuário não encontrado")
+                              .build();
                   }
                 }
                 return Response.status(400).entity("Usuário não cadastrado!").build();

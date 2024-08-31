@@ -37,7 +37,7 @@ export class AppCadastrarComponent implements OnInit{
   onSubmit(formCadastro : NgForm) {
     console.log(formCadastro)
     if(formCadastro.valid){
-      console.log("DEU CERTO")
+      this.servico.save(formCadastro.value)
     }else {
       console.log("Não deu ")
     }

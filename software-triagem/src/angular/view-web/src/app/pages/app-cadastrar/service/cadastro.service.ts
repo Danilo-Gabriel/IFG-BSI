@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {CadastroDTO} from "../../../../model/dto/cadastrar/cadastrar-dto";
 
@@ -13,7 +13,17 @@ export class CadastrarService {
 
     constructor(private http: HttpClient) { }
 
-    save(record : CadastroDTO){
-
+    save(record : CadastroDTO) {
+        this.http.post<any>(`http://localhost:8080/cadastrar`, record, {
+            observe: 'response',
+            responseType: 'text' as 'json'
+        })
+            .subscribe(
+                (response: HttpResponse<any>) => {
+                    console.log("Deu Certo");
+                },
+                (error) => {
+                    console.log("Deu Certo");
+                });
     }
 }

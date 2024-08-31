@@ -35,7 +35,6 @@ public class UserBO {
                         .nomeCompleto(dto.getNomeCompleto())
                         .email(dto.getEmail())
                         .senha(dto.getSenha())
-                        .endereco(dto.getEndereco())
                         .telefone(dto.getTelefone())
                         .build();
                 this.dao.persist(userNew);

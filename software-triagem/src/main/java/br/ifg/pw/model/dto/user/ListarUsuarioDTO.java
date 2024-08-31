@@ -1,6 +1,4 @@
 package br.ifg.pw.model.dto.user;
-
-import br.ifg.pw.model.entity.User;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
@@ -16,17 +14,15 @@ public class ListarUsuarioDTO {
      Long id;
      String nomeCompleto;
      String telefone;
-     String endereco;
      String email;
 
 
 
 
-    public ListarUsuarioDTO(Long id, String nomeCompleto, String telefone, String endereco, String email) {
+    public ListarUsuarioDTO(Long id, String nomeCompleto, String telefone, String email) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
-        this.endereco = endereco;
         this.email = email;
     }
 

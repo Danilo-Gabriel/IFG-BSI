@@ -2,6 +2,7 @@ export class TriagemDTO {
 
   constructor(
     public id? :string,
+    public idUsuario? : string,
     public especialidade?: string,
     public hipertensao?: string,
     public diabetico?: string,

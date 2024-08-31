@@ -4,7 +4,6 @@ import br.ifg.pw.model.dto.user.ListarUsuarioDTO;
 import br.ifg.pw.model.entity.User;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.hibernate.annotations.HQLSelect;
 
 import javax.management.Query;
 import java.util.List;
@@ -20,8 +19,8 @@ public class UserDAO implements PanacheRepositoryBase<User, Long> {
 
     public List<ListarUsuarioDTO> findAllUsers() {
 
-//        HQL     // corrigir o erro do importe dessa função
-        String hql = "select new br.ifg.pw.model.dto.user.ListarUsuarioDTO(u.id, u.nomeCompleto, u.telefone, u.endereco, u.email)" +
+        //language=HQL
+        String hql = "select new br.ifg.pw.model.dto.user.ListarUsuarioDTO(u.id, u.nomeCompleto, u.telefone, u.email)" +
                 "from User u";
 
         return getEntityManager().createQuery(hql, ListarUsuarioDTO.class).getResultList();
