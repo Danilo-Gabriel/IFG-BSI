@@ -3,33 +3,26 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import {AppLoginComponent} from "./app-login/app-login.component";
-import {AppHomeComponent} from "./app-home/app-home.component";
 import {AppUsersComponent} from "./app-users/app-users.component";
 import {AppCadastrarComponent} from "./app-cadastrar/app-cadastrar.component";
 import {AppTriagemComponent} from "./app-triagem/app-triagem.component";
 import {AppUseradimComponent} from "./app-useradim/app-useradim.component";
-import {AppEsqueceusenhaComponent} from "./app-esqueceusenha/app-esqueceusenha.component";
 import {AppAdministradorComponent} from "./app-administrador/app-administrador.component";
 import {AppAgendaconsultaComponent} from "./app-agendaconsulta/app-agendaconsulta.component";
-import {AppCadastraruserComponent} from "./app-cadastraruser/app-cadastraruser.component";
 import {AppConsultasuserComponent} from "./app-consultasuser/app-consultasuser.component";
 import {AppConsultatriagemComponent} from "./app-consultatriagem/app-consultatriagem.component";
 import {AppAgendaconsultasComponent} from "./app-agendaconsultas/app-agendaconsultas.component";
 import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
+import {MessageService} from "primeng/api";
 
 @NgModule({
     declarations: [
-      AppLoginComponent,
-      AppHomeComponent,
       AppUsersComponent,
       AppCadastrarComponent,
       AppTriagemComponent,
       AppUseradimComponent,
-      AppEsqueceusenhaComponent,
       AppAdministradorComponent,
       AppAgendaconsultaComponent,
-      AppCadastraruserComponent,
       AppConsultasuserComponent,
       AppConsultatriagemComponent,
       AppAgendaconsultasComponent
@@ -40,6 +33,9 @@ import {AngularReporModule} from "../../shared/angular-repor/angular-repor.modul
     PagesRoutingModule,
     FormsModule,
     AngularReporModule,
+  ],
+  providers : [
+    MessageService
   ]
 })
 export class PagesModule { }

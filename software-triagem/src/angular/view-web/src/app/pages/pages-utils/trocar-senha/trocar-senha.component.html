@@ -1,0 +1,33 @@
+
+  <ng-template pTemplate="content">
+
+    <div class="field">
+<!--      <label for="email">Email</label>-->
+<!--      <input type="text" pInputText id="email" [(ngModel)]="usuario.email" required autofocus />-->
+<!--      <small class="p-error" *ngIf="submitted && !usuario.email">Name is required.</small>-->
+    </div>
+
+    <br>
+
+    <div class="field">
+      <label for="nomeCompleto">Nome Completo</label>
+      <input type="text" pInputText id="nomeCompleto"  required autofocus />
+
+    </div>
+
+    <br>
+
+    <!--    <div class="field">-->
+    <!--      <label for="telefone">Perfil</label>-->
+    <!--      <div class="card flex justify-content-center">-->
+    <!--        <p-dropdown [options]="cities" [(ngModel)]="product.perfil"  optionValue="name"  optionLabel="name"></p-dropdown>-->
+    <!--      </div>-->
+
+    <!--    </div>-->
+
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <p-button label="Cancelar" severity="secondary"></p-button>
+    <p-button label="Salvar" severity="primary"></p-button>
+  </ng-template>

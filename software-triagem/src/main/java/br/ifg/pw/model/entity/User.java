@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 
 @Entity
 @Data
+@EqualsAndHashCode
 @Table(name = "tbusuario", uniqueConstraints={@UniqueConstraint(columnNames={"email"}, name = "email_unique")})
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
@@ -22,8 +23,6 @@ public class User extends PanacheEntityBase {
     String nomeCompleto;
     @Column(columnDefinition = "varchar(255)")
     String telefone;
-    @Column(name = "endereco", columnDefinition = "varchar(255)")
-    String endereco;
     @Column(name = "email", columnDefinition = "varchar(255)", unique = true)
     String email;
     @Column(columnDefinition = "varchar(255)")
@@ -32,11 +31,10 @@ public class User extends PanacheEntityBase {
     Boolean ativo;
 
     @Builder
-    public User(Long id, String nomeCompleto, String telefone, String endereco, String email, String senha, Boolean ativo) {
+    public User(Long id, String nomeCompleto, String telefone, String email, String senha) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
-        this.endereco = endereco;
         this.email = email;
         this.senha = BcryptUtil.bcryptHash(senha);
         this.ativo = true;
@@ -48,10 +46,20 @@ public class User extends PanacheEntityBase {
                 .nomeCompleto(this.nomeCompleto)
                 .email(this.email)
                 .senha(this.senha)
-                .endereco(this.endereco)
                 .telefone(this.telefone)
                 .build();
     }
+
+    public User resolve(CadastroUsuarioDTO dto){
+        return User.builder()
+                .id(this.id)
+                .nomeCompleto(dto.getNomeCompleto())
+                .email(dto.getNomeCompleto())
+                .senha(this.senha)
+                .telefone(dto.getTelefone())
+                .build();
+    }
+
 
 
     public User(){

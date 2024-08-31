@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CadastrarService } from './service/cadastro.service';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class AppCadastrarComponent implements OnInit{
   onSubmit(formCadastro : NgForm) {
     console.log(formCadastro)
     if(formCadastro.valid){
-      console.log("DEU CERTO")
+      this.servico.save(formCadastro.value)
     }else {
       console.log("Não deu ")
     }

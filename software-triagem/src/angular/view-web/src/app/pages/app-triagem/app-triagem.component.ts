@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-
+import { TriagemService } from './service/triagem.service';
 
 interface DadosFormulario {
     especialidade: string;
@@ -24,28 +23,20 @@ export class AppTriagemComponent {
     febre: 'sim' | 'nao' = 'nao';
     dor: 'sim' | 'nao' = 'nao';
     intensidade?: 'fraca' | 'media' | 'intensa';
-    peso: string = '';
-    idade: string = '';
+    peso: number = 0;
 
     exibirIntensidade: boolean = false;
+
+    constructor(private triagemService: TriagemService) {}
 
     toggleIntensidadeDisplay(): void {
         this.exibirIntensidade = this.dor === 'sim';
     }
 
     valores = {
-        hipertensao: {
-            sim: { valor: 2.6, peso: 1 },
-            nao: { valor: 1.7, peso: 2 }
-        },
-        diabetico: {
-            sim: { valor: 2.6, peso: 1 },
-            nao: { valor: 1.7, peso: 2 }
-        },
-        febre: {
-            sim: { valor: 2.6, peso: 1 },
-            nao: { valor: 1.7, peso: 2 }
-        },
+        hipertensao: { sim: { valor: 2.6, peso: 1 }, nao: { valor: 1.7, peso: 2 } },
+        diabetico: { sim: { valor: 2.6, peso: 1 }, nao: { valor: 1.7, peso: 2 } },
+        febre: { sim: { valor: 2.6, peso: 1 }, nao: { valor: 1.7, peso: 2 } },
         dor: {
             sim: {
                 fraca: { valor: 1.7, peso: 2 },
@@ -69,7 +60,7 @@ export class AppTriagemComponent {
             febre: this.febre,
             dor: this.dor,
             intensidade: this.dor === 'sim' ? this.intensidade : undefined,
-            peso: parseFloat(this.peso)
+            peso: this.peso
         };
 
         console.log('Dados do formulário capturados:', dadosFormulario);
@@ -77,10 +68,9 @@ export class AppTriagemComponent {
         const mediaPonderada = this.calcularMediaPonderada(dadosFormulario);
         console.log('Média Ponderada:', mediaPonderada);
 
-        // Exibir alerta de sucesso
-        alert('Dados enviados com sucesso!');
+        this.efetuarTriagem(dadosFormulario, mediaPonderada);
 
-        // Resetar o formulário
+        alert('Dados enviados com sucesso!');
         this.resetForm();
     }
 
@@ -108,8 +98,29 @@ export class AppTriagemComponent {
         return mediaPonderada;
     }
 
-    // Função para resetar o formulário
-    resetForm(): void {
+    efetuarTriagem(dadosFormulario: DadosFormulario, mediaPonderada: number): void {
+        const dadosTriagem = {
+            ...dadosFormulario,
+            mediaPonderada
+        };
 
+        this.triagemService.salvarTriagem(dadosTriagem).subscribe(
+            (response: any) => {
+                console.log('Resposta do servidor:', response);
+            },
+            (error: any) => {
+                console.error('Erro ao salvar os dados:', error);
+            }
+        );
+    }
+
+    resetForm(): void {
+        this.especialidade = '';
+        this.hipertensao = 'nao';
+        this.diabetico = 'nao';
+        this.febre = 'nao';
+        this.dor = 'nao';
+        this.intensidade = undefined;
+        this.peso = 0;
     }
 }

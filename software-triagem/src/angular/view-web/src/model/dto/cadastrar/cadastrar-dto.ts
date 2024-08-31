@@ -1,11 +1,11 @@
 export class CadastroDTO {
 
   constructor(
+    public id? : string,
     public nomeCompleto? : string,
     public telefone? : string,
-    public endereco? : string,
     public email? : string,
-    public password? : string
+    public senha? : string
   ) {
 
     /*
