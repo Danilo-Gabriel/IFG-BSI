@@ -14,9 +14,10 @@
             <nav class="nav-links">
                 <ul>
                     <li><a (click)="showSection('home')">Início</a></li>
-                    <li><a (click)="showSection('fazer-triagem')">Fazer Triagem</a></li>
-                    <li><a (click)="showSection('consultar-triagem')">Consultar Triagem</a></li>
-                    <li><a (click)="showSection('consultas')">Consultas Agendadas</a></li>
+                    <li><a (click)="showSection('cadastro')">Cadastro</a></li>
+                    <li><a (click)="showSection('fazer-triagem')">Triagem</a></li>
+                    <li><a (click)="showSection('consultar-triagem')">Consultar</a></li>
+                    <li><a (click)="showSection('consultas')">Agendas</a></li>
                     <li><a [routerLink]="['/pages/login']">Sair</a></li>
 
                 </ul>
@@ -49,7 +50,7 @@
         </div>
 
         <div id="consultas" class="section" [ngClass]="{ 'active': isActive('consultas') }">
-            <app-app-consultasuser></app-app-consultasuser>
+
         </div>
 
 

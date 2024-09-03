@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
-import {LoginService} from "../pages/pages-utils/app-login/service/login.service";
+import {LoginService} from "../pages-utils/app-login/service/login.service";
 
 @Component({
   selector: 'app-page-admin',

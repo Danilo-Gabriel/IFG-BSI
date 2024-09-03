@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {LoginDTO} from "../../../../../model/dto/login/login-dto";
-import {AppMessageService} from "../../../../../shared/message-service/message.service";
+import {LoginDTO} from "../../../../model/dto/login/login-dto";
+import {AppMessageService} from "../../../../shared/message-service/message.service";
 
 
 

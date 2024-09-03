@@ -8,10 +8,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AngularReporModule} from "../shared/angular-repor/angular-repor.module";
 import {PagesModule} from "./pages/pages.module";
 import {PageAdminModule} from "./page-admin/page-admin.module";
-import {LoginService} from "./pages/pages-utils/app-login/service/login.service";
-import {AppLoginComponent} from "./pages/pages-utils/app-login/app-login.component";
+import {LoginService} from "./pages-utils/app-login/service/login.service";
+import {AppLoginComponent} from "./pages-utils/app-login/app-login.component";
 import {MessageService} from "primeng/api";
-import {TrocarSenhaComponent} from "./pages/pages-utils/trocar-senha/trocar-senha.component";
+import {AppTrocarSenhaComponent} from "./pages-utils/app-trocar-senha/app-trocar-senha.component";
 
 
 
@@ -20,7 +20,7 @@ import {TrocarSenhaComponent} from "./pages/pages-utils/trocar-senha/trocar-senh
     declarations: [
         AppComponent,
         AppLoginComponent,
-        TrocarSenhaComponent
+        AppTrocarSenhaComponent
 
     ],
     imports: [
@@ -39,7 +39,7 @@ import {TrocarSenhaComponent} from "./pages/pages-utils/trocar-senha/trocar-senh
       MessageService
     ],
   exports: [
-    TrocarSenhaComponent
+    AppTrocarSenhaComponent
   ],
     bootstrap: [AppComponent]
 })

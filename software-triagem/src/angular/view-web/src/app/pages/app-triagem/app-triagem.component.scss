@@ -1,9 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #566e88, #69efc7, #2c2929);
+  background-size: cover; /* Cobrir toda a página */
+  background-repeat: no-repeat;
+  height: 1050px;
+
+}
+
+
 
 
 .campo {
+
   align-items: center;
   justify-content: center;
+
 }
+
 
 #titulo {
   text-align: center;
@@ -13,9 +28,8 @@
 .campo p {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 1.5rem;
+  font-size:1.5rem;
 }
-
 #intensidade-field {
   display: none;
 }
@@ -26,9 +40,9 @@
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 30px rgba(23, 18, 18, 0.2);
-  width: 40%;
+  width:70%;
   margin: auto;
-  border: 5px double white;
+  border:5px double white;
 }
 
 /* Estilos dos campos do formulário */
@@ -47,22 +61,22 @@ input[type="text"],
 input[type="date"],
 select {
   background-color: #fff;
-  width: 50%; /* Aumenta a largura em telas menores */
+  width: 50%;
   padding: 10px;
   margin-top: 10px;
   border: 2px solid rgb(114, 106, 106);
-  border-radius: 5px;
+  border-radius:5px;
   font-size: 1.1rem;
 }
-
 input[type="radio"] {
-  margin-right: 5px;
-  cursor: pointer;
+  margin-right: 5px; /* Espaçamento à direita do botão de rádio */
+  cursor: pointer; /* Altera o cursor ao passar sobre */
   font-weight: bold;
 }
 
 .botao {
-  width: 20%; /* Altera largura para 100% */
+
+  width: 29%;
   padding: 10px;
   background-color: #0097A7;
   border: 3px double white;
@@ -70,17 +84,20 @@ input[type="radio"] {
   border-radius: 15px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 20px; /* Ajusta margem superior */
+  margin: 0 auto; /* Centraliza o botão */
+  display: block;
+  margin-top: 80px;
+
 }
 
 .botao:hover {
   border: 3px double white;
   background-color: #034d39;
-  color: white;
+  color:white;
 }
 
-footer {
-  margin-top: 40px;
+footer{
+  margin-top:40px;
   background: #6e6c6c;
   color: #fff;
   padding: 1rem;
@@ -92,31 +109,21 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .formu {
-    width: 80%; /* Aumenta largura do formulário */
-  }
-
-  input[type="text"],
-  input[type="date"],
-  select {
-    width: 50%; /* Garante que os campos ocupem toda a largura */
+  form {
+    padding: 15px;
   }
 
   .botao {
-    font-size: 0.9rem;
+    font-size: 0.83rem;
   }
 }
 
 @media (max-width: 480px) {
-  .formu {
+  form {
     padding: 10px;
   }
 
   .botao {
-    font-size: 0.8rem;
-  }
-
-  .campo p {
-    font-size: 1.2rem; /* Ajusta o tamanho da fonte */
+    font-size: 0.75rem;
   }
 }

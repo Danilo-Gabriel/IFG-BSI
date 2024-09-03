@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppLoginComponent} from "./pages/pages-utils/app-login/app-login.component";
+import {AppLoginComponent} from "./pages-utils/app-login/app-login.component";
+import {AppTrocarSenhaComponent} from "./pages-utils/app-trocar-senha/app-trocar-senha.component";
 
 const routes: Routes = [
 
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: 'login', component: AppLoginComponent},
+  {path: 'alter-senha', component: AppTrocarSenhaComponent},
 
 
   {path:'admin',
