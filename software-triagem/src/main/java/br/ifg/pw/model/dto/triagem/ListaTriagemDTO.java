@@ -9,22 +9,22 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ListaTriagemDTO {
-    private long id;
-    private long idUsuario;
-    private String especialidade;
-    private String hipertensao;
-    private String diabetico;
-    private String febre;
-    private String dor;
-    private String intensidadeDor;
-    private String peso;
-    private String resultado;
+    long id;
+    String idUsuario;
+    String especialidade;
+    String hipertensao;
+    String diabetico;
+    String febre;
+    String dor;
+    String intensidadeDor;
+    String peso;
+    String resultado;
 
-    public  ListaTriagemDTO(long id,long idUsuario,String especialidade,String hipertesao,
+    public  ListaTriagemDTO(long id,String idUsuario,String especialidade,String hipertesao,
                                  String diabetico,String febre,String dor,String intensidadeDor,String peso,
                                  String resultado){
         this.id = id;
-        this.idUsuario = Long.parseLong(String.valueOf(idUsuario));
+        this.idUsuario = idUsuario;
         this.especialidade = especialidade;
         this.hipertensao  = hipertesao;
         this.diabetico = diabetico;

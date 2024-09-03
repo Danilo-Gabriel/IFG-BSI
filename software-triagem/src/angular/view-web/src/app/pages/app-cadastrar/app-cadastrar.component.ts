@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CadastrarService } from './service/cadastro.service';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
 
 
 @Component({

@@ -31,7 +31,7 @@ public class User extends PanacheEntityBase {
     Boolean ativo;
 
     @Builder
-    public User(Long id, String nomeCompleto, String telefone, String endereco, String email, String senha, Boolean ativo) {
+    public User(Long id, String nomeCompleto, String telefone, String email, String senha) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
@@ -49,6 +49,17 @@ public class User extends PanacheEntityBase {
                 .telefone(this.telefone)
                 .build();
     }
+
+    public User resolve(CadastroUsuarioDTO dto){
+        return User.builder()
+                .id(this.id)
+                .nomeCompleto(dto.getNomeCompleto())
+                .email(dto.getNomeCompleto())
+                .senha(this.senha)
+                .telefone(dto.getTelefone())
+                .build();
+    }
+
 
 
     public User(){

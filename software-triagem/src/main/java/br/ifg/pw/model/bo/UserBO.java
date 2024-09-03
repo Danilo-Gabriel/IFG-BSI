@@ -4,12 +4,15 @@ import br.ifg.pw.model.dao.UserDAO;
 import br.ifg.pw.model.dto.user.CadastroUsuarioDTO;
 import br.ifg.pw.model.dto.user.ListarUsuarioDTO;
 import br.ifg.pw.model.entity.User;
+import io.quarkus.elytron.security.common.BcryptUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
+
+import static java.util.Objects.nonNull;
 
 
 @ApplicationScoped
@@ -24,28 +27,38 @@ public class UserBO {
         //todo ajustar os retornos com as mensagems corretas
 
         try {
-            if (dto != null) {
 
-                User exist = dao.findByEmail(dto.getEmail());
-
-                if (exist != null) {
-                    return Response.status(Response.Status.CONFLICT).build();
-                }
-                User userNew = User.builder()
-                        .nomeCompleto(dto.getNomeCompleto())
-                        .email(dto.getEmail())
-                        .senha(dto.getSenha())
-                        .telefone(dto.getTelefone())
-                        .build();
-                this.dao.persist(userNew);
+            //todo ajustar isso aqui depois
+            if (nonNull(dto.getId())) {
+                User entity = dao.findById(dto.getId());
+                entity.setNomeCompleto(dto.getNomeCompleto());
+                entity.setEmail(dto.getEmail());
+                entity.setTelefone(dto.getTelefone());
+                this.dao.persist(entity);
                 return Response.status(Response.Status.CREATED).build();
             }
+
+            User exist = dao.findByEmail(dto.getEmail());
+
+            if (exist != null) {
+                return Response.status(Response.Status.CONFLICT).build();
+            }
+
+            User userNew = User.builder()
+                    .id(dto.getId())
+                    .nomeCompleto(dto.getNomeCompleto())
+                    .email(dto.getEmail())
+                    .senha(dto.getSenha())
+                    .telefone(dto.getTelefone())
+                    .build();
+            this.dao.persist(userNew);
+            return Response.status(Response.Status.CREATED).build();
+
         } catch (Exception e) {
 
             return Response.serverError().build();
         }
 
-        return Response.serverError().build();
     }
 
     public Response list() {
@@ -54,5 +67,17 @@ public class UserBO {
 
         return Response.ok(list).build();
     }
+
+    public Response remover(Long id) {
+
+        try {
+            dao.deleteById(id);
+           return Response.status(Response.Status.OK).build();
+
+        } catch (Exception e) {
+            return Response.serverError().build();
+        }
+    }
+
 
 }

@@ -1,4 +1,4 @@
-export class CadastroDTO {
+export class UsuarioListDTO {
 
   constructor(
     public id? : string,

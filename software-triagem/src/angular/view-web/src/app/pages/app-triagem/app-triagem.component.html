@@ -3,7 +3,7 @@
 <div class="campo">
     <p><strong>Preencha os campos abaixo</strong></p>
 </div>
-<form #formuTriagem="ngForm"(ngSubmit)="onSubmit(formuTriagem)" class="formu" >
+<form (ngSubmit)="onSubmit()"class="formu" >
     <fieldset class="grupo">
         <div class="campo">
             <label for="especialidades"><strong>Qual Especialidade?</strong></label>
@@ -56,7 +56,7 @@
             <input type="text" id="peso" name="peso" [(ngModel)]="peso" required>
         </div>
         <hr>
-        <button [disabled]="formuTriagem.invalid" class="botao" type="submit">Enviar</button>
+        <button (click)="onSubmit()" class="botao" type="submit">Enviar</button>
     </fieldset>
 </form>
 

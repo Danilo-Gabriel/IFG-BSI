@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { TriagemService } from './service/triagem.service';
-import { NgForm } from '@angular/forms';
 
-interface FormuTriagem {
+interface DadosFormulario {
     especialidade: string;
     hipertensao: 'sim' | 'nao';
     diabetico: 'sim' | 'nao';
@@ -53,7 +52,29 @@ export class AppTriagemComponent {
         }
     };
 
-    calcularMediaPonderada(dados: FormuTriagem): number {
+    onSubmit(): void {
+        const dadosFormulario: DadosFormulario = {
+            especialidade: this.especialidade,
+            hipertensao: this.hipertensao,
+            diabetico: this.diabetico,
+            febre: this.febre,
+            dor: this.dor,
+            intensidade: this.dor === 'sim' ? this.intensidade : undefined,
+            peso: this.peso
+        };
+
+        console.log('Dados do formulário capturados:', dadosFormulario);
+
+        const mediaPonderada = this.calcularMediaPonderada(dadosFormulario);
+        console.log('Média Ponderada:', mediaPonderada);
+
+        this.efetuarTriagem(dadosFormulario, mediaPonderada);
+
+        alert('Dados enviados com sucesso!');
+        this.resetForm();
+    }
+
+    calcularMediaPonderada(dados: DadosFormulario): number {
         let valorDor = 0;
         let pesoDor = 0;
 
@@ -76,34 +97,30 @@ export class AppTriagemComponent {
 
         return mediaPonderada;
     }
-    async onSubmit(form: NgForm): Promise<void> {
-        if (form.valid) {
-            const formData: FormuTriagem = form.value;
 
-            // Converter 'peso' para string para compatibilidade com o DTO
-            const dadosTriagem = {
-                ...formData,
-                peso: formData.peso, // Converter para string
-                mediaPonderada: this.calcularMediaPonderada(formData)
-            };
+    efetuarTriagem(dadosFormulario: DadosFormulario, mediaPonderada: number): void {
+        const dadosTriagem = {
+            ...dadosFormulario,
+            mediaPonderada
+        };
 
-            try {
-                const response = await this.triagemService.salvarTriagem(dadosTriagem);
-                console.log('Dados salvos com sucesso:', response);
-                this.resetForm(form); // Resetar o formulário após o sucesso
-            } catch (error) {
+        this.triagemService.salvarTriagem(dadosTriagem).subscribe(
+            (response: any) => {
+                console.log('Resposta do servidor:', response);
+            },
+            (error: any) => {
                 console.error('Erro ao salvar os dados:', error);
             }
-        } else {
-            console.log('Formulário inválido.');
-        }
+        );
     }
 
-
-
-
-
-    resetForm(form: NgForm): void {
-        form.resetForm();
+    resetForm(): void {
+        this.especialidade = '';
+        this.hipertensao = 'nao';
+        this.diabetico = 'nao';
+        this.febre = 'nao';
+        this.dor = 'nao';
+        this.intensidade = undefined;
+        this.peso = 0;
     }
 }

@@ -11,6 +11,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 public class CadastroUsuarioDTO {
 
+     Long id;
      String nomeCompleto;
      String telefone;
      String email;
@@ -18,7 +19,8 @@ public class CadastroUsuarioDTO {
 
    
 
-    public CadastroUsuarioDTO(String nomeCompleto, String telefone, String endereco, String email, String senha) {
+    public CadastroUsuarioDTO(Long id, String nomeCompleto, String telefone, String endereco, String email, String senha) {
+        this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
         this.email = email;
