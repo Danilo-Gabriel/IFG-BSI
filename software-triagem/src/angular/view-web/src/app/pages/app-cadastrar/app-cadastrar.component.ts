@@ -22,17 +22,6 @@ export class AppCadastrarComponent implements OnInit{
   /* VARIAVEIS DE AMBIENTE */
   form!: FormGroup;
 
-  // fullName: ['', Validators.required],
-  // phone: ['', Validators.required],
-  // address: ['', Validators.required],
-  // birthDate: ['', Validators.required],
-  // email: ['', [Validators.required, Validators.email]],
-  // password: ['', [Validators.required, Validators.minLength(8)]],
-  // confirmPassword: ['', Validators.required]
-
-
-    // Método que chama o serviço salvar e verifica se o formulário é válido
-
   //METODO CHAMA O SERVIÇO SALVAR
   onSubmit(formCadastro : NgForm) {
     console.log(formCadastro)
