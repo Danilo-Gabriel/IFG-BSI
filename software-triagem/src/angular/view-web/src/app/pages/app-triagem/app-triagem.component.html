@@ -3,7 +3,7 @@
 <div class="campo">
     <p><strong>Preencha os campos abaixo</strong></p>
 </div>
-<form (ngSubmit)="onSubmit()"class="formu" >
+<form class="formu" (ngSubmit)="onSubmit()" #triagemForm="ngForm">
     <fieldset class="grupo">
         <div class="campo">
             <label for="especialidades"><strong>Qual Especialidade?</strong></label>
@@ -55,8 +55,12 @@
             <label for="peso"><strong>Qual seu peso?</strong></label>
             <input type="text" id="peso" name="peso" [(ngModel)]="peso" required>
         </div>
+        <div class="campo">
+            <label for="idade"><strong>Data de Nascimento</strong></label>
+            <input type="date" id="idade" name="idade" [(ngModel)]="idade" required>
+        </div>
         <hr>
-        <button (click)="onSubmit()" class="botao" type="submit">Enviar</button>
+        <button id="submitbtn" class="botao" type="submit">Enviar</button>
     </fieldset>
 </form>
 

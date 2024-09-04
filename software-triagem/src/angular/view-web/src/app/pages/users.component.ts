@@ -3,11 +3,11 @@ import {Router} from "@angular/router";
 import {LoginService} from "../pages-utils/app-login/service/login.service";
 
 @Component({
-  selector: 'app-page-admin',
-  templateUrl: './page-admin.component.html',
-  styleUrls: ['./page-admin.component.scss']
+  selector: 'app-pages',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class PageAdminComponent {
+export class UsersComponent {
 
   sidebarVisible = false;
   dialog = false
@@ -26,4 +26,5 @@ export class PageAdminComponent {
   logout(){
     this.loginServico.logout();
   }
+
 }

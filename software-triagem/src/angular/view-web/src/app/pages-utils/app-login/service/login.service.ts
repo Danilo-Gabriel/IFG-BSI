@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {LoginDTO} from "../../../../../model/dto/login/login-dto";
-import {AppMessageService} from "../../../../../shared/message-service/message.service";
+import {LoginDTO} from "../../../../model/dto/login/login-dto";
+import {AppMessageService} from "../../../../shared/message-service/message.service";
 
 
 
@@ -32,7 +32,10 @@ export class LoginService {
             console.log('Response Body:', response.body);
             console.log(response)
             this.messagemService.showSuccess("Sucesso!")
-            this.router.navigate(['/admin/']);
+
+            //todo alterar para admin caso os testes sejam para interface de administrador e users para interface de usuario
+            this.router.navigate(['/users']);
+
           }
         },
         (error) => {
