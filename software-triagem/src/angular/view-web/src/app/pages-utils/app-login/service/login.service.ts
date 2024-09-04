@@ -32,7 +32,10 @@ export class LoginService {
             console.log('Response Body:', response.body);
             console.log(response)
             this.messagemService.showSuccess("Sucesso!")
-            this.router.navigate(['/admin/']);
+
+            //todo alterar para admin caso os testes sejam para interface de administrador e users para interface de usuario
+            this.router.navigate(['/users']);
+
           }
         },
         (error) => {

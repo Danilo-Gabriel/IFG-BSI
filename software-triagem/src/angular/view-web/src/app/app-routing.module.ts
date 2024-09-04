@@ -2,19 +2,28 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AppLoginComponent} from "./pages-utils/app-login/app-login.component";
 import {AppTrocarSenhaComponent} from "./pages-utils/app-trocar-senha/app-trocar-senha.component";
+import {AppCadastrarComponent} from "./pages-utils/app-cadastrar/app-cadastrar.component";
+
 
 const routes: Routes = [
 
+  //todo paginas publicas
+
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: 'login', component: AppLoginComponent},
+  {path: 'cadastrar', component: AppCadastrarComponent},
   {path: 'alter-senha', component: AppTrocarSenhaComponent},
 
 
+  //todo interface administrador
   {path:'admin',
     loadChildren: () => import('./page-admin/page-admin.module').then(m => m.PageAdminModule)},
 
-  {path:'pages',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)}
+
+  //todo interface de usuário
+  {path:'users',
+    loadChildren: () => import('./pages/users.module').then(m => m.UsersModule)}
+
 
 ];
 

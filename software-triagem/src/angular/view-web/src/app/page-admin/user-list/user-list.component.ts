@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ConfirmationService, MessageService} from "primeng/api";
 import {ListService} from "./list.service";
 import {UsuarioListDTO} from "../../../model/dto/usuario/usuario-list.dto";
-import {CadastrarService} from "../../pages/app-cadastrar/service/cadastro.service";
+import {CadastrarService} from "../../pages-utils/app-cadastrar/service/cadastro.service";
 
 interface Perfil {
   name: string;
