@@ -1,114 +1,131 @@
 import { Component } from '@angular/core';
 import { TriagemService } from './service/triagem.service';
+import { NgForm } from "@angular/forms";
 
-interface DadosFormulario {
-    especialidade: string;
-    hipertensao: 'sim' | 'nao';
-    diabetico: 'sim' | 'nao';
-    febre: 'sim' | 'nao';
-    dor: 'sim' | 'nao';
-    intensidade?: 'fraca' | 'media' | 'intensa';
-    peso: number;
+interface FormuTriagem {
+  especialidade: string;
+  hipertensao: 'sim' | 'nao';
+  diabetico: 'sim' | 'nao';
+  febre: 'sim' | 'nao';
+  dor: 'sim' | 'nao';
+  intensidade?: 'fraca' | 'media' | 'intensa';
+  peso: number;
 }
 
 @Component({
-    selector: 'app-triagem',
-    templateUrl: './app-triagem.component.html',
-    styleUrls: ['./app-triagem.component.scss']
+  selector: 'app-triagem',
+  templateUrl: './app-triagem.component.html',
+  styleUrls: ['./app-triagem.component.scss']
 })
 export class AppTriagemComponent {
-    especialidade: string = '';
-    hipertensao: 'sim' | 'nao' = 'nao';
-    diabetico: 'sim' | 'nao' = 'nao';
-    febre: 'sim' | 'nao' = 'nao';
-    dor: 'sim' | 'nao' = 'nao';
-    intensidade?: 'fraca' | 'media' | 'intensa';
-    peso: string = '';
-    idade: string = '';
+  especialidade: string = '';
+  hipertensao: 'sim' | 'nao' = 'nao';
+  diabetico: 'sim' | 'nao' = 'nao';
+  febre: 'sim' | 'nao' = 'nao';
+  dor: 'sim' | 'nao' = 'nao';
+  intensidade?: 'fraca' | 'media' | 'intensa';
+  peso: number = 0;
 
-    exibirIntensidade: boolean = false;
 
-    toggleIntensidadeDisplay(): void {
-        this.exibirIntensidade = this.dor === 'sim';
+  exibirIntensidade: boolean = false;
+
+  constructor(private triagemService: TriagemService) {}
+
+  toggleIntensidadeDisplay(): void {
+    this.exibirIntensidade = this.dor === 'sim';
+  }
+
+  valores = {
+    hipertensao: { sim: { valor: 2.6, peso: 1 }, nao: { valor: 1.7, peso: 2 } },
+    diabetico: { sim: { valor: 2.6, peso: 1 }, nao: { valor: 1.7, peso: 2 } },
+    febre: { sim: { valor: 2.6, peso: 1 }, nao: { valor: 1.7, peso: 2 } },
+    dor: {
+      sim: {
+        fraca: { valor: 1.7, peso: 2 },
+        media: { valor: 3.8, peso: 2 },
+        intensa: { valor: 5.8, peso: 2 }
+      },
+      nao: { valor: 1, peso: 2 }
+    },
+    peso: {
+      maior100: { valor: 4.6, peso: 2 },
+      menor15: { valor: 4.2, peso: 2 },
+      padrao: { valor: 1.5, peso: 2 }
     }
+  };
 
-    valores = {
-        hipertensao: {
-            sim: { valor: 2.6, peso: 1 },
-            nao: { valor: 1.7, peso: 2 }
+  onSubmit(formuTriagem: NgForm) {
+    if (formuTriagem.valid) {
+      const dadosFormulario: FormuTriagem = {
+        especialidade: formuTriagem.value.especialidade || '',
+        hipertensao: formuTriagem.value.hipertensao || 'nao',
+        diabetico: formuTriagem.value.diabetico || 'nao',
+        febre: formuTriagem.value.febre || 'nao',
+        dor: formuTriagem.value.dor || 'nao',
+        intensidade: formuTriagem.value.dor === 'sim' ? formuTriagem.value.intensidade : undefined,
+        peso: parseFloat(formuTriagem.value.peso) || 0
+      };
+
+
+      // Calcula a média ponderada
+      const mediaPonderada = this.calcularMediaPonderada(dadosFormulario);
+      console.log('Média Ponderada:', mediaPonderada);
+      console.log(dadosFormulario);
+
+
+
+      // Cria o objeto que será enviado
+      const dadosTriagem = { ...dadosFormulario, mediaPonderada };
+
+      // Chama o serviço com os dados
+      // @ts-ignore
+      this.triagemService.salvarTriagem(dadosTriagem).subscribe(
+        (response: any) => {
+          console.log('Resposta do servidor:', response);
         },
-        diabetico: {
-            sim: { valor: 2.6, peso: 1 },
-            nao: { valor: 1.7, peso: 2 }
-        },
-        febre: {
-            sim: { valor: 2.6, peso: 1 },
-            nao: { valor: 1.7, peso: 2 }
-        },
-        dor: {
-            sim: {
-                fraca: { valor: 1.7, peso: 2 },
-                media: { valor: 3.8, peso: 2 },
-                intensa: { valor: 5.8, peso: 2 }
-            },
-            nao: { valor: 1, peso: 2 }
-        },
-        peso: {
-            maior100: { valor: 4.6, peso: 2 },
-            menor15: { valor: 4.2, peso: 2 },
-            padrao: { valor: 1.5, peso: 2 }
+        (error: any) => {
+          console.error('Erro ao salvar os dados:', error);
         }
-    };
+      );
 
-    onSubmit(): void {
-        const dadosFormulario: DadosFormulario = {
-            especialidade: this.especialidade,
-            hipertensao: this.hipertensao,
-            diabetico: this.diabetico,
-            febre: this.febre,
-            dor: this.dor,
-            intensidade: this.dor === 'sim' ? this.intensidade : undefined,
-            peso: parseFloat(this.peso)
-        };
+      alert('processando os dados!');
+      this.resetForm(); // Reseta o formulário após o envio
+    } else {
+      console.log("Formulário inválido");
+    }
+  }
 
-        console.log('Dados do formulário capturados:', dadosFormulario);
+  calcularMediaPonderada(dados: FormuTriagem): number {
+    let valorDor = 0;
+    let pesoDor = 0;
 
-        const mediaPonderada = this.calcularMediaPonderada(dadosFormulario);
-        console.log('Média Ponderada:', mediaPonderada);
-
-        // Exibir alerta de sucesso
-        alert('Dados enviados com sucesso!');
-
-        // Resetar o formulário
-        this.resetForm();
+    if (dados.dor === 'sim' && dados.intensidade) {
+      valorDor = this.valores.dor.sim[dados.intensidade].valor;
+      pesoDor = this.valores.dor.sim[dados.intensidade].peso;
+    } else {
+      valorDor = this.valores.dor.nao.valor;
+      pesoDor = this.valores.dor.nao.peso;
     }
 
-    calcularMediaPonderada(dados: DadosFormulario): number {
-        let valorDor = 0;
-        let pesoDor = 0;
+    const mediaPonderada =
+      (this.valores.hipertensao[dados.hipertensao].valor * this.valores.hipertensao[dados.hipertensao].peso +
+        this.valores.diabetico[dados.diabetico].valor * this.valores.diabetico[dados.diabetico].peso +
+        this.valores.febre[dados.febre].valor * this.valores.febre[dados.febre].peso +
+        valorDor * pesoDor +
+        (dados.peso > 100 ? this.valores.peso.maior100 : dados.peso < 15 ? this.valores.peso.menor15 : this.valores.peso.padrao).valor *
+        (dados.peso > 100 ? this.valores.peso.maior100 : dados.peso < 15 ? this.valores.peso.menor15 : this.valores.peso.padrao).peso)
+      / 5;
 
-        if (dados.dor === 'sim' && dados.intensidade) {
-            valorDor = this.valores.dor.sim[dados.intensidade].valor;
-            pesoDor = this.valores.dor.sim[dados.intensidade].peso;
-        } else {
-            valorDor = this.valores.dor.nao.valor;
-            pesoDor = this.valores.dor.nao.peso;
-        }
+    return mediaPonderada;
+  }
 
-        const mediaPonderada =
-            (this.valores.hipertensao[dados.hipertensao].valor * this.valores.hipertensao[dados.hipertensao].peso +
-                this.valores.diabetico[dados.diabetico].valor * this.valores.diabetico[dados.diabetico].peso +
-                this.valores.febre[dados.febre].valor * this.valores.febre[dados.febre].peso +
-                valorDor * pesoDor +
-                (dados.peso > 100 ? this.valores.peso.maior100 : dados.peso < 15 ? this.valores.peso.menor15 : this.valores.peso.padrao).valor *
-                (dados.peso > 100 ? this.valores.peso.maior100 : dados.peso < 15 ? this.valores.peso.menor15 : this.valores.peso.padrao).peso)
-            / 5;
-
-        return mediaPonderada;
-    }
-
-    // Função para resetar o formulário
-    resetForm(): void {
-
-    }
+  resetForm(): void {
+    this.especialidade = '';
+    this.hipertensao = 'nao';
+    this.diabetico = 'nao';
+    this.febre = 'nao';
+    this.dor = 'nao';
+    this.intensidade = undefined;
+    this.peso = 0;
+  }
 }

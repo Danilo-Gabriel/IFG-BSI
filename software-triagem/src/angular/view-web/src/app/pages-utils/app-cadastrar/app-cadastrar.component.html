@@ -1,5 +1,11 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+<body>
+<header>
+  <h1>Sistema de Triagem Médica</h1>
+
+</header>
+
 <div class="cadastro">
     <form #formCadastro="ngForm" class="formcadastro" (ngSubmit)="onSubmit(formCadastro)"  id="formulario">
 
@@ -8,6 +14,14 @@
             <label for="nomeCompleto"></label>
             <input ngModel type="text" id="nomeCompleto" name="nomeCompleto" class="fullName" placeholder="Nome Completo" required>
         </div>
+      <div class="form-group">
+        <label for="endereco"></label>
+        <input ngModel type="text" id="endereco" name="endereco" class="endereco" placeholder="Endereço Completo" required>
+      </div>
+      <div class="form-group">
+        <label for="phone"></label>
+        <input ngModel type="text" id="phone" name="phone" class="phone" placeholder="Telefone" required>
+      </div>
 
         <div class="form-group">
             <label for="email"></label>
@@ -17,12 +31,12 @@
         <label for="senha"></label>
         <input type="password" ngModel id="senha" name="senha" required class="password" placeholder="Digite sua Senha">
         <span id="senha-instrucoes" class="instrucoes">
-        Senha com pelo menos 8 caracteres, incluindo números e letras maiúsculas e minúsculas.
+        Senha com pelo menos<strong>8 caracteres,</strong> incluindo <strong>números e letras maiúsculas e minúsculas.</strong>
       </span>
 
       </div>
       <div class="form-group">
-        <label for="confirmPassword">Confirmar Senha:</label>
+        <label for="confirmPassword"></label>
         <input type="password" id="confirmPassword" name="confirmPassword" required class="confirmPassword" placeholder="Confirme a Senha">
         <span  id="senha-igual-span" class="instrucoes" style="display: none; color: red;"></span>
       </div>
@@ -31,8 +45,12 @@
 
         <div class="form-group1">
             <button [disabled]="formCadastro.invalid" type="submit">Enviar</button>
+          <button [routerLink]="['/login']" type="submit">Voltar</button>
         </div>
 
     </form>
     </div>
+
+
+</body>
 
