@@ -14,22 +14,17 @@ public class ResponseDTO {
     private String id;
     private String email;
     private String senha;
+    private String perfil;
     private String message;
 
 
     @Builder
-    public ResponseDTO(String id, String email, String senha, String message) {
+    public ResponseDTO(String id, String email, String senha, String message, String perfil) {
         this.id = id;
         this.email = email;
         this.senha = senha;
         this.message = message;
+        this.perfil = perfil;
     }
 
-    public static ResponseDTO toResponse(User user) {
-        return ResponseDTO.builder()
-                .id(BcryptUtil.bcryptHash(user.getId().toString()))
-                .email(user.getEmail())
-                .senha(user.getSenha())
-                .build();
-    }
 }

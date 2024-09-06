@@ -1,6 +1,6 @@
 package br.ifg.pw.model.dto.user;
 
-import br.ifg.pw.model.entity.User;
+
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -9,17 +9,22 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@AllArgsConstructor
 public class CadastroUsuarioDTO {
 
      Long id;
      @NotBlank(message = "Campo Nome completo obrigatório.")
      String nomeCompleto;
+
      String telefone;
+
      @NotBlank(message = "Campo Email obrigatório.")
      String email;
+
      @NotBlank(message = "Campo Senha obrigatório.")
      String senha;
+
+    @NotBlank(message = "Campo Perfil obrigatório.")
+     String perfil;
 
    
 
@@ -30,18 +35,18 @@ public class CadastroUsuarioDTO {
         this.email = email;
         this.senha = senha;
     }
-
-    public User toEntity(CadastroUsuarioDTO dto) {
-
-        return User.builder()
-                .nomeCompleto(dto.getNomeCompleto())
-                .email(dto.getEmail())
-                .senha(dto.getSenha())
-                .telefone(dto.getTelefone())
-                .build();
-
-
-    }
+//
+//    public User toEntity(CadastroUsuarioDTO dto) {
+//
+//        return User.builder()
+//                .nomeCompleto(dto.getNomeCompleto())
+//                .email(dto.getEmail())
+//                .senha(dto.getSenha())
+//                .telefone(dto.getTelefone())
+//                .build();
+//
+//
+//    }
 
     public CadastroUsuarioDTO(){
 

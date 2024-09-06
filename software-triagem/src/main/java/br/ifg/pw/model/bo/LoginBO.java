@@ -46,8 +46,9 @@ public class LoginBO {
                       //todo estar mandando tudo criar um dto para envio para o front sem id
 
                       ResponseDTO responseDTO = ResponseDTO.builder()
-                              .id(BcryptUtil.bcryptHash(user.getId().toString()))
+                              .id(user.getId().toString())
                               .email(user.getEmail())
+                              .perfil(user.getPerfil())
                               .senha(user.getSenha())
                               .build();
 

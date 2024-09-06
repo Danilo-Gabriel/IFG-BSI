@@ -19,24 +19,33 @@ public class User extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     @Column(name = "nome_completo", columnDefinition = "varchar(255)")
     String nomeCompleto;
+
     @Column(columnDefinition = "varchar(255)")
     String telefone;
+
     @Column(name = "email", columnDefinition = "varchar(255)", unique = true)
     String email;
+
     @Column(columnDefinition = "varchar(255)")
     String senha;
+
+    @Column(columnDefinition = "varchar(255)")
+    String perfil;
+
     @Column(columnDefinition = "Boolean")
     Boolean ativo;
 
     @Builder
-    public User(Long id, String nomeCompleto, String telefone, String email, String senha) {
+    public User(Long id, String nomeCompleto, String telefone, String email, String senha, String perfil) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.telefone = telefone;
         this.email = email;
         this.senha = BcryptUtil.bcryptHash(senha);
+        this.perfil = perfil;
         this.ativo = true;
     }
 
@@ -46,6 +55,7 @@ public class User extends PanacheEntityBase {
                 .nomeCompleto(this.nomeCompleto)
                 .email(this.email)
                 .senha(this.senha)
+                .perfil(this.perfil)
                 .telefone(this.telefone)
                 .build();
     }
@@ -55,6 +65,7 @@ public class User extends PanacheEntityBase {
                 .id(this.id)
                 .nomeCompleto(dto.getNomeCompleto())
                 .email(dto.getNomeCompleto())
+                .perfil(dto.getPerfil())
                 .senha(this.senha)
                 .telefone(dto.getTelefone())
                 .build();

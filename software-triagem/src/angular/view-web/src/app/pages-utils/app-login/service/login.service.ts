@@ -21,6 +21,8 @@ export class LoginService {
   ) {
   }
 
+  dados = new LoginDTO;
+
   efetuarLogin(record: LoginDTO) {
     this.http.post<any>(`http://localhost:8080/login`, record, {
       observe: 'response',
@@ -33,8 +35,18 @@ export class LoginService {
             console.log('Response Body:', response.body);
             console.log(response)
             this.storage.armazenarLoginUser(response.body)
-            this.messagemService.showSuccess("Sucesso!")
-            this.router.navigate(['/admin']);
+            this.dados.perfil = response.body.perfil;
+
+            debugger
+            console.log(this.dados.perfil)
+            if(this.dados.perfil === 'administrador') {
+              this.messagemService.showSuccess("Sucesso!")
+              this.router.navigate(['/admin']);
+            }
+            else{
+              this.messagemService.showSuccess("Sucesso!")
+              this.router.navigate(['/users']);
+            }
 
           }
         },
