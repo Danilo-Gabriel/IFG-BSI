@@ -22,6 +22,7 @@ export class AuthGuard implements CanActivate {
 
     if (this.loginService.isAutenticado()){
 
+      debugger
       if(state.url === '/login'){
         this.route.navigate(['admin']);
         return false;
@@ -31,6 +32,7 @@ export class AuthGuard implements CanActivate {
 
     }else{
 
+      debugger
       if(state.url === '/login'){
 
         return true;

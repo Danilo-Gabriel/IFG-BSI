@@ -48,6 +48,7 @@ export class LoginService {
 
   logout(){
     this.router.navigate([ '/login']);
+    this.storage.removerLoginUser();
 
     // this.http.head(`http://localhost:8080/login`, {
     //   observe: 'response',

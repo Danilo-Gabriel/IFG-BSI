@@ -40,6 +40,7 @@ export class UserListComponent implements OnInit {
 
   }
 
+  //todo colocar os campos corretos depois
 
   ngOnInit(): void {
     this.cities = [
@@ -81,9 +82,7 @@ export class UserListComponent implements OnInit {
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        console.log(usuario)
         this.service.remover(usuario);
-       this.messageService.showSuccess('Usuario deletado com Sucesso!');
       }
     });
     console.log(usuario)
@@ -99,11 +98,18 @@ export class UserListComponent implements OnInit {
     this.cadastrarService.save(usuario)
     this.productDialog = false;
     this.submitted = false;
+    window.location.reload();
   }
 
   isValidForm(): boolean {
 
-    if(this.usuario.email && this.usuario.nomeCompleto && this.usuario.senha){
+    if(this.usuario.id){
+      if(this.usuario.email && this.usuario.nomeCompleto){
+        return true;
+      }
+
+      return false;
+    }else if(this.usuario.email && this.usuario.nomeCompleto && this.usuario.senha){
       return true;
     }
     return false;

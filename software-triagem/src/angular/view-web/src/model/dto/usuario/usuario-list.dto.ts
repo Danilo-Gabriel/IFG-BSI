@@ -4,6 +4,7 @@ export class UsuarioListDTO {
     public id? : string,
     public nomeCompleto? : string,
     public telefone? : string,
+    // public perfil? : string,
     public email? : string,
     public senha? : string
   ) {

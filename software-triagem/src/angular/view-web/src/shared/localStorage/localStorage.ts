@@ -18,8 +18,6 @@ export class LocalStorageService {
 
   armazenarLoginUser(dados : LoginDTO){
 
-    console.log(dados)
-    console.log("CHEGOU AQUI")
     this.storage.setItem('usuario-logado', JSON.stringify(dados));
 
 

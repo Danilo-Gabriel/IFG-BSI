@@ -31,10 +31,10 @@ export class ListService {
       },
   (error) => {
         console.log(error)
-        window.location.reload()
         this.message.showError("Erro! contate o administrador.")
         })
 
+    window.location.reload()
   }
 
 

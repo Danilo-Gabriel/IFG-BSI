@@ -29,6 +29,7 @@ import {AppCadastrarComponent} from "../pages-utils/app-cadastrar/app-cadastrar.
     UsersRoutingModule,
     FormsModule,
     AngularReporModule,
+
   ],
   providers : [
     MessageService

@@ -57,10 +57,11 @@ public class LoginBO {
                   }
                   else {
                       return Response.status(Response.Status.UNAUTHORIZED)
-                              .entity("Usuário não encontrado")
+                              .entity("Senha incorreta!")
                               .build();
                   }
                 }
+
                 return Response.status(400).entity("Usuário não cadastrado!").build();
 
         } catch (Exception e) {
