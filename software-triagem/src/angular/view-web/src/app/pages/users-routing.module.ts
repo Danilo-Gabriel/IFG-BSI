@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: 'users', component: UsersComponent,
     children : [
       // {path : 'consulta', component : AppTriagemComponent},
-      {path : 'triagem', component : AppTriagemComponent},
+      {path : 'triagem', component : AppTriagemComponent}
+      ,
       {path : 'agenda', component : AppAgendaconsultasComponent},
       {path : 'consultaTriagem', component : AppConsultatriagemComponent},
     ]

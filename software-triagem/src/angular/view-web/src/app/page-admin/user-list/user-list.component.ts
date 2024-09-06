@@ -3,6 +3,7 @@ import {ConfirmationService, MessageService} from "primeng/api";
 import {ListService} from "./list.service";
 import {UsuarioListDTO} from "../../../model/dto/usuario/usuario-list.dto";
 import {CadastrarService} from "../../pages-utils/app-cadastrar/service/cadastro.service";
+import {AppMessageService} from "../../../shared/message-service/message.service";
 
 interface Perfil {
   name: string;
@@ -30,7 +31,7 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private productService: ListService,
-    private messageService: MessageService,
+    private messageService: AppMessageService,
     private confirmationService: ConfirmationService,
     private service :  ListService,
     private cadastrarService : CadastrarService
@@ -82,7 +83,7 @@ export class UserListComponent implements OnInit {
       accept: () => {
         console.log(usuario)
         this.service.remover(usuario);
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Usuario deletado com Sucesso!', life: 5000 });
+       this.messageService.showSuccess('Usuario deletado com Sucesso!');
       }
     });
     console.log(usuario)
@@ -98,8 +99,15 @@ export class UserListComponent implements OnInit {
     this.cadastrarService.save(usuario)
     this.productDialog = false;
     this.submitted = false;
-    window.location.reload();
   }
 
+  isValidForm(): boolean {
+
+    if(this.usuario.email && this.usuario.nomeCompleto && this.usuario.senha){
+      return true;
+    }
+    return false;
+
+  }
 
 }

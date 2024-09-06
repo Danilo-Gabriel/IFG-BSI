@@ -32,14 +32,12 @@ export class AppLoginComponent implements OnInit{
 
 
   onSubmit(loginForm : NgForm) {
-
-          debugger
-          if(loginForm.valid){
-            console.log(loginForm);
+          // if(loginForm.valid){
+          //   console.log(loginForm);
             this.loginService.efetuarLogin(loginForm.value)
-          }else {
-            console.log("DEU RUIM")
-          }
+          // }else {
+          //   console.log("DEU RUIM")
+          // }
 
   }
 

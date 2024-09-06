@@ -1,6 +1,7 @@
 package br.ifg.pw.model.dto.user;
 
 import br.ifg.pw.model.entity.User;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -12,9 +13,12 @@ import lombok.experimental.FieldDefaults;
 public class CadastroUsuarioDTO {
 
      Long id;
+     @NotBlank(message = "Campo Nome completo obrigatório.")
      String nomeCompleto;
      String telefone;
+     @NotBlank(message = "Campo Email obrigatório.")
      String email;
+     @NotBlank(message = "Campo Senha obrigatório.")
      String senha;
 
    

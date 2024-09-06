@@ -25,7 +25,7 @@ export class ListService {
     (response) => {
 
       console.log(response)
-      this.message.showWarn("Usuário Deletado com Sucesso!")
+      this.message.showSuccess("Usuário Deletado com Sucesso!")
       window.location.reload()
 
       },
