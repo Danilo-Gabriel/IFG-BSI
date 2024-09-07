@@ -11,19 +11,26 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 @Path("/login")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LoginController {
 
-
+    private static final Logger log = Logger.getLogger(String.valueOf(LoginController.class));
     @Inject
     LoginBO bo;
+
 
     @POST
     @Transactional
     public Response login(LoginDTO dto) {
+//        log.info("SSSSSSSSSSALLLLLLLLVOVVVVVVOOOOOOOOOO");
+        log.log(Level.WARNING, dto.getEmail());
         return bo.validarUsuario(dto);
     }
 
