@@ -12,6 +12,9 @@ import {AngularReporModule} from "../../shared/angular-repor/angular-repor.modul
 import {MessageService} from "primeng/api";
 import {UsersComponent} from "./users.component";
 import {AppCadastrarComponent} from "../pages-utils/app-cadastrar/app-cadastrar.component";
+import {CookieService} from "ngx-cookie-service";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {TokenInterceptor} from "../../shared/filter";
 
 @NgModule({
     declarations: [
@@ -30,9 +33,12 @@ import {AppCadastrarComponent} from "../pages-utils/app-cadastrar/app-cadastrar.
     FormsModule,
     AngularReporModule,
 
+
   ],
   providers : [
-    MessageService
+    MessageService,
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ]
 })
 export class UsersModule { }

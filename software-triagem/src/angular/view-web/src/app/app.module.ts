@@ -13,6 +13,8 @@ import {AppLoginComponent} from "./pages-utils/app-login/app-login.component";
 import {MessageService} from "primeng/api";
 import {AppTrocarSenhaComponent} from "./pages-utils/app-trocar-senha/app-trocar-senha.component";
 import {AuthGuard} from "./guard/auth-guard";
+import {CookieService} from "ngx-cookie-service";
+import {TokenInterceptor} from "../shared/filter";
 
 
 
@@ -39,7 +41,9 @@ import {AuthGuard} from "./guard/auth-guard";
     providers: [
       LoginService,
       MessageService,
-      AuthGuard
+      AuthGuard,
+      CookieService,
+      { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],
   exports: [
     AppTrocarSenhaComponent

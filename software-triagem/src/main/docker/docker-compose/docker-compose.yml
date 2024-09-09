@@ -13,15 +13,8 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
 
-  keycloak:
-    image: quay.io/keycloak/keycloak:latest
-    container_name: keycloak
-    environment:
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=admin
-    command: [ "start-dev" ]
-    ports:
-      - "8080:8080"
+  # passar para compose depois
+  # docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:25.0.4 start-dev
 
 
 volumes:

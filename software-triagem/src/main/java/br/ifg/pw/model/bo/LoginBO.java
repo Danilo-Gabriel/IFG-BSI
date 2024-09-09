@@ -4,14 +4,19 @@ import br.ifg.pw.model.dao.UserDAO;
 import br.ifg.pw.model.dto.utils.LoginDTO;
 import br.ifg.pw.model.dto.utils.ResponseDTO;
 import br.ifg.pw.model.entity.User;
+import br.ifg.pw.model.service.jwt.GerarToken;
 import io.quarkus.elytron.security.common.BcryptUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
+import jakarta.ws.rs.core.NewCookie;
 import jakarta.ws.rs.core.Response;
 
+import java.io.InputStream;
 import java.util.Set;
+
+import static br.ifg.pw.model.service.jwt.GerarToken.gerarToken;
 
 
 @ApplicationScoped
@@ -43,18 +48,18 @@ public class LoginBO {
                     boolean valid =  BcryptUtil.matches(dto.getSenha(), user.getSenha());
 
                   if(valid){
-                      //todo estar mandando tudo criar um dto para envio para o front sem id
+
+                      String token = gerarToken(dto.getEmail(), user.getPerfil());
 
                       ResponseDTO responseDTO = ResponseDTO.builder()
                               .id(user.getId().toString())
                               .email(user.getEmail())
                               .perfil(user.getPerfil())
-                              .senha(user.getSenha())
+                              .token(token)
                               .build();
 
                       return Response.status(Response.Status.OK)
-                              .entity(responseDTO)
-                              .build();
+                              .entity(responseDTO).cookie(new NewCookie("usuario-logado", token)).build();
                   }
                   else {
                       return Response.status(Response.Status.UNAUTHORIZED)

@@ -13,16 +13,16 @@ public class ResponseDTO {
 
     private String id;
     private String email;
-    private String senha;
     private String perfil;
+    private String token;
     private String message;
 
 
     @Builder
-    public ResponseDTO(String id, String email, String senha, String message, String perfil) {
+    public ResponseDTO(String id, String email, String token, String message, String perfil) {
         this.id = id;
         this.email = email;
-        this.senha = senha;
+        this.token = token;
         this.message = message;
         this.perfil = perfil;
     }

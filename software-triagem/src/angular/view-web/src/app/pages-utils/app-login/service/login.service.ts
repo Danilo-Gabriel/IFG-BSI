@@ -26,7 +26,8 @@ export class LoginService {
   efetuarLogin(record: LoginDTO) {
     this.http.post<any>(`http://localhost:8080/login`, record, {
       observe: 'response',
-      responseType: 'text' as 'json'
+      responseType: 'text' as 'json',
+      withCredentials: true // Permite que cookies sejam enviados e recebidos
     })
       .subscribe(
         (response: HttpResponse<any>) => {
@@ -59,30 +60,27 @@ export class LoginService {
   }
 
   logout(){
-    this.router.navigate([ '/login']);
-    this.storage.removerLoginUser();
+    this.http.head(`http://localhost:8080/login`, {
+      observe: 'response',
+      responseType: 'text' as 'json',
+      withCredentials: true
+    })
+      .subscribe(
+        (response: HttpResponse<any>) => {
+          if (response.status === 200) {
 
-    // this.http.head(`http://localhost:8080/login`, {
-    //   observe: 'response',
-    //   responseType: 'text' as 'json'
-    // })
-    //   .subscribe(
-    //     (response: HttpResponse<any>) => {
-    //       if (response.status === 200) {
-    //         console.log('Response Body:', response.body);
-    //
-    //         this.messagemService.showSuccess("sucesso!")
-    //
-    //         // this.storage.removerLoginUser();
-    //
-    //         this.router.navigate([ '/login']);
-    //       }
-    //     },
-    //     (error) => {
-    //       console.log('Error Status:', error.status);
-    //       console.log('Error Body:', error.error);
-    //     }
-    //   );
+            console.log('Response Body:', response.body);
+            console.log(response)
+            this.router.navigate([ '/login']);
+            this.storage.removerLoginUser();
+          }
+        },
+        (error) => {
+          console.log('Error Status:', error.status);
+          console.log('Error Body:', error.error);
+          this.messagemService.showError(error.error)
+        }
+      );
 
   }
 
