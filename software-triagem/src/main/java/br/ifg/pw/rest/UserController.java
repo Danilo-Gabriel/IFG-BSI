@@ -3,6 +3,7 @@ package br.ifg.pw.rest;
 
 import br.ifg.pw.model.bo.UserBO;
 import br.ifg.pw.model.dto.user.CadastroUsuarioDTO;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -33,6 +34,7 @@ public class UserController {
 
     @DELETE
     @Transactional
+    @RolesAllowed("admin")
     @Path("{id}")
     public Response delete(@PathParam("id") Long id){
         return bo.remover(id);

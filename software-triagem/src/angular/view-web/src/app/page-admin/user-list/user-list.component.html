@@ -27,7 +27,7 @@
       <tr>
         <th style="min-width:15rem">EMAIL</th>
         <th style="min-width:15rem">NOME COMPLETO</th>
-<!--        <th style="min-width:15rem">PERFIL</th>-->
+        <th style="min-width:15rem">PERFIL</th>
         <th style="min-width:15rem">TELEFONE</th>
         <th></th>
       </tr>
@@ -36,7 +36,7 @@
       <tr>
         <td>{{ usuario.email }}</td>
         <td>{{ usuario.nomeCompleto }}</td>
-<!--        <td>{{ product.perfil }}</td>-->
+        <td>{{ usuario.perfil }}</td>
         <td>{{ usuario.telefone}}</td>
         <td>
           <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(usuario)"></button>
@@ -68,13 +68,13 @@
 
     <br>
 
-<!--    <div class="field">-->
-<!--      <label for="telefone">Perfil</label>-->
-<!--      <div class="card flex justify-content-center">-->
-<!--        <p-dropdown [options]="cities" [(ngModel)]="usuario.perfil" optionValue="name"  optionLabel="name"></p-dropdown>-->
-<!--      </div>-->
+    <div class="field">
+      <label for="telefone">Perfil</label>
+      <div class="card flex justify-content-center">
+        <p-dropdown [options]="cities" [(ngModel)]="usuario.perfil" optionValue="name"  optionLabel="name"></p-dropdown>
+      </div>
 
-<!--    </div>-->
+    </div>
 
     <br>
 

@@ -34,6 +34,7 @@ public class UserBO {
                 entity.setNomeCompleto(dto.getNomeCompleto());
                 entity.setEmail(dto.getEmail());
                 entity.setTelefone(dto.getTelefone());
+                entity.setPerfil(dto.getPerfil());
                 this.dao.persist(entity);
                 return Response.status(Response.Status.CREATED).build();
             }

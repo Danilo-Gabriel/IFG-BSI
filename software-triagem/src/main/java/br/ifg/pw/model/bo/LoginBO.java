@@ -52,7 +52,6 @@ public class LoginBO {
                       String token = gerarToken(dto.getEmail(), user.getPerfil());
 
                       ResponseDTO responseDTO = ResponseDTO.builder()
-                              .id(user.getId().toString())
                               .email(user.getEmail())
                               .perfil(user.getPerfil())
                               .token(token)

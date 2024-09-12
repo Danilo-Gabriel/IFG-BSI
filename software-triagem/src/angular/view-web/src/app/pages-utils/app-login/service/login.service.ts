@@ -33,14 +33,18 @@ export class LoginService {
         (response: HttpResponse<any>) => {
           if (response.status === 200) {
 
+
+            //todo rotear o usuário com base no seu perfil
+
             console.log('Response Body:', response.body);
             console.log(response)
             this.storage.armazenarLoginUser(response.body)
+            console.log(response.body.perfil)
             this.dados.perfil = response.body.perfil;
 
             debugger
             console.log(this.dados.perfil)
-            if(this.dados.perfil === 'administrador') {
+            if(this.dados.perfil === 'Administrador') {
               this.messagemService.showSuccess("Sucesso!")
               this.router.navigate(['/admin']);
             }

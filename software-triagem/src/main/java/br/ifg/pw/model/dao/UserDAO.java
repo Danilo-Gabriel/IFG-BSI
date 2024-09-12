@@ -20,7 +20,7 @@ public class UserDAO implements PanacheRepositoryBase<User, Long> {
     public List<ListarUsuarioDTO> findAllUsers() {
 
         //language=HQL
-        String hql = "select new br.ifg.pw.model.dto.user.ListarUsuarioDTO(u.id, u.nomeCompleto, u.telefone, u.email)" +
+        String hql = "select new br.ifg.pw.model.dto.user.ListarUsuarioDTO(u.id, u.nomeCompleto, u.telefone, u.email, u.perfil)" +
                 "from User u";
 
         return getEntityManager().createQuery(hql, ListarUsuarioDTO.class).getResultList();
