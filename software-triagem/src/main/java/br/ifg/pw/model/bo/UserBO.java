@@ -4,7 +4,6 @@ import br.ifg.pw.model.dao.UserDAO;
 import br.ifg.pw.model.dto.user.CadastroUsuarioDTO;
 import br.ifg.pw.model.dto.user.ListarUsuarioDTO;
 import br.ifg.pw.model.entity.User;
-import io.quarkus.elytron.security.common.BcryptUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;

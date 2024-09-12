@@ -3,11 +3,11 @@ export class ConsutasDTO {
   constructor(
     public id? :string,
     public paciente? : string,
-    public especialidade?: string,
-    public local?: string,
-    public data?: string,
-    public hora?: string,
-    public status?: string,
+    public especialidade? : string,
+    public local? : string,
+    public date? : string,
+    public time? : string,
+    public status? : string
 
   ) {
 

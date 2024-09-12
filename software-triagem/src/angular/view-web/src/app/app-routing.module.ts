@@ -5,6 +5,7 @@ import {AppTrocarSenhaComponent} from "./pages-utils/app-trocar-senha/app-trocar
 import {AppCadastrarComponent} from "./pages-utils/app-cadastrar/app-cadastrar.component";
 
 
+
 const routes: Routes = [
 
   //todo paginas publicas

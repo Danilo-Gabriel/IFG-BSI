@@ -7,9 +7,9 @@ export class TriagemDTO {
       public diabetico?: string,
       public febre?: string,
       public dor?: string,
-      public intensidadeDor?: string,
-      public peso?: number,
-      public mediaPonderada?: number
+      public intensidade?: string,
+      public peso?: string,
+      public mediaPonderada?: string
   ) {
 
     /*

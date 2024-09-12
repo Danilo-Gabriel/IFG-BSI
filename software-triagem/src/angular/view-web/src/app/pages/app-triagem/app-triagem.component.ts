@@ -31,9 +31,14 @@ export class AppTriagemComponent {
 
   constructor(private triagemService: TriagemService) {}
 
+
+    // esse toggleIntensidadeDisplay tem a função de deixar visivel o campo da intensidade no formulario
+    // so aparecer o campo no formulario se o usuario digitar que esta com dor
   toggleIntensidadeDisplay(): void {
     this.exibirIntensidade = this.dor === 'sim';
   }
+
+  // valore e nodas definidos pelo sistema pra calcular a media ponderada
 
   valores = {
     hipertensao: { sim: { valor: 2.6, peso: 1 }, nao: { valor: 1.7, peso: 2 } },
@@ -74,7 +79,7 @@ export class AppTriagemComponent {
 
 
 
-      // Cria o objeto que será enviado
+      // Cria o objeto que será enviado para o servico
       const dadosTriagem = { ...dadosFormulario, mediaPonderada };
 
       // Chama o serviço com os dados
@@ -84,17 +89,17 @@ export class AppTriagemComponent {
           console.log('Resposta do servidor:', response);
         },
         (error: any) => {
-          console.error('Erro ao salvar os dados:', error);
+          console.error('Erro ao salvar os dadosssssss:', error);
         }
       );
 
       alert('processando os dados!');
-      this.resetForm(); // Reseta o formulário após o envio
+      this.resetForm(); //  função Resetar o formulário após o envio
     } else {
       console.log("Formulário inválido");
     }
   }
-
+// função de calcular a media não pode alterar ou mecher
   calcularMediaPonderada(dados: FormuTriagem): number {
     let valorDor = 0;
     let pesoDor = 0;

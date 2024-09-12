@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersRoutingModule } from './users-routing.module';
 import {AppUsersComponent} from "./app-users/app-users.component";
 import {AppTriagemComponent} from "./app-triagem/app-triagem.component";
-import {AppAgendaconsultaComponent} from "./app-agendaconsulta/app-agendaconsulta.component";
+import {AppAgendaconsultaComponent} from "../page-admin/app-agendaconsulta/app-agendaconsulta.component";
 import {AppConsultatriagemComponent} from "./app-consultatriagem/app-consultatriagem.component";
 import {AppAgendaconsultasComponent} from "./app-agendaconsultas/app-agendaconsultas.component";
 import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
