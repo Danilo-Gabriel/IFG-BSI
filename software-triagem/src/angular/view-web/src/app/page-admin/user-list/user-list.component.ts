@@ -95,7 +95,7 @@ export class UserListComponent implements OnInit {
   }
 
   saveProduct(usuario : UsuarioListDTO) {
-    this.cadastrarService.save(usuario)
+    this.cadastrarService.saveAdmin(usuario)
     this.productDialog = false;
     this.submitted = false;
     window.location.reload();

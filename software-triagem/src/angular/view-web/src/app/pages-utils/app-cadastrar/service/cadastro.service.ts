@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class CadastrarService {
 
-    private apiUrl = 'http://localhost:8080/usuario'; // URL da API Quarkus
+    private apiUrl = 'http://localhost:8080/usuario/public'; // URL da API Quarkus
 
     constructor(
       private http: HttpClient,
@@ -25,7 +25,7 @@ export class CadastrarService {
             .subscribe(
                 (response: HttpResponse<any>) => {
 
-                  this.messageService.showSuccess("Usuário salvo com sucesso!")
+                  this.messageService.showSuccess("Usuário cadastrado com sucesso!")
                   this.router.navigate(['/login']);
                 },
                 (error) => {
@@ -34,4 +34,22 @@ export class CadastrarService {
                   this.router.navigate(['/login']);
                 });
     }
+
+  saveAdmin(record : CadastroDTO) {
+    this.http.post<any>(`http://localhost:8080/usuario`, record, {
+      observe: 'response',
+      responseType: 'text' as 'json'
+    })
+      .subscribe(
+        (response: HttpResponse<any>) => {
+
+          this.messageService.showSuccess("Usuário cadastrado com sucesso!")
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+
+          this.messageService.showError("Erro, contate o administrador!")
+          this.router.navigate(['/login']);
+        });
+  }
 }

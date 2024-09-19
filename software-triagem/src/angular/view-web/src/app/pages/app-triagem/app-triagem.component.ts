@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TriagemService } from './service/triagem.service';
 import { NgForm } from "@angular/forms";
+import {AppMessageService} from "../../../shared/message-service/message.service";
 
 interface FormuTriagem {
   especialidade: string;
@@ -29,7 +30,7 @@ export class AppTriagemComponent {
 
   exibirIntensidade: boolean = false;
 
-  constructor(private triagemService: TriagemService) {}
+  constructor(private triagemService: TriagemService,  private messageService : AppMessageService) {}
 
 
     // esse toggleIntensidadeDisplay tem a função de deixar visivel o campo da intensidade no formulario
@@ -84,19 +85,18 @@ export class AppTriagemComponent {
 
       // Chama o serviço com os dados
       // @ts-ignore
+
       this.triagemService.salvarTriagem(dadosTriagem).subscribe(
         (response: any) => {
-          console.log('Resposta do servidor:', response);
+          this.messageService.showSuccess("Triagem efetuada com sucesso!")
         },
         (error: any) => {
-          console.error('Erro ao salvar os dadosssssss:', error);
+          this.messageService.showError("Erro ao salvar triagem!")
         }
       );
-
-      alert('processando os dados!');
       this.resetForm(); //  função Resetar o formulário após o envio
     } else {
-      console.log("Formulário inválido");
+      this.messageService.showInfo("Formulário invalido")
     }
   }
 // função de calcular a media não pode alterar ou mecher

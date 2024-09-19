@@ -25,13 +25,14 @@ public class UserController {
         return bo.save(dto);
     }
 
-
     @POST
     @Transactional
     @Path("/public")
     public Response createUser(CadastroUsuarioDTO dto) {
         return bo.createUserConvencional(dto);
     }
+
+
 
 
 
@@ -43,7 +44,6 @@ public class UserController {
 
     @DELETE
     @Transactional
-    @RolesAllowed("admin")
     @Path("{id}")
     public Response delete(@PathParam("id") Long id){
         return bo.remover(id);

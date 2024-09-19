@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ConsultaService } from './consulta.service';
+import {AppMessageService} from "../../../shared/message-service/message.service";
 
 @Component({
   selector: 'app-app-agendaconsulta',
@@ -13,7 +14,8 @@ export class AppAgendaconsultaComponent {
 
   constructor(
       private servico: ConsultaService,
-      private fb: FormBuilder
+      private fb: FormBuilder,
+      private messageService : AppMessageService,
   ) {}
 
 
@@ -22,19 +24,14 @@ export class AppAgendaconsultaComponent {
     if (ngForm.valid) {
       try {
         await this.servico.salvarConsulta(ngForm.value);
-        alert("dados enviados com sucesso")
         ngForm.resetForm(); // Zera o formulário
-
-
-        setTimeout(() => {
-          this.mensagemSucesso = '';
-        }, 3000);
+        this.messageService.showSuccess("Triagem cadastrado com sucesso!")
       } catch (error) {
-        console.error('Erro ao salvar consulta:', error);
+        this.messageService.showError("Error ao marcar agendamento!")
 
       }
     } else {
-      console.log('erro ao salvar a consulta');
+      this.messageService.showError("Erro")
     }
   }
 }

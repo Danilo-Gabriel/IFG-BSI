@@ -2,7 +2,6 @@ package br.ifg.pw.rest;
 
 import br.ifg.pw.model.bo.ConsultaBO;
 import br.ifg.pw.model.dto.consultas.ConsultaDTO;
-import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -20,7 +19,6 @@ public class ConsultaController {
 
     @POST
     @Transactional
-    @RolesAllowed("admin")
     public Response salva(ConsultaDTO dto) {
         return bo.salvarConsulta(dto);
     }
