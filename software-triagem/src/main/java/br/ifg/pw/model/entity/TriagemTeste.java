@@ -50,7 +50,7 @@ public class TriagemTeste extends PanacheEntityBase {
 
 
     @Builder
-    public TriagemTeste(long id, String especialidade, String hipertensao, String diabetico,
+    public TriagemTeste(Long id, String especialidade, String hipertensao, String diabetico,
                     String febre, String dor, String intensidade,String peso, String mediaPonderada) {
         this.id = id;
         this.especialidade = especialidade;

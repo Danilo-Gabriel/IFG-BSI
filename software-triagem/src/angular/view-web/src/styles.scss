@@ -2,28 +2,52 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-// TESTE MANEIRA ERRADA
+.teste-tolbar {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  background: #828285;
+  border: 2px double #828285;
+  margin: 0 5%;
+  height: 480px; /* Ocupa toda a altura da tela */
+  overflow: hidden; /* Remove barras de rolagem */
+  font-size: 0.875rem; /* Tamanho da fonte menor */
+}
 
-.p-button.p-button-success, .p-button-group.p-button-success > .p-button, .p-splitbutton.p-button-success > .p-button {
+.p-table {
+  flex-grow: 1; /* Faz a tabela crescer para ocupar espaço disponível */
+  overflow: auto; /* Permite rolagem interna se necessário */
+}
+
+.p-button.p-button-success {
   color: #ffffff;
   background: #828285;
   border: 1px solid #828285;
+  transition: background 0.3s;
+  font-size: 0.75rem; /* Tamanho da fonte do botão menor */
 }
 
-.p-button.p-button-warning, .p-button-group.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button {
+.p-button.p-button-success:hover {
+  background: #a0a0a0; /* Cor ao passar o mouse */
+}
+
+.p-button.p-button-warning {
   color: #ffffff;
   background: #fb0101;
   border: 1px solid #d31010;
+  transition: background 0.3s;
+  font-size: 0.75rem; /* Tamanho da fonte do botão menor */
 }
 
-/*STYLE DO PRIMENG*/
+.p-button.p-button-warning:hover {
+  background: #ff4c4c; /* Cor ao passar o mouse */
+}
 
+.field {
+  margin-bottom: 0.5rem; /* Espaçamento reduzido entre os campos do formulário */
+}
 
-
-// TESTE MANEIRA CERTA
-
-.teste-tolbar{
-  color: #ffffff;
-  background: #828285;
-  border: 1px solid #828285;
+input {
+  font-size: 0.875rem; /* Tamanho da fonte dos campos de entrada menor */
+  padding: 0.5rem; /* Espaçamento interno dos campos */
 }

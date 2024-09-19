@@ -1,7 +1,7 @@
 package br.ifg.pw.rest;
 
 import br.ifg.pw.model.bo.ConsultaBO;
-import br.ifg.pw.model.dto.consultas.ConsultaDTO;
+import br.ifg.pw.model.dto.consulta.ConsultaDTO;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;

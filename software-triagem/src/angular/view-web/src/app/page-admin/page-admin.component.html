@@ -37,7 +37,7 @@
 
 
 
-<header class="heder">
+<header>
   <h1>Bem-vindo ao Sistema de Triagem</h1>
 </header>
 <div class="container">
@@ -47,11 +47,11 @@
       <h5>Voce e um Administrador</h5>
       <nav class="nav-links">
         <div class="control">
+
           <button (click)="navigateTo('admin/usuario')">Usuário</button>
-          <button (click)="navigateTo('admin/agenda-consulta')">Agenda Consultas</button>
-          <button (click)="navigateTo('admin/Triagem')">Consultar Triagem</button>
-          <button (click)="navigateTo('admin/Triagem')">Consultar Agenda</button>
-          <button (click)="sidebar()">Alterar Senha</button>
+          <button (click)="navigateTo('admin/agenda')">Agenda Consultas</button>
+          <button (click)="navigateTo('admin/listar_triagem')">Consultar Triagem</button>
+          <button (click)="navigateTo('admin/listar_consultas')">Agendamentos</button>
           <button (click)="logout()">Sair</button>
         </div>
       </nav>
@@ -59,7 +59,17 @@
   </aside>
 
   <main class="content">
-    <router-outlet></router-outlet>
+    <div class="system-info" *ngIf="systemInfoVisible">
+      <h3>Informações do Sistema</h3>
+      <p>Este é um sistema de triagem que ajuda na organização de consultas e informações dos usuários.</p>
+      <p>Última atualização: {{ lastUpdated | date:'short' }}</p>
+    </div>
+
+      <router-outlet></router-outlet>
+
+
+
+
   </main>
 
 </div>

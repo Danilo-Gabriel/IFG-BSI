@@ -1,6 +1,6 @@
 package br.ifg.pw.model.entity;
 
-import br.ifg.pw.model.dto.consultas.ConsultaDTO;
+import br.ifg.pw.model.dto.consulta.ConsultaDTO;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -42,7 +42,7 @@ public class Consulta extends PanacheEntityBase {
 
 
     @Builder
-    public Consulta(long id, String especialidade, String paciente, LocalDate date,
+    public Consulta(Long id, String especialidade, String paciente, LocalDate date,
                     String local, LocalTime time, String status) {
         this.id = id;
         this.especialidade = especialidade;

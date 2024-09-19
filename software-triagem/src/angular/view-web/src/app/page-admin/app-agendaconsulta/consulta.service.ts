@@ -7,7 +7,7 @@ import {ConsutasDTO} from "../../../model/dto/consulta/consutas-dto";
 })
 export class ConsultaService {
 
-    private apiUrl = 'http://localhost:8080/consulta'; // URL da API Quarkus
+    private apiUrl = 'http://localhost:8080/consulta';
 
     constructor(private http: HttpClient) { }
 

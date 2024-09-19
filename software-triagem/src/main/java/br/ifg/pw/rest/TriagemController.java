@@ -37,8 +37,8 @@ public class TriagemController {
 
 //    @DELETE
 //    @Transactional
-//    @Path("{idUsuario}")
-//    public Response delete(@PathParam("idUsuario") Long id){
-//        return bo.remover(idUsuario);
+//    @Path("{id}")
+//    public Response delete(@PathParam("id") Long id){
+//        return bo.remover(id);
 //    }
 }

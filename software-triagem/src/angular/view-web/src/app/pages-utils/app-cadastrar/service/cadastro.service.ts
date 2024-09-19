@@ -8,7 +8,7 @@ import {CadastroDTO} from "../../../../model/dto/cadastrar/cadastrar-dto";
 })
 export class CadastrarService {
 
-    private apiUrl = 'http://localhost:8080/usuario'; // URL da API Quarkus
+    private apiUrl = 'http://localhost:8080/usuario';
 
     constructor(private http: HttpClient) { }
 
@@ -19,10 +19,10 @@ export class CadastrarService {
         })
             .subscribe(
                 (response: HttpResponse<any>) => {
-                    console.log("Deu Certo");
+                    console.log("usuario cadastrado com suscesso");
                 },
                 (error) => {
-                    console.log("Deu Certo");
+                    console.log("Erro ao Cadastrar Usuario");
                 });
     }
 }

@@ -19,10 +19,10 @@ export class AppCadastrarComponent implements OnInit{
 
   }
 
-  /* VARIAVEIS DE AMBIENTE */
+
   form!: FormGroup;
 
-  //METODO CHAMA O SERVIÇO SALVAR
+
   onSubmit(formCadastro : NgForm) {
     console.log(formCadastro)
     if(formCadastro.valid){

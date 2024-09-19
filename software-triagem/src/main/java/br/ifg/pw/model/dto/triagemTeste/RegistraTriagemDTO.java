@@ -21,7 +21,7 @@ public class RegistraTriagemDTO {
     String mediaPonderada;
 
     // Construtor
-    public RegistraTriagemDTO(long id, String especialidade, String hipertensao,
+    public RegistraTriagemDTO(Long id, String especialidade, String hipertensao,
                              String diabetico, String febre, String dor,
                              String intensidade, String peso, String mediaPonderada) {
 

@@ -5,6 +5,10 @@ import {PageAdminComponent} from "./page-admin.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
 import {UserListComponent} from "./user-list/user-list.component";
+import { ListarConsultasComponent } from './listar-consultas/listar-consultas.component';
+
+
+
 
 
 
@@ -16,6 +20,10 @@ import {UserListComponent} from "./user-list/user-list.component";
   declarations: [
     PageAdminComponent,
     UserListComponent,
+    ListarConsultasComponent,
+
+
+
 
 
   ],

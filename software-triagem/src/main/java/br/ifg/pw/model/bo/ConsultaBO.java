@@ -1,8 +1,8 @@
 package br.ifg.pw.model.bo;
 
 import br.ifg.pw.model.dao.ConsultaDAO;
-import br.ifg.pw.model.dto.consultas.ConsultaDTO;
-import br.ifg.pw.model.dto.consultas.ListarConsultasDTO;
+import br.ifg.pw.model.dto.consulta.ListarConsultasDTO;
+import br.ifg.pw.model.dto.consulta.ConsultaDTO;
 import br.ifg.pw.model.entity.Consulta;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

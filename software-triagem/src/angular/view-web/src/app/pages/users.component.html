@@ -9,10 +9,10 @@
       <h5>Voce e um Usuario</h5>
       <nav class="nav-links">
         <div class="control">
-          <button (click)="navigateTo('users/triagem')">Triagem</button>
-          <button (click)="navigateTo('users/agenda')">Agenda</button>
-          <button (click)="navigateTo('users/consultaTriagem')">Consultar Triagem</button>
-          <button (click)="sidebar()">Alterar Senha</button>
+          <button (click)="navigateTo('users')">Dados Cadastrais</button>
+          <button (click)="navigateTo('users/triagem')">Fazer Triagem</button>
+          <button (click)="navigateTo('users/agenda')">Consultar Agenda</button>
+          <button (click)="navigateTo('users/lista-triagem')">Consultar Triagem</button>
           <button (click)="logout()">Sair</button>
         </div>
       </nav>
@@ -20,7 +20,9 @@
   </aside>
 
   <main class="content">
+
     <router-outlet></router-outlet>
+
   </main>
 
 </div>

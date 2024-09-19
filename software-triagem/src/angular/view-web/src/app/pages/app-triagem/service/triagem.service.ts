@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {TriagemTesteDTO} from "../../../../model/dto/triagem/TriagemTeste-dto";
 
@@ -9,12 +9,12 @@ import {TriagemTesteDTO} from "../../../../model/dto/triagem/TriagemTeste-dto";
 })
 export class TriagemService {
 
-  private apiUrl = 'http://localhost:8080/triagemteste'; // URL da API Quarkus
+  private apiUrl = 'http://localhost:8080/triagemteste';
 
   constructor(private http: HttpClient) { }
 
   salvarTriagem(record: TriagemTesteDTO): Observable<any> {
-    // Retorna o Observable da requisição HTTP POST
+
     return this.http.post<any>(this.apiUrl, record, {
       observe: 'response',
       responseType: 'text' as 'json'

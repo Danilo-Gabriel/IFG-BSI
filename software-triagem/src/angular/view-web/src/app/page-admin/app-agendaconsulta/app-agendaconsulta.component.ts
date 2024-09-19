@@ -16,7 +16,7 @@ export class AppAgendaconsultaComponent {
       private fb: FormBuilder
   ) {}
 
-  // Método chama o serviço salvar
+
   async onSubmit(ngForm: NgForm) {
     console.log(ngForm);
     if (ngForm.valid) {
@@ -25,7 +25,7 @@ export class AppAgendaconsultaComponent {
         alert("dados enviados com sucesso")
         ngForm.resetForm(); // Zera o formulário
 
-        // Opcional: Oculta a mensagem após 3 segundos
+
         setTimeout(() => {
           this.mensagemSucesso = '';
         }, 3000);
@@ -34,7 +34,7 @@ export class AppAgendaconsultaComponent {
 
       }
     } else {
-      console.log('Não deu');
+      console.log('erro ao salvar a consulta');
     }
   }
 }

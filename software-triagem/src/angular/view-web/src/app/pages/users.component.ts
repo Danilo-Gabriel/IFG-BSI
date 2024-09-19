@@ -18,6 +18,9 @@ export class UsersComponent {
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
+  // ngOnInit() {
+  //   this.showInfoSystem();
+  // }
 
   sidebar(){
     this.dialog = true;
@@ -26,5 +29,11 @@ export class UsersComponent {
   logout(){
     this.loginServico.logout();
   }
+  // showInfoSystem() {
+  //   const infoElement = document.getElementById('info-system');
+  //   if (infoElement) {
+  //     infoElement.style.display = 'block'; // Garante que o elemento fique visível
+  //   }
+  // }
 
 }
