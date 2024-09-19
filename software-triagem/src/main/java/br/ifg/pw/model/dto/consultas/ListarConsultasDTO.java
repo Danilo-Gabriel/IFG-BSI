@@ -1,8 +1,9 @@
 package br.ifg.pw.model.dto.consultas;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 @Builder
@@ -11,16 +12,15 @@ import lombok.experimental.FieldDefaults;
 public class ListarConsultasDTO {
 
 
-    long id;
+    Long id;
     String paciente;
     String especialidade;
     String local;
-    String date;
-    String time;
+    LocalDate date;
+    LocalTime time;
     String status;
 
-    public ListarConsultasDTO(long id, String paciente, String especialidade, String local,
-                              String date,String status, String time){
+    public ListarConsultasDTO(Long id, String paciente, String especialidade, String local, LocalDate date, LocalTime time, String status) {
         this.id = id;
         this.paciente = paciente;
         this.especialidade = especialidade;
@@ -28,7 +28,6 @@ public class ListarConsultasDTO {
         this.date = date;
         this.time = time;
         this.status = status;
-
     }
 
     public ListarConsultasDTO(){

@@ -1,6 +1,7 @@
 export class TriagemDTO {
 
   constructor(
+      public id? :number,
       public especialidade?: string,
       public hipertensao?: string,
       public diabetico?: string,
@@ -9,7 +10,6 @@ export class TriagemDTO {
       public intensidade?: string,
       public peso?: string,
       public mediaPonderada?: string
-
   ) {
 
     /*

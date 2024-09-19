@@ -2,7 +2,7 @@ export class ConsutasDTO {
 
   constructor(
     public id? :string,
-    public paciente? : string,
+    public id_paciente? : string,
     public especialidade? : string,
     public local? : string,
     public date? : string,

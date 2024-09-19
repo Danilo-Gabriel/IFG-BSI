@@ -60,14 +60,13 @@ public class ConsultaBO {
             return Response.status(Response.Status.CREATED).entity("Consulta criada com sucesso.").build();
 
         } catch (Exception e) {
-            // Log do erro e mensagem de retorno
             e.printStackTrace();
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Erro ao salvar consulta: " + e.getMessage()).build();
         }
     }
 
     public Response listarConsultas() {
-        List<ListarConsultasDTO> list = dao.findAllConsultas();
+        List<ListarConsultasDTO> list = dao.findAllConsulta();
         return Response.ok(list).build();
     }
 }

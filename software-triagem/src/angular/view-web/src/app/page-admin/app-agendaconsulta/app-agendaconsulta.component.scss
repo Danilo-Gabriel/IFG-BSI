@@ -1,13 +1,4 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #566e88, #69efc7, #2c2929);
-  background-size: cover; /* Cobrir toda a página */
-  background-repeat: no-repeat;
-  height: 130vh;
 
-}
 
 /* Estilos do header */
 header {
@@ -49,6 +40,7 @@ header h1 {
   margin: 0 auto;
 
 
+
 }
 
 
@@ -68,7 +60,7 @@ header h1 {
 }
 .form-group a {
   display: inline-block;
-  margin-right: 40px; /* Ajuste o valor conforme necessário */
+  margin-right: 40px;
 }
 
 

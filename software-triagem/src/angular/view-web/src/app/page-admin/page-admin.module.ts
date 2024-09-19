@@ -10,6 +10,9 @@ import {CookieService} from "ngx-cookie-service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "../../shared/filter";
 import {PasswordModule} from "primeng/password";
+import {ListarTriagemComponent} from "./listar-triagem/listar-triagem.component";
+import {AppAgendaconsultaComponent} from "./app-agendaconsulta/app-agendaconsulta.component";
+import {ListarConsultasComponent} from "./listar-consultas/listar-consultas.component";
 
 
 
@@ -20,7 +23,10 @@ import {PasswordModule} from "primeng/password";
 @NgModule({
   declarations: [
     PageAdminComponent,
-    UserListComponent
+    UserListComponent,
+    ListarTriagemComponent,
+    AppAgendaconsultaComponent,
+    ListarConsultasComponent
 
 
   ],

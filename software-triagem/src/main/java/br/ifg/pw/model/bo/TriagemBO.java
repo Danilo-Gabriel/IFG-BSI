@@ -47,6 +47,7 @@ public class TriagemBO {
         }
     }
 
+    @Transactional
     public Response listar() {
             List<ListagemTriagemDTO> list = dao.findAllTriagemTeste();
         return Response.ok(list).build();

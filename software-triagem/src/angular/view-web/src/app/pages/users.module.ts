@@ -4,9 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UsersRoutingModule } from './users-routing.module';
 import {AppTriagemComponent} from "./app-triagem/app-triagem.component";
-import {AppAgendaconsultaComponent} from "./app-agendaconsulta/app-agendaconsulta.component";
 import {AppConsultatriagemComponent} from "./app-consultatriagem/app-consultatriagem.component";
-import {AppAgendaconsultasComponent} from "./app-agendaconsultas/app-agendaconsultas.component";
 import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
 import {MessageService} from "primeng/api";
 import {UsersComponent} from "./users.component";
@@ -19,9 +17,7 @@ import {TokenInterceptor} from "../../shared/filter";
     declarations: [
       AppCadastrarComponent,
       AppTriagemComponent,
-      AppAgendaconsultaComponent,
       AppConsultatriagemComponent,
-      AppAgendaconsultasComponent,
       UsersComponent
     ],
   imports: [
