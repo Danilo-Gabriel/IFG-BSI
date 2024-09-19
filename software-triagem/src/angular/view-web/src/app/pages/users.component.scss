@@ -1,33 +1,35 @@
-.heder {
-  background: #6e6c6c;
+header {
+  background: #3A506B;
   color: #fff;
   text-align: center;
   padding: 10px 0;
   border-bottom: 5px double #c2bfbf;
 }
 
-
 .container {
+  background-color: #F4F4F9;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
-
 
 .sidebar {
   width: 300px;
-  background: #d7d5d5;
+  background: #3A506B;
+  color: #FFFFFF;
   padding: 15px;
   box-shadow: 3px 0 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
-  height:600px;
+  height: 700px;
+  order: 1; /* Define a ordem do sidebar */
 }
-
 
 .user-info {
   text-align: center;
 }
-.user-info h2, p{
-  margin-top:0;
+
+.user-info h2, p {
+  margin-top: 0;
 }
 
 .profile-picture {
@@ -43,72 +45,62 @@
   border-radius: 10px;
 }
 
-
-.nav-links ul {
-  list-style-type: none;
+.control {
   padding: 0;
+  gap:5px
 }
 
-.nav-links li {
-  margin: 1.2rem 20px;
-  background-color: #828285;
-  border:3px double #282121;
-  border-radius:8px;
+button {
+  margin: 0.6rem 5px;
+  background-color: #0097A7;
+  border-bottom: 5px double #A3D9A5;
+  color: #f5f2f2;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
+
+  padding: 13px;
+  width:80%
+}
+
+button:hover{
+  border: 3px double white;
+  background-color: #3A506B;;
   color:white;
-  padding:6px;
 }
-.nav-links li:hover {
-  background-color: #303036;
-}
-.nav-links a {
-  text-decoration: none;
-  color: #f3eded;
-  font-weight: bold;
-}
-
-
 
 
 .content {
+  background-color: #F4F4F9;
   flex-grow: 1;
-  padding: 0px;
+  padding: 10px;
   min-width: 0;
   overflow-y: auto;
   margin-bottom: 80px;
-  max-height: 500px;
+  max-height: 550px;
   max-width: 90%;
   box-sizing: border-box;
-
+  order: 3; /* Define a ordem do conteúdo */
 }
-
-
 
 .section {
   display: none;
-  gap:40px;
-
+  gap: 40px;
 }
 
 .section.active {
   display: block;
-
 }
 
-
-
-
-
-
 footer {
-  background-color: #333;
-  color: white;
+  background-color: #3A506B;
+  color: #FFFFFF;
   text-align: center;
   padding: 10px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
+  border-top: 5px double #c2bfbf;
 }
 
 .p-dialog .p-dialog-header .p-dialog-title {
@@ -117,3 +109,18 @@ footer {
   font-size: 1.25rem;
 }
 
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Altera a direção do flex para coluna em telas menores */
+  }
+
+  .sidebar {
+    order: 1; /* Sidebar aparece primeiro */
+    width: 100%; /* Largura completa em telas menores */
+  }
+
+  .content {
+    order: 2; /* Conteúdo principal vem abaixo do sidebar */
+  }
+}

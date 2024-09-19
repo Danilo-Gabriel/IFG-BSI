@@ -88,7 +88,8 @@
 
     <div *ngIf="!usuario.id" class="field">
       <label for="nomeCompleto">Senha</label>
-      <input type="text" pInputText id="senha" [(ngModel)]="usuario.senha" required autofocus />
+      <p-password [(ngModel)]="usuario.senha" id="senha"  [toggleMask]="true" required autofocus/>
+<!--      <input type="text" pInputText id="senha" [(ngModel)]="usuario.senha" required autofocus />-->
       <small class="p-error" *ngIf="!usuario.senha">Senha é obrigatório.</small>
     </div>
 

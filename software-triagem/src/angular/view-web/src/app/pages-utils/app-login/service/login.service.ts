@@ -21,6 +21,7 @@ export class LoginService {
   ) {
   }
 
+  text : any;
   dados = new LoginDTO;
 
   efetuarLogin(record: LoginDTO) {
@@ -37,14 +38,10 @@ export class LoginService {
             //todo rotear o usuário com base no seu perfil
 
             console.log('Response Body:', response.body);
-            console.log(response)
-            this.storage.armazenarLoginUser(response.body)
-            console.log(response.body.perfil)
-            this.dados.perfil = response.body.perfil;
-
-            debugger
-            console.log(this.dados.perfil)
-            if(this.dados.perfil === 'Administrador') {
+            this.storage.armazenarLoginUser(response.body);
+            this.text = response.body;
+            console.log(this.text)
+            if(response.body === 'Administrador') {
               this.messagemService.showSuccess("Sucesso!")
               this.router.navigate(['/admin']);
             }

@@ -26,6 +26,15 @@ public class UserController {
     }
 
 
+    @POST
+    @Transactional
+    @Path("/public")
+    public Response createUser(CadastroUsuarioDTO dto) {
+        return bo.createUserConvencional(dto);
+    }
+
+
+
 
     @GET
     public Response list() {

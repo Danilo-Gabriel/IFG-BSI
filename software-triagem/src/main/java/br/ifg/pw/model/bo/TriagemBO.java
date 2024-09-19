@@ -1,61 +1,68 @@
-//package br.ifg.pw.model.bo;
-//
-//import br.ifg.pw.model.dao.TriagemDAO;
-//import br.ifg.pw.model.dto.triagem.ListaTriagemDTO;
-//import br.ifg.pw.model.dto.triagem.TriagemUsuarioDTO;
-//import jakarta.enterprise.context.ApplicationScoped;
-//import jakarta.inject.Inject;
-//import jakarta.transaction.Transactional;
-//import jakarta.ws.rs.core.Response;
-//
-//import java.util.List;
-//
-//
-//@ApplicationScoped
-//public class TriagemBO {
-//
-//    @Inject
-//    TriagemDAO dao;
-//
-//    @Transactional
-//    public Response save(TriagemUsuarioDTO dto) {
-//
-//        //Ajustar aqui a logica da de salvar a triagem, a logica e simples,
-//        // o usuario podera fazer varias triagem
-//
-////        try {
-////            if (dto != null) {
-////
-//////                Triagem exist = dao.findByEmail(dto.getEmail());
-////
-////                if (exist != null) {
-////                    return Response.status(Response.Status.CONFLICT).build();
-////                }
-////                User userNew = User.builder()
-////                        .nomeCompleto(dto.getNomeCompleto())
-////                        .email(dto.getEmail())
-////                        .senha(dto.getSenha())
-////                        .endereco(dto.getEndereco())
-////                        .telefone(dto.getTelefone())
-////                        .build();
-////                this.dao.persist(userNew);
-////                return Response.status(Response.Status.CREATED).build();
-////            }
-////        } catch (Exception e) {
-////
-////            return Response.serverError().build();
-////        }
-////
-////        return Response.serverError().build();
-////    }
-//// ver import do list abaixo
-////        public Response list () {
-////
-////            List<ListaTriagemDTO> list = dao.findAll();
-////
-////            return Response.ok(list).build();
-////        }
-//
-//        return null;
-//    }
-//}
+package br.ifg.pw.model.bo;
+
+import br.ifg.pw.model.dao.TriagemDAO;
+import br.ifg.pw.model.dto.triagemTeste.ListagemTriagemDTO;
+import br.ifg.pw.model.dto.triagemTeste.RegistraTriagemDTO;
+import br.ifg.pw.model.entity.Triagem;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import jakarta.ws.rs.core.Response;
+
+import java.util.List;
+
+
+@ApplicationScoped
+public class TriagemBO {
+
+    @Inject
+    TriagemDAO dao;
+
+    @Transactional
+    public Response salvartriagem(RegistraTriagemDTO dto) {
+        try {
+
+            //todo acrescentar usuário para listar triagem do usuário logado!
+
+            System.out.println("Recebendo dados do dto: " + dto);
+            Triagem triagem = Triagem.builder()
+                    .id(dto.getId())
+                    .hipertensao(dto.getHipertensao())
+                    .peso(dto.getPeso())
+                    .diabetico(dto.getDiabetico())
+                    .especialidade(dto.getEspecialidade())
+                    .dor(dto.getDor())
+                    .intensidade(dto.getIntensidade())
+                    .febre(dto.getFebre())
+                    .mediaPonderada(dto.getMediaPonderada())
+                    .build();
+
+
+            this.dao.persist(triagem);
+            return Response.status(Response.Status.CREATED).entity("Triagem criada com sucesso.").build();
+
+        } catch (Exception e) {
+
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Erro00000 ao registrar a triagem: " + e.getMessage()).build();
+        }
+    }
+
+    public Response listar() {
+            List<ListagemTriagemDTO> list = dao.findAllTriagemTeste();
+        return Response.ok(list).build();
+    }
+
+    @Transactional
+    public Response remover(Long id) {
+
+        try {
+            dao.deleteById(id);
+            return Response.status(Response.Status.OK).build();
+
+        } catch (Exception e) {
+            return Response.serverError().build();
+        }
+    }
+
+
+}

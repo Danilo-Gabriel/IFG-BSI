@@ -1,4 +1,3 @@
-
 <header class="heder">
   <h1>Bem-vindo ao Sistema de Triagem</h1>
 </header>
@@ -9,17 +8,13 @@
 
 
       <nav class="nav-links">
-        <ul>
-          <li (click)="navigateTo('users/triagem')">Triagem</li>
-          <li (click)="navigateTo('users/agenda')">Agenda</li>
-          <li (click)="navigateTo('users/consultaTriagem')">Consultar Triagem</li>
-<!--          <li (click)="navigateTo('users/triagem')">Triagem</li>-->
-          <li (click)="sidebar()">Alterar Senha</li>
-          <!--          <li (click)="navigateTo('admin/usuario')">Consultar Triagem</li>-->
-          <!--          <li><a [routerLink]="['/admin/usuario']" >Agendar Consultas</a></li>-->
-          <!--          <li><a [routerLink]="['/admin/usuario']">Verificar Agenda</a></li>-->
-          <li (click)="logout()">Sair</li>
-        </ul>
+        <div class="control">
+          <button (click)="navigateTo('users/triagem')">Triagem</button>
+          <button (click)="navigateTo('users/agenda')">Agenda</button>
+          <button (click)="navigateTo('users/consultaTriagem')">Consultar Triagem</button>
+          <button (click)="sidebar()">Alterar Senha</button>
+          <button (click)="logout()">Sair</button>
+        </div>
       </nav>
     </div>
   </aside>

@@ -9,6 +9,7 @@ import {MessageService} from "primeng/api";
 import {CookieService} from "ngx-cookie-service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "../../shared/filter";
+import {PasswordModule} from "primeng/password";
 
 
 
@@ -28,7 +29,8 @@ import {TokenInterceptor} from "../../shared/filter";
     ReactiveFormsModule,
     FormsModule,
     AngularReporModule,
-    PageAdminRoutingModule
+    PageAdminRoutingModule,
+    PasswordModule
   ],
   providers: [
     MessageService,

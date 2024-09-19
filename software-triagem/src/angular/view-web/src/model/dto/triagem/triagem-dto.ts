@@ -1,16 +1,15 @@
 export class TriagemDTO {
 
   constructor(
-    public id? :string,
-    public idUsuario? : string,
-    public especialidade?: string,
-    public hipertensao?: string,
-    public diabetico?: string,
-    public febre?: string,
-    public dor?: string,
-    public intensidadeDor?: string,
-    public peso?: string,
-    public resultado?: string
+      public especialidade?: string,
+      public hipertensao?: string,
+      public diabetico?: string,
+      public febre?: string,
+      public dor?: string,
+      public intensidade?: string,
+      public peso?: string,
+      public mediaPonderada?: string
+
   ) {
 
     /*

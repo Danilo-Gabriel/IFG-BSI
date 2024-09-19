@@ -1,38 +1,38 @@
-<!--<body>-->
-<!--<header>-->
-<!--    <h1>APP Triagem</h1>-->
-<!--    <nav>-->
+<p-card header="ALTERAR SENHA">
 
-<!--    </nav>-->
-<!--</header>-->
+  <form [formGroup]="form">
 
-<!--<div class="login-container">-->
-<!--    <form class="login-form" id="formulario">-->
+    <span class="p-float-label">
+      <input class="full-width"  minlength="4" maxlength="8" matInput type="password"  pInputText id="username" formControlName="senhaAtual"/>
+      <label for="username">Senha atual</label>
+    </span>
+    <br>
+    <span class="p-float-label">
+      <input class="full-width"  minlength="4" maxlength="8" matInput type="password"  pInputText id="username" formControlName="novaSenha"/>
+      <label for="username">Nova senha</label>
+    </span>
 
-<!--        <h2>Esqueceu a Senha?</h2>-->
-<!--        <P>Confirme seu E-mail, que Vamos localizar!</P>-->
+    <br>
+    <span class="p-float-label">
+      <input class="full-width"  minlength="4" maxlength="8" matInput type="password"  pInputText id="username" formControlName="confirmarSenha"/>
+      <label for="username">Confimar senha</label>
+    </span>
 
-<!--        <div class="form-group">-->
-<!--            <label for="email">E-mail:</label>-->
-<!--            <input formControlName="email" type="email" id="email" name="email" required placeholder="Digite aqui seu email">-->
-<!--        </div>-->
-
-
-<!--        <div class="form-group">-->
-<!--            <button  type="submit">Entrar</button>-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--            <a [routerLink]="['/pages/login']">Voltar ao Inicio</a>-->
+  </form>
+  <br>
 
 
-<!--        </div>-->
-<!--    </form>-->
-<!--</div>-->
-<!--<footer>-->
-<!--    <p>APP Triagem</p>-->
-<!--</footer>-->
 
-<!--</body>-->
+    <button [disabled]="!form.valid"  mat-raised-button color="primary" type="submit" (click)="onSubmit()" >Atualizar</button> &nbsp;
+
+    <button  mat-raised-button (click)="onCancel()">Cancelar</button>
+
+</p-card>
+
+
+
+
+
 
 
 <p-toast></p-toast>

@@ -12,6 +12,7 @@ import lombok.experimental.FieldDefaults;
 public class CadastroUsuarioDTO {
 
      Long id;
+
      @NotBlank(message = "Campo Nome completo obrigatório.")
      String nomeCompleto;
 
@@ -35,18 +36,7 @@ public class CadastroUsuarioDTO {
         this.email = email;
         this.senha = senha;
     }
-//
-//    public User toEntity(CadastroUsuarioDTO dto) {
-//
-//        return User.builder()
-//                .nomeCompleto(dto.getNomeCompleto())
-//                .email(dto.getEmail())
-//                .senha(dto.getSenha())
-//                .telefone(dto.getTelefone())
-//                .build();
-//
-//
-//    }
+
 
     public CadastroUsuarioDTO(){
 

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UsersRoutingModule } from './users-routing.module';
-import {AppUsersComponent} from "./app-users/app-users.component";
 import {AppTriagemComponent} from "./app-triagem/app-triagem.component";
 import {AppAgendaconsultaComponent} from "./app-agendaconsulta/app-agendaconsulta.component";
 import {AppConsultatriagemComponent} from "./app-consultatriagem/app-consultatriagem.component";
@@ -18,7 +17,6 @@ import {TokenInterceptor} from "../../shared/filter";
 
 @NgModule({
     declarations: [
-      AppUsersComponent,
       AppCadastrarComponent,
       AppTriagemComponent,
       AppAgendaconsultaComponent,

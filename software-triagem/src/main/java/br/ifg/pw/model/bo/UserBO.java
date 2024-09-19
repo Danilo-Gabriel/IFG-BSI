@@ -4,7 +4,6 @@ import br.ifg.pw.model.dao.UserDAO;
 import br.ifg.pw.model.dto.user.CadastroUsuarioDTO;
 import br.ifg.pw.model.dto.user.ListarUsuarioDTO;
 import br.ifg.pw.model.entity.User;
-import io.quarkus.elytron.security.common.BcryptUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -50,6 +49,34 @@ public class UserBO {
                     .nomeCompleto(dto.getNomeCompleto())
                     .email(dto.getEmail())
                     .senha(dto.getSenha())
+                    .telefone(dto.getTelefone())
+                    .build();
+            this.dao.persist(userNew);
+            return Response.status(Response.Status.CREATED).build();
+
+        } catch (Exception e) {
+
+            return Response.serverError().build();
+        }
+
+    }
+
+    @Transactional
+    public Response createUserConvencional(CadastroUsuarioDTO dto) {
+
+        try {
+
+            User exist = dao.findByEmail(dto.getEmail());
+
+            if (exist != null) {
+                return Response.status(Response.Status.CONFLICT).entity("Email já cadastrado!").build();
+            }
+            User userNew = User.builder()
+                    .id(dto.getId())
+                    .nomeCompleto(dto.getNomeCompleto())
+                    .email(dto.getEmail())
+                    .senha(dto.getSenha())
+                    .perfil("Convencional")
                     .telefone(dto.getTelefone())
                     .build();
             this.dao.persist(userNew);

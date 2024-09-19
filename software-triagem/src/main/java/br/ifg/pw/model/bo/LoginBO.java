@@ -49,12 +49,12 @@ public class LoginBO {
 
                   if(valid){
 
-                      String token = gerarToken(dto.getEmail(), user.getPerfil());
+                      String token = gerarToken(user);
 
                       ResponseDTO responseDTO = ResponseDTO.builder()
+                              .id(BcryptUtil.bcryptHash(String.valueOf(user.getId())))
                               .email(user.getEmail())
                               .perfil(user.getPerfil())
-                              .token(token)
                               .build();
 
                       return Response.status(Response.Status.OK)

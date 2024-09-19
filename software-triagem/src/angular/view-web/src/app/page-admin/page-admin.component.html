@@ -9,14 +9,14 @@
 
 
       <nav class="nav-links">
-        <ul>
-          <li (click)="navigateTo('admin/usuario')">Usuário</li>
-          <li (click)="sidebar()">Alterar Senha</li>
-<!--          <li (click)="navigateTo('admin/usuario')">Consultar Triagem</li>-->
-<!--          <li><a [routerLink]="['/admin/usuario']" >Agendar Consultas</a></li>-->
-<!--          <li><a [routerLink]="['/admin/usuario']">Verificar Agenda</a></li>-->
-          <li (click)="logout()">Sair</li>
-        </ul>
+        <div class="control">
+          <button (click)="navigateTo('admin/usuario')">Usuário</button>
+          <button (click)="navigateTo('admin/agenda-consulta')">Agenda Consultas</button>
+          <button (click)="navigateTo('admin/Triagem')">Consultar Triagem</button>
+          <button (click)="navigateTo('admin/Triagem')">Consultar Agenda</button>
+          <button (click)="sidebar()">Alterar Senha</button>
+          <button (click)="logout()">Sair</button>
+        </div>
       </nav>
     </div>
   </aside>
@@ -32,7 +32,6 @@
 
 <p-dialog [(visible)]="dialog" [style]="{ width: '450px' }" header="Trocar Senha" [modal]="true" styleClass="p-fluid">
 
-<h1>ALTERAR SENHA AQUI </h1>
 </p-dialog>
 
 
