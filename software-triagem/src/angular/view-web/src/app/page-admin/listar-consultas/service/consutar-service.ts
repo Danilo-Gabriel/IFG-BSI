@@ -10,6 +10,7 @@ import {ListarConsutasDTO} from "../../../../model/dto/consulta/consulta-list.dt
     providedIn: 'root'
 })
 export class ConsutarService {
+
     private readonly API_URL = 'http://localhost:8080/consulta';
 
     constructor(private http: HttpClient, private message: AppMessageService) {}

@@ -8,7 +8,8 @@ export class TriagemListDTO{
         public dor?: string,
         public intensidade?: string,
         public peso?: string,
-        public mediaPonderada?: string
+        public mediaPonderada?: string,
+        public paciente? : string
     ) {
     }
 }

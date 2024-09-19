@@ -11,7 +11,6 @@ import {PageAdminModule} from "./page-admin/page-admin.module";
 import {LoginService} from "./pages-utils/app-login/service/login.service";
 import {AppLoginComponent} from "./pages-utils/app-login/app-login.component";
 import {MessageService} from "primeng/api";
-import {AppTrocarSenhaComponent} from "./pages-utils/app-trocar-senha/app-trocar-senha.component";
 import {AuthGuard} from "./guard/auth-guard";
 import {CookieService} from "ngx-cookie-service";
 import {TokenInterceptor} from "../shared/filter";
@@ -23,8 +22,7 @@ import {TokenInterceptor} from "../shared/filter";
 @NgModule({
     declarations: [
         AppComponent,
-        AppLoginComponent,
-        AppTrocarSenhaComponent
+        AppLoginComponent
 
     ],
     imports: [
@@ -46,7 +44,6 @@ import {TokenInterceptor} from "../shared/filter";
       { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],
   exports: [
-    AppTrocarSenhaComponent
   ],
     bootstrap: [AppComponent]
 })

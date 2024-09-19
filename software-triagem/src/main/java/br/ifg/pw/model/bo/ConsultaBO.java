@@ -1,9 +1,12 @@
 package br.ifg.pw.model.bo;
 
 import br.ifg.pw.model.dao.ConsultaDAO;
+import br.ifg.pw.model.dao.UserDAO;
 import br.ifg.pw.model.dto.consultas.ConsultaDTO;
 import br.ifg.pw.model.dto.consultas.ListarConsultasDTO;
 import br.ifg.pw.model.entity.Consulta;
+import br.ifg.pw.model.entity.User;
+import io.quarkus.security.identity.SecurityIdentity;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -20,6 +23,9 @@ public class ConsultaBO {
 
     @Inject
     ConsultaDAO dao;
+
+    @Inject
+    SecurityIdentity securityIdentity;
 
     @Transactional
     public Response salvarConsulta(ConsultaDTO dto) {
@@ -67,6 +73,12 @@ public class ConsultaBO {
 
     public Response listarConsultas() {
         List<ListarConsultasDTO> list = dao.findAllConsulta();
+        return Response.ok(list).build();
+    }
+
+    public Response listarPaciente(){
+        ;
+        List<ListarConsultasDTO> list = dao.findConsultasByPaciente(Long.valueOf(securityIdentity.getPrincipal().getName()));
         return Response.ok(list).build();
     }
 }

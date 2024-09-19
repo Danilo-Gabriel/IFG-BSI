@@ -1,5 +1,11 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+<body>
+<header>
+  <h1>Sistema de Triagem Médica</h1>
+
+</header>
+
 <div class="cadastro">
     <form #formCadastro="ngForm" class="formcadastro" (ngSubmit)="onSubmit(formCadastro)"  id="formulario">
 
@@ -20,17 +26,18 @@
         Senha com pelo menos 8 caracteres, incluindo números e letras maiúsculas e minúsculas.
       </span>
 
-      </div>
-      <div class="form-group">
-        <label for="confirmPassword">Confirmar Senha:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required class="confirmPassword" placeholder="Confirme a Senha">
-        <span  id="senha-igual-span" class="instrucoes" style="display: none; color: red;"></span>
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="confirmPassword">Confirmar Senha:</label>-->
+<!--        <input type="password" id="confirmPassword" name="confirmPassword" required class="confirmPassword" placeholder="Confirme a Senha">-->
+<!--        <span  id="senha-igual-span" class="instrucoes" style="display: none; color: red;"></span>-->
       </div>
 <!--        <div class="form-group">-->
 <!--            <button (click)="onSubmit()" type="submit">Enviar</button>-->
 
         <div class="form-group1">
             <button [disabled]="formCadastro.invalid" type="submit">Enviar</button>
+          <button [routerLink]="['/login']" type="submit">Voltar</button>
         </div>
 
     </form>

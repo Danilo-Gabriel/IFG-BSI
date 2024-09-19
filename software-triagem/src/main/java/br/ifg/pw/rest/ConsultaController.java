@@ -27,9 +27,17 @@ public class ConsultaController {
 
 
 
+
     @GET
     public Response lister() {
         return bo.listarConsultas();
+    }
+
+
+    @GET
+    @Path("paciente")
+    public Response listarPaciente() {
+        return bo.listarPaciente();
     }
 
 

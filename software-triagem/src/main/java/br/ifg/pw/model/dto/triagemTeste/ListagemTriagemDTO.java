@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ListagemTriagemDTO {
 
-    long id;
+    Long id;
     String especialidade;
     String hipertensao;
     String diabetico;
@@ -20,21 +20,18 @@ public class ListagemTriagemDTO {
     String intensidade;
     String peso;
     String mediaPonderada;
+    String paciente;
 
-//    public ListagemTriagemDTO (long id,String especialidade,String hipertensao,
-//                            String diabetico,String febre,String dor,String intensidade,String peso,
-//                            String mediaPonderada){
-//
-//        this.id = id;
-//        this.especialidade = especialidade;
-//        this.hipertensao  = hipertensao;
-//        this.diabetico = diabetico;
-//        this.febre = febre;
-//        this.dor =dor;
-//        this.intensidade = intensidade;
-//        this.peso = peso;
-//        this.mediaPonderada = mediaPonderada;
-//
-//    }
-
+    public ListagemTriagemDTO(Long id, String especialidade, String hipertensao, String diabetico, String febre, String dor, String intensidade, String peso, String mediaPonderada, String paciente) {
+        this.id = id;
+        this.especialidade = especialidade;
+        this.hipertensao = hipertensao;
+        this.diabetico = diabetico;
+        this.febre = febre;
+        this.dor = dor;
+        this.intensidade = intensidade;
+        this.peso = peso;
+        this.mediaPonderada = mediaPonderada;
+        this.paciente = paciente;
+    }
 }

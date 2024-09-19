@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {CadastroDTO} from "../../../../model/dto/cadastrar/cadastrar-dto";
 import {AppMessageService} from "../../../../shared/message-service/message.service";
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -13,7 +14,8 @@ export class CadastrarService {
 
     constructor(
       private http: HttpClient,
-      private messageService : AppMessageService) { }
+      private messageService : AppMessageService,
+      private router : Router) { }
 
     save(record : CadastroDTO) {
         this.http.post<any>(this.apiUrl, record, {
@@ -24,11 +26,12 @@ export class CadastrarService {
                 (response: HttpResponse<any>) => {
 
                   this.messageService.showSuccess("Usuário salvo com sucesso!")
-                    console.log("Deu Certo");
+                  this.router.navigate(['/login']);
                 },
                 (error) => {
 
                   this.messageService.showError("Erro, contate o administrador!")
+                  this.router.navigate(['/login']);
                 });
     }
 }

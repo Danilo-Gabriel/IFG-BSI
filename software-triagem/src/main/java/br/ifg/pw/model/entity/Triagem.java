@@ -47,11 +47,14 @@ public class Triagem extends PanacheEntityBase {
     @Column(name = "media_ponderada", columnDefinition = "varchar(255)")
     String mediaPonderada;
 
+    @Column(name = "id_paciente", columnDefinition = "varchar(255)")
+    String paciente;
+
 
 
     @Builder
     public Triagem(Long id, String especialidade, String hipertensao, String diabetico,
-                   String febre, String dor, String intensidade, String peso, String mediaPonderada) {
+                   String febre, String dor, String intensidade, String peso, String mediaPonderada, String paciente) {
         this.id = id;
         this.especialidade = especialidade;
         this.hipertensao = hipertensao;
@@ -61,6 +64,7 @@ public class Triagem extends PanacheEntityBase {
         this.intensidade = intensidade;
         this.peso = peso;
         this.mediaPonderada = mediaPonderada;
+        this.paciente = paciente;
     }
 
     public Triagem() {

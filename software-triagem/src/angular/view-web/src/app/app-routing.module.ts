@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AppLoginComponent} from "./pages-utils/app-login/app-login.component";
-import {AppTrocarSenhaComponent} from "./pages-utils/app-trocar-senha/app-trocar-senha.component";
 import {AppCadastrarComponent} from "./pages-utils/app-cadastrar/app-cadastrar.component";
 
 
@@ -12,7 +11,6 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: 'login', component: AppLoginComponent},
   {path: 'cadastrar', component: AppCadastrarComponent},
-  {path: 'alter-senha', component: AppTrocarSenhaComponent},
 
 
   //todo interface administrador

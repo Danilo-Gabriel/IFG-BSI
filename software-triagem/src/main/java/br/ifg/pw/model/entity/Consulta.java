@@ -18,6 +18,7 @@ public class Consulta extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    //todo corrigir esse relacionamento
     @Column(name = "id_paciente", columnDefinition = "varchar(255)")
     String paciente;
 

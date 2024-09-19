@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UsersRoutingModule } from './users-routing.module';
 import {AppTriagemComponent} from "./app-triagem/app-triagem.component";
-import {AppConsultatriagemComponent} from "./app-consultatriagem/app-consultatriagem.component";
 import {AngularReporModule} from "../../shared/angular-repor/angular-repor.module";
 import {MessageService} from "primeng/api";
 import {UsersComponent} from "./users.component";
@@ -12,13 +11,14 @@ import {AppCadastrarComponent} from "../pages-utils/app-cadastrar/app-cadastrar.
 import {CookieService} from "ngx-cookie-service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "../../shared/filter";
+import { AppConsultarAgendamentoComponent } from './app-consultar-agendamento/app-consultar-agendamento.component';
 
 @NgModule({
     declarations: [
       AppCadastrarComponent,
       AppTriagemComponent,
-      AppConsultatriagemComponent,
-      UsersComponent
+      UsersComponent,
+      AppConsultarAgendamentoComponent
     ],
   imports: [
     CommonModule,

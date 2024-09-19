@@ -4,6 +4,7 @@ import br.ifg.pw.model.dao.TriagemDAO;
 import br.ifg.pw.model.dto.triagemTeste.ListagemTriagemDTO;
 import br.ifg.pw.model.dto.triagemTeste.RegistraTriagemDTO;
 import br.ifg.pw.model.entity.Triagem;
+import io.quarkus.security.identity.SecurityIdentity;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -18,6 +19,10 @@ public class TriagemBO {
     @Inject
     TriagemDAO dao;
 
+    @Inject
+    SecurityIdentity securityIdentity;
+
+
     @Transactional
     public Response salvartriagem(RegistraTriagemDTO dto) {
         try {
@@ -27,6 +32,7 @@ public class TriagemBO {
             System.out.println("Recebendo dados do dto: " + dto);
             Triagem triagem = Triagem.builder()
                     .id(dto.getId())
+                    .paciente(securityIdentity.getPrincipal().getName())
                     .hipertensao(dto.getHipertensao())
                     .peso(dto.getPeso())
                     .diabetico(dto.getDiabetico())

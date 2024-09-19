@@ -10,12 +10,26 @@ import java.util.List;
 @ApplicationScoped
 public class ConsultaDAO implements PanacheRepositoryBase<Consulta, Long> {
 
-    //HQL
+
     public List<ListarConsultasDTO> findAllConsulta() {
-        // Corrigido o uso de JPQL e Panache para criar a consulta
+
+      //language=HQL
         String hql = "select new br.ifg.pw.model.dto.consultas.ListarConsultasDTO(c.id, c.paciente, c.especialidade, c.local, c.date, c.time,c.status) " +
                 "from Consulta c";
 
         return getEntityManager().createQuery(hql,ListarConsultasDTO.class).getResultList();
+    }
+
+    public List<ListarConsultasDTO> findConsultasByPaciente(Long idPaciente) {
+
+        //language=HQL
+        String hql = "select new br.ifg.pw.model.dto.consultas.ListarConsultasDTO(c.id, c.paciente, c.especialidade, c.local, c.date, c.time, c.status) " +
+                "from Consulta c " +
+                "where c.paciente = :idPaciente";
+
+        return getEntityManager()
+                .createQuery(hql, ListarConsultasDTO.class)
+                .setParameter("idPaciente", idPaciente)
+                .getResultList();
     }
 }
