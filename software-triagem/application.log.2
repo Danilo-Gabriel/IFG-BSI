@@ -1,16 +1,28 @@
-2024-09-19 00:23:25 ERROR [executor-thread-1] io.quarkus.vertx.http.runtime.QuarkusErrorHandler - HTTP Request to /consulta/paciente failed, error id: 6475184e-832d-41d4-ad10-5efb8c418e92-4: org.hibernate.QueryParameterException: No argument for named parameter ':paciente'
-	at org.hibernate.query.internal.QueryParameterBindingsImpl.lambda$validate$0(QueryParameterBindingsImpl.java:142)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1116)
-	at org.hibernate.query.internal.ParameterMetadataImpl.visitParameters(ParameterMetadataImpl.java:191)
-	at org.hibernate.query.spi.ParameterMetadataImplementor.visitRegistrations(ParameterMetadataImplementor.java:29)
-	at org.hibernate.query.internal.QueryParameterBindingsImpl.validate(QueryParameterBindingsImpl.java:138)
-	at org.hibernate.query.spi.AbstractSelectionQuery.beforeQuery(AbstractSelectionQuery.java:446)
-	at org.hibernate.query.spi.AbstractSelectionQuery.beforeQueryHandlingFetchProfiles(AbstractSelectionQuery.java:439)
-	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:420)
-	at org.hibernate.query.Query.getResultList(Query.java:120)
-	at br.ifg.pw.model.dao.ConsultaDAO.findConsultasByPaciente(ConsultaDAO.java:30)
-	at br.ifg.pw.model.dao.ConsultaDAO_ClientProxy.findConsultasByPaciente(Unknown Source)
+2024-09-19 14:15:13 WARN  [Quarkus Main Thread] io.quarkus.config - Unrecognized configuration key "quarkus.http.cors.allow-credentials" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2024-09-19 14:15:13 WARN  [Quarkus Main Thread] io.quarkus.config - Unrecognized configuration key "quarkus.smallrye-jwt.enable" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2024-09-19 14:18:45 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:19:15 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeirsilva111213@gmail.com
+2024-09-19 14:19:21 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeirsilva111213@gmail.com
+2024-09-19 14:19:28 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeirsilva111213@gmail.com
+2024-09-19 14:19:43 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeirsilva111213@gmail.com
+2024-09-19 14:23:30 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:23:59 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:27:42 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - VALDEIR@HOTMAIL
+2024-09-19 14:32:13 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:32:38 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:32:55 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:35:47 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:39:15 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:39:22 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:45:25 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:45:34 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:45:43 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:47:47 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:47:54 WARNING [executor-thread-1] class br.ifg.pw.rest.LoginController - valdeircesario11@hotmail.com
+2024-09-19 14:49:20 ERROR [executor-thread-1] io.quarkus.vertx.http.runtime.QuarkusErrorHandler - HTTP Request to /consulta/paciente failed, error id: 69fbe6fb-dae7-4b93-a2f2-5bdf927e5e7c-1: java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Long.parseLong(Long.java:721)
+	at java.base/java.lang.Long.valueOf(Long.java:1163)
 	at br.ifg.pw.model.bo.ConsultaBO.listarPaciente(ConsultaBO.java:81)
 	at br.ifg.pw.model.bo.ConsultaBO_ClientProxy.listarPaciente(Unknown Source)
 	at br.ifg.pw.rest.ConsultaController.listarPaciente(ConsultaController.java:40)
@@ -25,6 +37,25 @@
 	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
 	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 
-2024-09-19 00:23:37 WARN  [vert.x-worker-thread-7] io.quarkus.deployment.dev.JavaCompilationProvider - Generating equals/hashCode implementation but without a call to superclass, even though this class does not extend java.lang.Object. If this is intentional, add '@EqualsAndHashCode(callSuper=false)' to your type., line 12 in /home/danilogabriel/Git/IFG-BSI/software-triagem/src/main/java/br/ifg/pw/model/entity/Consulta.java
+2024-09-19 14:49:26 ERROR [executor-thread-1] io.quarkus.vertx.http.runtime.QuarkusErrorHandler - HTTP Request to /consulta/paciente failed, error id: 69fbe6fb-dae7-4b93-a2f2-5bdf927e5e7c-2: java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Long.parseLong(Long.java:721)
+	at java.base/java.lang.Long.valueOf(Long.java:1163)
+	at br.ifg.pw.model.bo.ConsultaBO.listarPaciente(ConsultaBO.java:81)
+	at br.ifg.pw.model.bo.ConsultaBO_ClientProxy.listarPaciente(Unknown Source)
+	at br.ifg.pw.rest.ConsultaController.listarPaciente(ConsultaController.java:40)
+	at br.ifg.pw.rest.ConsultaController$quarkusrestinvoker$listarPaciente_022477a22396b35d27009810c81ccafc57ea76dc.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:141)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$14.runWith(VertxCoreRecorder.java:599)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2516)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2495)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1521)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
